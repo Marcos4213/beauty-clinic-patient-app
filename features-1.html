@@ -1,0 +1,295 @@
+<!-- Page 1: Teleconsulta -->
+<div id="page-teleconsulta" class="page hidden">
+  <div class="px-5 pt-12 pb-6">
+    <button onclick="navigateTo('menu')" class="flex items-center gap-2 txt-muted mb-4 text-sm">
+      <span class="text-lg">&#8592;</span> Voltar
+    </button>
+    <h1 class="text-2xl font-display font-bold txt-primary mb-6">Teleconsulta</h1>
+
+    <div class="bg-white rounded-2xl shadow-sm p-5 mb-6">
+      <div class="flex items-center gap-3 mb-3">
+        <div class="w-12 h-12 rounded-full bg-sage/20 flex items-center justify-center">
+          <span class="text-sage text-xl">&#128105;&#8205;&#9877;&#65039;</span>
+        </div>
+        <div>
+          <p class="font-display font-semibold txt-primary">Dra. Renata Silva</p>
+          <p class="text-sm txt-muted">Dermatologista</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2 mb-4">
+        <span class="text-sage text-sm">&#128197;</span>
+        <span class="text-sm txt-body">15 de Agosto, 14:00</span>
+      </div>
+      <button onclick="showToast('Entrando na videochamada...')" class="w-full bg-rose-500 hover:bg-rose-600 text-white font-display font-semibold py-3 rounded-xl transition-colors mb-3">
+        Iniciar Videochamada
+      </button>
+      <button onclick="navigateTo('teleconsulta-agendar')" class="w-full bg-white border-2 border-rose-200 text-rose-500 font-display font-semibold py-3 rounded-xl hover:bg-rose-50 transition-colors">
+        Agendar Nova
+      </button>
+    </div>
+
+    <div class="mb-6">
+      <h2 class="text-lg font-display font-semibold txt-primary mb-3">Próximas Consultas</h2>
+      <div class="space-y-3">
+        <div class="bg-white rounded-xl p-4 shadow-sm">
+          <div class="flex justify-between items-center">
+            <div>
+              <p class="font-display font-medium txt-primary">Retorno Pós-Tratamento</p>
+              <p class="text-sm txt-muted">29 de Agosto, 10:00</p>
+            </div>
+            <span class="text-xs font-semibold px-3 py-1 rounded-full bg-sage/20 text-sage">Confirmada</span>
+          </div>
+        </div>
+        <div class="bg-white rounded-xl p-4 shadow-sm">
+          <div class="flex justify-between items-center">
+            <div>
+              <p class="font-display font-medium txt-primary">Avaliação de Resultados</p>
+              <p class="text-sm txt-muted">12 de Setembro, 14:00</p>
+            </div>
+            <span class="text-xs font-semibold px-3 py-1 rounded-full bg-gold/20 text-gold">Pendente</span>
+          </div>
+        </div>
+        <div class="bg-white rounded-xl p-4 shadow-sm">
+          <div class="flex justify-between items-center">
+            <div>
+              <p class="font-display font-medium txt-primary">Acompanhamento Mensal</p>
+              <p class="text-sm txt-muted">26 de Setembro, 09:00</p>
+            </div>
+            <span class="text-xs font-semibold px-3 py-1 rounded-full bg-sage/20 text-sage">Confirmada</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h2 class="text-lg font-display font-semibold txt-primary mb-3">Histórico</h2>
+      <div class="space-y-3">
+        <button onclick="showToast('Detalhes da consulta em 01/08')" class="w-full text-left bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition-shadow">
+          <div class="flex justify-between items-center">
+            <div>
+              <p class="font-display font-medium txt-primary">Consulta Inicial</p>
+              <p class="text-sm txt-muted">01 de Agosto, 11:00</p>
+            </div>
+            <span class="text-xs font-semibold px-3 py-1 rounded-full bg-sage/10 text-sage">Concluída</span>
+          </div>
+        </button>
+        <button onclick="showToast('Detalhes da consulta em 18/07')" class="w-full text-left bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition-shadow">
+          <div class="flex justify-between items-center">
+            <div>
+              <p class="font-display font-medium txt-primary">Avaliação de Pele</p>
+              <p class="text-sm txt-muted">18 de Julho, 14:00</p>
+            </div>
+            <span class="text-xs font-semibold px-3 py-1 rounded-full bg-sage/10 text-sage">Concluída</span>
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Page 2: Agendar Teleconsulta -->
+<div id="page-teleconsulta-agendar" class="page hidden">
+  <div class="px-5 pt-12 pb-6">
+    <button onclick="navigateTo('teleconsulta')" class="flex items-center gap-2 txt-muted mb-4 text-sm">
+      <span class="text-lg">&#8592;</span> Voltar
+    </button>
+    <h1 class="text-2xl font-display font-bold txt-primary mb-6">Agendar Consulta</h1>
+
+    <div class="mb-6">
+      <h2 class="text-sm font-display font-semibold txt-primary mb-3 uppercase tracking-wide">Tipo de Consulta</h2>
+      <div class="grid grid-cols-3 gap-3">
+        <button onclick="selectType(this, 'Retorno')" class="type-card p-4 rounded-xl border-2 border-rose-200 text-center hover:border-rose-400 transition-colors">
+          <span class="text-2xl block mb-1">&#128336;</span>
+          <span class="text-xs font-display font-medium txt-primary">Retorno</span>
+        </button>
+        <button onclick="selectType(this, 'Nova Avaliação')" class="type-card p-4 rounded-xl border-2 border-rose-200 text-center hover:border-rose-400 transition-colors">
+          <span class="text-2xl block mb-1">&#128203;</span>
+          <span class="text-xs font-display font-medium txt-primary">Nova Avaliação</span>
+        </button>
+        <button onclick="selectType(this, 'Dúvida Rápida')" class="type-card p-4 rounded-xl border-2 border-rose-200 text-center hover:border-rose-400 transition-colors">
+          <span class="text-2xl block mb-1">&#10067;</span>
+          <span class="text-xs font-display font-medium txt-primary">Dúvida Rápida</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="mb-6">
+      <h2 class="text-sm font-display font-semibold txt-primary mb-3 uppercase tracking-wide">Selecione o Dia</h2>
+      <div class="bg-white rounded-2xl p-4 shadow-sm">
+        <div class="text-center mb-3">
+          <p class="font-display font-semibold txt-primary">Agosto 2026</p>
+        </div>
+        <div class="grid grid-cols-7 gap-1 text-center text-xs mb-2">
+          <span class="txt-muted font-medium">Dom</span>
+          <span class="txt-muted font-medium">Seg</span>
+          <span class="txt-muted font-medium">Ter</span>
+          <span class="txt-muted font-medium">Qua</span>
+          <span class="txt-muted font-medium">Qui</span>
+          <span class="txt-muted font-medium">Sex</span>
+          <span class="txt-muted font-medium">Sáb</span>
+        </div>
+        <div class="grid grid-cols-7 gap-1 text-center">
+          <span class="txt-muted/30 p-2"></span>
+          <span class="txt-muted/30 p-2"></span>
+          <span class="txt-muted/30 p-2"></span>
+          <button onclick="selectDate(this)" class="date-btn p-2 rounded-lg hover:bg-rose-50 transition-colors">1</button>
+          <button onclick="selectDate(this)" class="date-btn p-2 rounded-lg hover:bg-rose-50 transition-colors">2</button>
+          <button onclick="selectDate(this)" class="date-btn p-2 rounded-lg hover:bg-rose-50 transition-colors">3</button>
+          <button onclick="selectDate(this)" class="date-btn p-2 rounded-lg hover:bg-rose-50 transition-colors">4</button>
+          <button onclick="selectDate(this)" class="date-btn p-2 rounded-lg hover:bg-rose-50 transition-colors">5</button>
+          <button onclick="selectDate(this)" class="date-btn p-2 rounded-lg hover:bg-rose-50 transition-colors">6</button>
+          <button onclick="selectDate(this)" class="date-btn p-2 rounded-lg hover:bg-rose-50 transition-colors">7</button>
+          <button onclick="selectDate(this)" class="date-btn p-2 rounded-lg hover:bg-rose-50 transition-colors">8</button>
+          <button onclick="selectDate(this)" class="date-btn p-2 rounded-lg hover:bg-rose-50 transition-colors">9</button>
+          <button onclick="selectDate(this)" class="date-btn p-2 rounded-lg hover:bg-rose-50 transition-colors">10</button>
+          <button onclick="selectDate(this)" class="date-btn p-2 rounded-lg hover:bg-rose-50 transition-colors">11</button>
+          <button onclick="selectDate(this)" class="date-btn p-2 rounded-lg hover:bg-rose-50 transition-colors">12</button>
+          <button onclick="selectDate(this)" class="date-btn p-2 rounded-lg hover:bg-rose-50 transition-colors">13</button>
+          <button onclick="selectDate(this)" class="date-btn p-2 rounded-lg hover:bg-rose-50 transition-colors">14</button>
+          <button onclick="selectDate(this)" class="date-btn p-2 rounded-lg bg-rose-500 text-white font-semibold">15</button>
+          <button onclick="selectDate(this)" class="date-btn p-2 rounded-lg hover:bg-rose-50 transition-colors">16</button>
+          <button onclick="selectDate(this)" class="date-btn p-2 rounded-lg hover:bg-rose-50 transition-colors">17</button>
+          <button onclick="selectDate(this)" class="date-btn p-2 rounded-lg hover:bg-rose-50 transition-colors">18</button>
+          <button onclick="selectDate(this)" class="date-btn p-2 rounded-lg hover:bg-rose-50 transition-colors">19</button>
+          <button onclick="selectDate(this)" class="date-btn p-2 rounded-lg hover:bg-rose-50 transition-colors">20</button>
+          <button onclick="selectDate(this)" class="date-btn p-2 rounded-lg hover:bg-rose-50 transition-colors">21</button>
+          <button onclick="selectDate(this)" class="date-btn p-2 rounded-lg hover:bg-rose-50 transition-colors">22</button>
+          <button onclick="selectDate(this)" class="date-btn p-2 rounded-lg hover:bg-rose-50 transition-colors">23</button>
+          <button onclick="selectDate(this)" class="date-btn p-2 rounded-lg hover:bg-rose-50 transition-colors">24</button>
+          <button onclick="selectDate(this)" class="date-btn p-2 rounded-lg hover:bg-rose-50 transition-colors">25</button>
+          <button onclick="selectDate(this)" class="date-btn p-2 rounded-lg hover:bg-rose-50 transition-colors">26</button>
+          <button onclick="selectDate(this)" class="date-btn p-2 rounded-lg hover:bg-rose-50 transition-colors">27</button>
+          <button onclick="selectDate(this)" class="date-btn p-2 rounded-lg hover:bg-rose-50 transition-colors">28</button>
+          <button onclick="selectDate(this)" class="date-btn p-2 rounded-lg hover:bg-rose-50 transition-colors">29</button>
+          <button onclick="selectDate(this)" class="date-btn p-2 rounded-lg hover:bg-rose-50 transition-colors">30</button>
+          <button onclick="selectDate(this)" class="date-btn p-2 rounded-lg hover:bg-rose-50 transition-colors">31</button>
+          <span class="txt-muted/30 p-2"></span>
+          <span class="txt-muted/30 p-2"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-6">
+      <h2 class="text-sm font-display font-semibold txt-primary mb-3 uppercase tracking-wide">Horário Disponível</h2>
+      <div class="flex flex-wrap gap-3">
+        <button onclick="selectTime(this)" class="time-slot px-5 py-2.5 rounded-full border-2 border-rose-200 text-sm font-display font-medium txt-primary hover:border-rose-400 transition-colors">09:00</button>
+        <button onclick="selectTime(this)" class="time-slot px-5 py-2.5 rounded-full border-2 border-rose-200 text-sm font-display font-medium txt-primary hover:border-rose-400 transition-colors">10:00</button>
+        <button onclick="selectTime(this)" class="time-slot px-5 py-2.5 rounded-full border-2 border-rose-200 text-sm font-display font-medium txt-primary hover:border-rose-400 transition-colors">14:00</button>
+        <button onclick="selectTime(this)" class="time-slot px-5 py-2.5 rounded-full border-2 border-rose-200 text-sm font-display font-medium txt-primary hover:border-rose-400 transition-colors">15:00</button>
+      </div>
+    </div>
+
+    <button onclick="confirmarAgendamento()" class="w-full bg-rose-500 hover:bg-rose-600 text-white font-display font-semibold py-3.5 rounded-xl transition-colors">
+      Confirmar Agendamento
+    </button>
+  </div>
+</div>
+
+<!-- Page 3: Tratamento -->
+<div id="page-tratamento" class="page hidden">
+  <div class="px-5 pt-12 pb-6">
+    <button onclick="navigateTo('menu')" class="flex items-center gap-2 txt-muted mb-4 text-sm">
+      <span class="text-lg">&#8592;</span> Voltar
+    </button>
+    <h1 class="text-2xl font-display font-bold txt-primary mb-6">Meu Tratamento</h1>
+
+    <div class="bg-white rounded-2xl shadow-sm p-5 mb-6">
+      <div class="flex justify-between items-center mb-3">
+        <p class="font-display font-semibold txt-primary">Semana 4 de 12</p>
+        <span class="text-sm font-display font-bold text-rose-500">33%</span>
+      </div>
+      <div class="w-full h-2.5 bg-rose-100 rounded-full overflow-hidden mb-2">
+        <div class="h-full bg-gradient-to-r from-rose-400 to-rose-500 rounded-full transition-all duration-500" style="width: 33%"></div>
+      </div>
+      <p class="text-xs txt-muted">Seu tratamento está progredindo conforme o planejado.</p>
+    </div>
+
+    <div class="mb-6">
+      <h2 class="text-sm font-display font-semibold txt-primary mb-4 uppercase tracking-wide">Etapas do Tratamento</h2>
+      <div class="relative pl-8">
+        <div class="absolute left-3 top-0 bottom-0 w-0.5 bg-rose-100"></div>
+
+        <!-- Fase 1 -->
+        <div class="relative mb-8">
+          <div class="absolute -left-5 top-1 w-6 h-6 bg-sage rounded-full flex items-center justify-center border-2 border-white shadow-sm">
+            <span class="text-white text-xs">&#10003;</span>
+          </div>
+          <div class="bg-white rounded-xl p-4 shadow-sm">
+            <div class="flex justify-between items-start mb-2">
+              <div>
+                <p class="font-display font-semibold txt-primary">Fase 1: Preparação</p>
+                <p class="text-xs txt-muted">Semanas 1-2</p>
+              </div>
+              <span class="text-xs font-semibold px-3 py-1 rounded-full bg-sage/20 text-sage">Concluída</span>
+            </div>
+            <p class="text-sm txt-body">Avaliação completa, limpeza profunda e preparação da pele.</p>
+          </div>
+        </div>
+
+        <!-- Fase 2 -->
+        <div class="relative mb-8">
+          <div class="absolute -left-5 top-1 w-6 h-6 bg-rose-500 rounded-full flex items-center justify-center border-2 border-white shadow-sm">
+            <span class="text-white text-xs">&#9679;</span>
+          </div>
+          <div class="bg-white rounded-xl p-4 shadow-sm border-l-4 border-rose-500">
+            <div class="flex justify-between items-start mb-2">
+              <div>
+                <p class="font-display font-semibold txt-primary">Fase 2: Tratamento Ativo</p>
+                <p class="text-xs txt-muted">Semanas 3-8</p>
+              </div>
+              <span class="text-xs font-semibold px-3 py-1 rounded-full bg-rose-500/20 text-rose-500">Em andamento</span>
+            </div>
+            <p class="text-sm txt-body mb-3">Procedimentos ativos com acompanhamento semanal.</p>
+
+            <div class="bg-warm-bg rounded-xl p-4">
+              <p class="text-xs font-display font-semibold txt-primary mb-2 uppercase tracking-wide">Tarefas Diárias</p>
+              <div class="space-y-2">
+                <label class="flex items-center gap-2">
+                  <input type="checkbox" checked class="w-4 h-4 rounded border-rose-300 text-rose-500 focus:ring-rose-400 accent-rose-500">
+                  <span class="text-sm txt-body line-through">Protetor solar FPS 50+</span>
+                </label>
+                <label class="flex items-center gap-2">
+                  <input type="checkbox" checked class="w-4 h-4 rounded border-rose-300 text-rose-500 focus:ring-rose-400 accent-rose-500">
+                  <span class="text-sm txt-body line-through">Sérum vitamina C pela manhã</span>
+                </label>
+                <label class="flex items-center gap-2">
+                  <input type="checkbox" checked class="w-4 h-4 rounded border-rose-300 text-rose-500 focus:ring-rose-400 accent-rose-500">
+                  <span class="text-sm txt-body line-through">Hidratante à noite</span>
+                </label>
+                <label class="flex items-center gap-2">
+                  <input type="checkbox" class="w-4 h-4 rounded border-rose-300 text-rose-500 focus:ring-rose-400 accent-rose-500">
+                  <span class="text-sm txt-body">Máscara de tratamento (2x semana)</span>
+                </label>
+                <label class="flex items-center gap-2">
+                  <input type="checkbox" class="w-4 h-4 rounded border-rose-300 text-rose-500 focus:ring-rose-400 accent-rose-500">
+                  <span class="text-sm txt-body">Exfoliação suave (1x semana)</span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fase 3 -->
+        <div class="relative mb-4">
+          <div class="absolute -left-5 top-1 w-6 h-6 bg-gray-300 rounded-full flex items-center justify-center border-2 border-white shadow-sm">
+            <span class="text-white text-xs">3</span>
+          </div>
+          <div class="bg-white rounded-xl p-4 shadow-sm opacity-60">
+            <div class="flex justify-between items-start mb-2">
+              <div>
+                <p class="font-display font-semibold txt-primary">Fase 3: Manutenção</p>
+                <p class="text-xs txt-muted">Semanas 9-12</p>
+              </div>
+              <span class="text-xs font-semibold px-3 py-1 rounded-full bg-gray-100 text-gray-400">Em breve</span>
+            </div>
+            <p class="text-sm txt-body">Rotina de manutenção e acompanhamento dos resultados.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button onclick="showToast('Checklist completo em breve')" class="w-full bg-white border-2 border-rose-200 text-rose-500 font-display font-semibold py-3.5 rounded-xl hover:bg-rose-50 transition-colors">
+      Ver Checklist Completo
+    </button>
+  </div>
+</div>
