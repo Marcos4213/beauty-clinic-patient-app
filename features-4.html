@@ -1,0 +1,480 @@
+<!-- Page 1: Comunidade -->
+<div id="page-comunidade" class="hidden flex flex-col min-h-screen bg-warm-bg">
+  <div class="flex items-center gap-3 px-4 py-3 bg-white border-b border-rose-100">
+    <button onclick="navigateTo('page-home')" class="w-10 h-10 rounded-full bg-rose-50 flex items-center justify-center text-rose-600">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+    </button>
+    <h1 class="text-xl font-display font-semibold text-txt-primary">Comunidade</h1>
+    <button onclick="navigateTo('page-comunidade-novo')" class="ml-auto px-4 py-2 bg-rose-500 text-white text-sm font-medium rounded-full">Nova Postagem</button>
+  </div>
+
+  <div class="flex gap-2 px-4 py-3 overflow-x-auto">
+    <button class="px-4 py-2 bg-rose-500 text-white text-sm font-medium rounded-full whitespace-nowrap">Todas</button>
+    <button class="px-4 py-2 bg-rose-50 text-rose-600 text-sm font-medium rounded-full whitespace-nowrap">Dúvidas</button>
+    <button class="px-4 py-2 bg-rose-50 text-rose-600 text-sm font-medium rounded-full whitespace-nowrap">Experiências</button>
+    <button class="px-4 py-2 bg-rose-50 text-rose-600 text-sm font-medium rounded-full whitespace-nowrap">Dicas</button>
+  </div>
+
+  <div class="flex-1 px-4 pb-6 space-y-4">
+    <div onclick="navigateTo('page-comunidade-post')" class="bg-white rounded-2xl p-4 shadow-sm border border-rose-100 cursor-pointer">
+      <div class="flex items-start gap-3">
+        <div class="w-10 h-10 rounded-full bg-rose-200 flex items-center justify-center text-rose-700 font-display font-semibold text-sm flex-shrink-0">MS</div>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-2">
+            <span class="font-semibold text-txt-primary text-sm">Maria S.</span>
+            <span class="text-xs text-txt-muted">há 2h</span>
+          </div>
+          <p class="text-txt-body text-sm mt-1 leading-relaxed">Alguém mais sente coceira no início do tratamento?</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-6 mt-3 pt-3 border-t border-rose-50">
+        <button class="flex items-center gap-1.5 text-txt-muted text-xs">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+          12
+        </button>
+        <button class="flex items-center gap-1.5 text-txt-muted text-xs">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+          8
+        </button>
+        <button class="flex items-center gap-1.5 text-txt-muted text-xs">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/></svg>
+          Compartilhar
+        </button>
+      </div>
+    </div>
+
+    <div onclick="navigateTo('page-comunidade-post')" class="bg-white rounded-2xl p-4 shadow-sm border border-rose-100 cursor-pointer">
+      <div class="flex items-start gap-3">
+        <div class="w-10 h-10 rounded-full bg-sage-200 flex items-center justify-center text-sage-700 font-display font-semibold text-sm flex-shrink-0">JP</div>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-2">
+            <span class="font-semibold text-txt-primary text-sm">João P.</span>
+            <span class="text-xs text-txt-muted">há 5h</span>
+          </div>
+          <p class="text-txt-body text-sm mt-1 leading-relaxed">Compartilhando meu progresso de 3 meses! 📸</p>
+          <div class="mt-2 w-full h-32 bg-sage-100 rounded-xl flex items-center justify-center text-sage-400">
+            <span class="text-3xl">📸</span>
+          </div>
+        </div>
+      </div>
+      <div class="flex items-center gap-6 mt-3 pt-3 border-t border-rose-50">
+        <button class="flex items-center gap-1.5 text-txt-muted text-xs">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+          24
+        </button>
+        <button class="flex items-center gap-1.5 text-txt-muted text-xs">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+          45
+        </button>
+        <button class="flex items-center gap-1.5 text-txt-muted text-xs">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/></svg>
+          Compartilhar
+        </button>
+      </div>
+    </div>
+
+    <div onclick="navigateTo('page-comunidade-post')" class="bg-white rounded-2xl p-4 shadow-sm border border-rose-100 cursor-pointer">
+      <div class="flex items-start gap-3">
+        <div class="w-10 h-10 rounded-full bg-gold-200 flex items-center justify-center text-gold-700 font-display font-semibold text-sm flex-shrink-0">CM</div>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-2">
+            <span class="font-semibold text-txt-primary text-sm">Carla M.</span>
+            <span class="text-xs text-txt-muted">há 1d</span>
+          </div>
+          <p class="text-txt-body text-sm mt-1 leading-relaxed">Dica: o shampoo da Vichy ajudou muito minha caspa 🧴</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-6 mt-3 pt-3 border-t border-rose-50">
+        <button class="flex items-center gap-1.5 text-txt-muted text-xs">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+          8
+        </button>
+        <button class="flex items-center gap-1.5 text-txt-muted text-xs">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+          15
+        </button>
+        <button class="flex items-center gap-1.5 text-txt-muted text-xs">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/></svg>
+          Compartilhar
+        </button>
+      </div>
+    </div>
+
+    <div onclick="navigateTo('page-comunidade-post')" class="bg-white rounded-2xl p-4 shadow-sm border border-rose-100 cursor-pointer">
+      <div class="flex items-start gap-3">
+        <div class="w-10 h-10 rounded-full bg-rose-300 flex items-center justify-center text-rose-700 font-display font-semibold text-sm flex-shrink-0">PR</div>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-2">
+            <span class="font-semibold text-txt-primary text-sm">Pedro R.</span>
+            <span class="text-xs text-txt-muted">há 2d</span>
+          </div>
+          <p class="text-txt-body text-sm mt-1 leading-relaxed">Minha experiência com Minoxidil — 6 meses de uso, resultados significativos na prevenção da queda.</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-6 mt-3 pt-3 border-t border-rose-50">
+        <button class="flex items-center gap-1.5 text-txt-muted text-xs">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+          18
+        </button>
+        <button class="flex items-center gap-1.5 text-txt-muted text-xs">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+          32
+        </button>
+        <button class="flex items-center gap-1.5 text-txt-muted text-xs">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/></svg>
+          Compartilhar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Page 2: Detalhe Post -->
+<div id="page-comunidade-post" class="hidden flex flex-col min-h-screen bg-warm-bg">
+  <div class="flex items-center gap-3 px-4 py-3 bg-white border-b border-rose-100">
+    <button onclick="navigateTo('page-comunidade')" class="w-10 h-10 rounded-full bg-rose-50 flex items-center justify-center text-rose-600">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+    </button>
+    <h1 class="text-xl font-display font-semibold text-txt-primary">Post</h1>
+  </div>
+
+  <div class="bg-white mx-4 mt-4 rounded-2xl p-4 shadow-sm border border-rose-100">
+    <div class="flex items-start gap-3">
+      <div class="w-12 h-12 rounded-full bg-sage-200 flex items-center justify-center text-sage-700 font-display font-semibold flex-shrink-0">JP</div>
+      <div class="flex-1 min-w-0">
+        <div class="flex items-center gap-2">
+          <span class="font-semibold text-txt-primary">João P.</span>
+          <span class="text-xs text-txt-muted">há 5h</span>
+        </div>
+        <p class="text-txt-body mt-2 leading-relaxed">Compartilhando meu progresso de 3 meses! Sinto que o tratamento está dando certo. A caspa diminuiu muito e o couro cabeludo está mais saudável. Quem está começando, não desistam! 💪</p>
+        <div class="mt-3 w-full h-40 bg-sage-100 rounded-xl flex items-center justify-center text-sage-400">
+          <span class="text-4xl">📸</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="px-4 mt-4">
+    <h3 class="text-sm font-semibold text-txt-primary mb-3">Comentários (24)</h3>
+    <div class="space-y-4">
+      <div class="bg-white rounded-2xl p-4 shadow-sm border border-sage-100">
+        <div class="flex items-start gap-3">
+          <div class="w-9 h-9 rounded-full bg-sage-400 flex items-center justify-center text-white font-display font-semibold text-xs flex-shrink-0">DR</div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2">
+              <span class="font-semibold text-txt-primary text-sm">Dra. Renata</span>
+              <svg class="w-4 h-4 text-sage-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+              <span class="text-xs text-txt-muted">há 4h</span>
+            </div>
+            <p class="text-txt-body text-sm mt-1 leading-relaxed">Normal no início, use hidratante! O couro cabeludo precisa se adaptar ao tratamento. Continua assim! 🌿</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl p-4 shadow-sm border border-rose-100">
+        <div class="flex items-start gap-3">
+          <div class="w-9 h-9 rounded-full bg-rose-200 flex items-center justify-center text-rose-700 font-display font-semibold text-xs flex-shrink-0">AB</div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2">
+              <span class="font-semibold text-txt-primary text-sm">Ana B.</span>
+              <span class="text-xs text-txt-muted">há 3h</span>
+            </div>
+            <p class="text-txt-body text-sm mt-1 leading-relaxed">Eu tive a mesma experiência! No primeiro mês foi difícil, mas depois melhora. Força! 💪</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl p-4 shadow-sm border border-rose-100">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-full bg-gold-200 flex items-center justify-center text-gold-700 font-display font-semibold text-xs flex-shrink-0">CF</div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2">
+              <span class="font-semibold text-txt-primary text-sm">Carlos F.</span>
+              <span class="text-xs text-txt-muted">há 1d</span>
+            </div>
+            <p class="text-txt-body text-sm mt-1 leading-relaxed">Qual shampoo vocês usam pra hidratar? Tô procurando uma opção boa.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="fixed bottom-0 left-0 right-0 bg-white border-t border-rose-100 px-4 py-3">
+    <div class="flex items-center gap-3">
+      <input type="text" placeholder="Escreva um comentário..." class="flex-1 px-4 py-2.5 bg-rose-50 rounded-full text-sm text-txt-primary placeholder-txt-muted outline-none focus:ring-2 focus:ring-rose-300">
+      <button class="w-10 h-10 bg-rose-500 rounded-full flex items-center justify-center text-white">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Page 3: Nova Postagem -->
+<div id="page-comunidade-novo" class="hidden flex flex-col min-h-screen bg-warm-bg">
+  <div class="flex items-center gap-3 px-4 py-3 bg-white border-b border-rose-100">
+    <button onclick="navigateTo('page-comunidade')" class="w-10 h-10 rounded-full bg-rose-50 flex items-center justify-center text-rose-600">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+    </button>
+    <h1 class="text-xl font-display font-semibold text-txt-primary">Nova Postagem</h1>
+  </div>
+
+  <div class="flex-1 px-4 py-6 space-y-6">
+    <div>
+      <label class="text-sm font-semibold text-txt-primary mb-3 block">Categoria</label>
+      <div class="flex gap-2">
+        <button class="px-4 py-2 bg-rose-100 text-rose-600 text-sm font-medium rounded-full border border-rose-300">Dúvida</button>
+        <button class="px-4 py-2 bg-white text-txt-body text-sm font-medium rounded-full border border-rose-100">Experiência</button>
+        <button class="px-4 py-2 bg-white text-txt-body text-sm font-medium rounded-full border border-rose-100">Dica</button>
+      </div>
+    </div>
+
+    <div>
+      <label class="text-sm font-semibold text-txt-primary mb-3 block">Conteúdo</label>
+      <textarea placeholder="O que você quer compartilhar?" rows="6" class="w-full px-4 py-3 bg-white rounded-2xl text-sm text-txt-primary placeholder-txt-muted outline-none border border-rose-100 focus:ring-2 focus:ring-rose-300 resize-none"></textarea>
+    </div>
+
+    <button class="flex items-center gap-2 px-4 py-3 bg-white rounded-xl border border-rose-100 text-txt-body text-sm w-full">
+      <svg class="w-5 h-5 text-rose-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+      Adicionar Foto
+      <span class="text-xs text-txt-muted ml-auto">(opcional)</span>
+    </button>
+
+    <button onclick="showToast('Publicado!'); setTimeout(() => navigateTo('page-comunidade'), 800)" class="w-full py-3.5 bg-rose-500 text-white font-display font-semibold rounded-2xl shadow-sm hover:bg-rose-600 transition-colors">Publicar</button>
+  </div>
+</div>
+
+<!-- Page 4: Configurações -->
+<div id="page-config" class="hidden flex flex-col min-h-screen bg-warm-bg">
+  <div class="flex items-center gap-3 px-4 py-3 bg-white border-b border-rose-100">
+    <button onclick="navigateTo('page-home')" class="w-10 h-10 rounded-full bg-rose-50 flex items-center justify-center text-rose-600">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+    </button>
+    <h1 class="text-xl font-display font-semibold text-txt-primary">Configurações</h1>
+  </div>
+
+  <div class="mx-4 mt-4 bg-white rounded-2xl p-5 shadow-sm border border-rose-100">
+    <div class="flex items-center gap-4">
+      <div class="w-16 h-16 rounded-full bg-rose-400 flex items-center justify-center text-white font-display font-semibold text-xl">A</div>
+      <div>
+        <h3 class="font-display font-semibold text-txt-primary text-lg">Ana Paula</h3>
+        <p class="text-sm text-txt-muted">ana@email.com</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="mx-4 mt-4 bg-white rounded-2xl shadow-sm border border-rose-100 overflow-hidden">
+    <button onclick="navigateTo('page-config-perfil')" class="flex items-center gap-3 px-5 py-4 w-full hover:bg-rose-50 transition-colors border-b border-rose-50">
+      <svg class="w-5 h-5 text-rose-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+      <span class="text-sm text-txt-primary flex-1 text-left">Meu Perfil</span>
+      <svg class="w-4 h-4 text-txt-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+    </button>
+
+    <button onclick="navigateTo('page-config-tema')" class="flex items-center gap-3 px-5 py-4 w-full hover:bg-rose-50 transition-colors border-b border-rose-50">
+      <svg class="w-5 h-5 text-rose-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/></svg>
+      <span class="text-sm text-txt-primary flex-1 text-left">Tema</span>
+      <svg class="w-4 h-4 text-txt-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+    </button>
+
+    <div class="flex items-center gap-3 px-5 py-4 border-b border-rose-50">
+      <svg class="w-5 h-5 text-rose-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
+      <span class="text-sm text-txt-primary flex-1 text-left">Notificações</span>
+      <div class="relative">
+        <input type="checkbox" checked class="sr-only" id="notif-toggle">
+        <label for="notif-toggle" class="block w-11 h-6 bg-rose-400 rounded-full cursor-pointer transition-colors">
+          <span class="absolute left-0.5 top-0.5 w-5 h-5 bg-white rounded-full shadow transition-transform translate-x-5"></span>
+        </label>
+      </div>
+    </div>
+
+    <div class="flex items-center gap-3 px-5 py-4 border-b border-rose-50">
+      <svg class="w-5 h-5 text-rose-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
+      <span class="text-sm text-txt-primary flex-1 text-left">Idioma</span>
+      <span class="text-sm text-txt-muted">Português</span>
+    </div>
+
+    <div class="flex items-center gap-3 px-5 py-4 border-b border-rose-50">
+      <svg class="w-5 h-5 text-rose-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+      <span class="text-sm text-txt-primary flex-1 text-left">Privacidade</span>
+      <svg class="w-4 h-4 text-txt-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+    </div>
+
+    <button onclick="navigateTo('page-remedios')" class="flex items-center gap-3 px-5 py-4 w-full hover:bg-rose-50 transition-colors border-b border-rose-50">
+      <svg class="w-5 h-5 text-rose-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      <span class="text-sm text-txt-primary flex-1 text-left">Lembretes</span>
+      <svg class="w-4 h-4 text-txt-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+    </button>
+
+    <button class="flex items-center gap-3 px-5 py-4 w-full hover:bg-rose-50 transition-colors border-b border-rose-50">
+      <svg class="w-5 h-5 text-rose-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      <span class="text-sm text-txt-primary flex-1 text-left">Sobre o App</span>
+      <svg class="w-4 h-4 text-txt-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+    </button>
+
+    <button class="flex items-center gap-3 px-5 py-4 w-full hover:bg-rose-50 transition-colors">
+      <svg class="w-5 h-5 text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
+      <span class="text-sm text-rose-500 font-medium flex-1 text-left">Sair</span>
+    </button>
+  </div>
+</div>
+
+<!-- Page 5: Perfil -->
+<div id="page-config-perfil" class="hidden flex flex-col min-h-screen bg-warm-bg">
+  <div class="flex items-center gap-3 px-4 py-3 bg-white border-b border-rose-100">
+    <button onclick="navigateTo('page-config')" class="w-10 h-10 rounded-full bg-rose-50 flex items-center justify-center text-rose-600">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+    </button>
+    <h1 class="text-xl font-display font-semibold text-txt-primary">Meu Perfil</h1>
+  </div>
+
+  <div class="flex flex-col items-center px-4 py-6">
+    <div class="w-24 h-24 rounded-full bg-rose-400 flex items-center justify-center text-white font-display font-semibold text-3xl">A</div>
+    <button class="text-sm text-rose-500 font-medium mt-2">Alterar foto</button>
+  </div>
+
+  <div class="flex-1 px-4 pb-6 space-y-4">
+    <div>
+      <label class="text-xs font-semibold text-txt-muted mb-1.5 block">Nome</label>
+      <input type="text" value="Ana Paula" class="w-full px-4 py-3 bg-white rounded-xl text-sm text-txt-primary border border-rose-100 outline-none focus:ring-2 focus:ring-rose-300">
+    </div>
+    <div>
+      <label class="text-xs font-semibold text-txt-muted mb-1.5 block">Email</label>
+      <input type="email" value="ana@email.com" class="w-full px-4 py-3 bg-white rounded-xl text-sm text-txt-primary border border-rose-100 outline-none focus:ring-2 focus:ring-rose-300">
+    </div>
+    <div>
+      <label class="text-xs font-semibold text-txt-muted mb-1.5 block">Telefone</label>
+      <input type="tel" value="(11) 99999-1234" class="w-full px-4 py-3 bg-white rounded-xl text-sm text-txt-primary border border-rose-100 outline-none focus:ring-2 focus:ring-rose-300">
+    </div>
+    <div>
+      <label class="text-xs font-semibold text-txt-muted mb-1.5 block">Data de nascimento</label>
+      <input type="text" value="15/03/1990" class="w-full px-4 py-3 bg-white rounded-xl text-sm text-txt-primary border border-rose-100 outline-none focus:ring-2 focus:ring-rose-300">
+    </div>
+    <button class="w-full py-3.5 bg-rose-500 text-white font-display font-semibold rounded-2xl shadow-sm hover:bg-rose-600 transition-colors mt-4">Salvar Alterações</button>
+  </div>
+</div>
+
+<!-- Page 6: Tema -->
+<div id="page-config-tema" class="hidden flex flex-col min-h-screen bg-warm-bg">
+  <div class="flex items-center gap-3 px-4 py-3 bg-white border-b border-rose-100">
+    <button onclick="navigateTo('page-config')" class="w-10 h-10 rounded-full bg-rose-50 flex items-center justify-center text-rose-600">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+    </button>
+    <h1 class="text-xl font-display font-semibold text-txt-primary">Aparência</h1>
+  </div>
+
+  <div class="flex-1 px-4 py-6 space-y-6">
+    <div>
+      <label class="text-sm font-semibold text-txt-primary mb-3 block">Tema</label>
+      <div class="grid grid-cols-3 gap-3">
+        <button class="flex flex-col items-center gap-2 p-4 bg-white rounded-2xl border-2 border-rose-500 shadow-sm">
+          <svg class="w-8 h-8 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+          <span class="text-xs font-semibold text-txt-primary">Claro</span>
+        </button>
+        <button class="flex flex-col items-center gap-2 p-4 bg-sage-600 rounded-2xl border-2 border-transparent">
+          <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+          <span class="text-xs font-semibold text-white">Escuro</span>
+        </button>
+        <button class="flex flex-col items-center gap-2 p-4 bg-warm-bg rounded-2xl border-2 border-transparent">
+          <svg class="w-8 h-8 text-rose-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/></svg>
+          <span class="text-xs font-semibold text-txt-primary">Personalizado</span>
+        </button>
+      </div>
+    </div>
+
+    <div>
+      <label class="text-sm font-semibold text-txt-primary mb-3 block">Tamanho da Fonte</label>
+      <div class="flex gap-2">
+        <button class="flex-1 py-2.5 bg-white text-txt-body text-sm font-medium rounded-xl border border-rose-100">Pequeno</button>
+        <button class="flex-1 py-2.5 bg-rose-100 text-rose-600 text-sm font-medium rounded-xl border border-rose-300">Médio</button>
+        <button class="flex-1 py-2.5 bg-white text-txt-body text-sm font-medium rounded-xl border border-rose-100">Grande</button>
+      </div>
+    </div>
+
+    <div>
+      <label class="text-sm font-semibold text-txt-primary mb-3 block">Pré-visualização</label>
+      <div class="bg-white rounded-2xl p-4 shadow-sm border border-rose-100">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="w-10 h-10 rounded-full bg-rose-200 flex items-center justify-center text-rose-700 font-display font-semibold text-sm">A</div>
+          <div>
+            <p class="text-sm font-semibold text-txt-primary">Ana Paula</p>
+            <p class="text-xs text-txt-muted">há 1h</p>
+          </div>
+        </div>
+        <p class="text-sm text-txt-body leading-relaxed">Meu progresso de 3 meses está indo muito bem!</p>
+        <div class="flex items-center gap-4 mt-3 pt-3 border-t border-rose-50">
+          <span class="text-xs text-txt-muted">💬 5</span>
+          <span class="text-xs text-txt-muted">❤️ 12</span>
+        </div>
+      </div>
+    </div>
+
+    <button class="w-full py-3.5 bg-rose-500 text-white font-display font-semibold rounded-2xl shadow-sm hover:bg-rose-600 transition-colors">Aplicar</button>
+  </div>
+</div>
+
+<!-- Page 7: Conteúdo Premium -->
+<div id="page-conteudo-video" class="hidden flex flex-col min-h-screen bg-warm-bg">
+  <div class="flex items-center gap-3 px-4 py-3 bg-white border-b border-rose-100">
+    <button onclick="navigateTo('page-home')" class="w-10 h-10 rounded-full bg-rose-50 flex items-center justify-center text-rose-600">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+    </button>
+    <h1 class="text-xl font-display font-semibold text-txt-primary">Vídeo Exclusivo</h1>
+  </div>
+
+  <div class="mx-4 mt-4 bg-gray-800 rounded-2xl aspect-video flex items-center justify-center relative">
+    <button class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
+      <span class="text-3xl ml-1">▶️</span>
+    </button>
+    <span class="absolute bottom-3 right-3 text-xs text-white/80 bg-black/40 px-2 py-1 rounded">12:34</span>
+  </div>
+
+  <div class="px-4 py-4">
+    <h2 class="text-lg font-display font-semibold text-txt-primary">Cuidados Capilares no Inverno — Dra. Renata</h2>
+    <p class="text-sm text-txt-muted mt-1">Conteúdo exclusivo para assinantes</p>
+  </div>
+
+  <div class="px-4">
+    <h3 class="text-sm font-semibold text-txt-primary mb-3">Capítulos</h3>
+    <div class="bg-white rounded-2xl border border-rose-100 overflow-hidden">
+      <button class="flex items-center gap-3 px-4 py-3 w-full hover:bg-rose-50 transition-colors border-b border-rose-50">
+        <span class="text-xs font-mono text-rose-500 w-12">0:00</span>
+        <span class="text-sm text-txt-primary">Introdução</span>
+      </button>
+      <button class="flex items-center gap-3 px-4 py-3 w-full hover:bg-rose-50 transition-colors border-b border-rose-50">
+        <span class="text-xs font-mono text-rose-500 w-12">2:15</span>
+        <span class="text-sm text-txt-primary">Hidratação Profunda</span>
+      </button>
+      <button class="flex items-center gap-3 px-4 py-3 w-full hover:bg-rose-50 transition-colors border-b border-rose-50">
+        <span class="text-xs font-mono text-rose-500 w-12">5:30</span>
+        <span class="text-sm text-txt-primary">Proteção Térmica</span>
+      </button>
+      <button class="flex items-center gap-3 px-4 py-3 w-full hover:bg-rose-50 transition-colors border-b border-rose-50">
+        <span class="text-xs font-mono text-rose-500 w-12">8:45</span>
+        <span class="text-sm text-txt-primary">Alimentação</span>
+      </button>
+      <button class="flex items-center gap-3 px-4 py-3 w-full hover:bg-rose-50 transition-colors">
+        <span class="text-xs font-mono text-rose-500 w-12">11:00</span>
+        <span class="text-sm text-txt-primary">Dicas Finais</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="px-4 mt-6">
+    <button class="w-full py-3.5 bg-sage-500 text-white font-display font-semibold rounded-2xl shadow-sm hover:bg-sage-600 transition-colors">Marcar como Assistido</button>
+  </div>
+
+  <div class="px-4 mt-4 pb-6">
+    <h3 class="text-sm font-semibold text-txt-primary mb-3">Próximo Vídeo</h3>
+    <div onclick="navigateTo('page-conteudo-video')" class="bg-white rounded-2xl p-4 shadow-sm border border-rose-100 cursor-pointer">
+      <div class="flex items-center gap-3">
+        <div class="w-20 h-14 bg-sage-100 rounded-xl flex items-center justify-center flex-shrink-0">
+          <span class="text-2xl">▶️</span>
+        </div>
+        <div class="flex-1 min-w-0">
+          <p class="text-sm font-semibold text-txt-primary line-clamp-2">Tratamento Natural para Cabelos — Dra. Renata</p>
+          <p class="text-xs text-txt-muted mt-1">15:20</p>
+        </div>
+        <svg class="w-5 h-5 text-txt-muted flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+      </div>
+    </div>
+  </div>
+</div>
