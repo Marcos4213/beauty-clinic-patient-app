@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Conteúdo — Beauty Clinic</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['"DM Serif Display"', 'Georgia', 'serif'],
+            body: ['"DM Sans"', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            warm: { bg: '#FFF8F5', cream: '#FFF5EB', peach: '#FFF0E6' },
+            rose: { 50:'#FFF1F2',100:'#FFE4E6',200:'#FECDD3',300:'#FDA4AF',400:'#FB7185',500:'#F43F5E',600:'#E11D48' },
+            sage: { 50:'#F0F5F0',100:'#DCE5DC',200:'#B8CCB8',400:'#6B9E6B',500:'#4A7C4A',600:'#3A6B3A' },
+            gold: { 50:'#FFFBEB',100:'#FEF3C7',200:'#FDE68A',400:'#FBBF24',500:'#F59E0B',600:'#D97706' },
+            txt: { primary:'#2D2A26',body:'#5C5650',muted:'#8A847C',light:'#B0A99F' },
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'DM Sans', system-ui, sans-serif; background: #FFF8F5; }
+    .font-display { font-family: 'DM Serif Display', Georgia, serif; }
+    .scrollbar-hide::-webkit-scrollbar { display: none; }
+    .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+<body class="bg-warm-bg min-h-screen flex items-center justify-center p-4">
+  <div class="mx-auto max-w-[375px] min-h-[812px] bg-warm-bg relative overflow-hidden" style="box-shadow: 0 0 0 1px rgba(0,0,0,0.08), 0 20px 60px rgba(0,0,0,0.12); border-radius: 40px;">
+    
+    <!-- Header -->
+    <div class="px-5 pt-3 pb-2">
+      <div class="flex items-center gap-3 pt-3 pb-2">
+        <button onclick="history.back()" class="w-8 h-8 rounded-full bg-white shadow-sm flex items-center justify-center">
+          <svg class="w-4 h-4 text-txt-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+        </button>
+        <h1 class="font-display text-xl text-txt-primary">Aprender</h1>
+      </div>
+    </div>
+
+    <div class="px-5 pb-4 overflow-y-auto scrollbar-hide" style="max-height: calc(812px - 140px);">
+      
+      <!-- Dica do Dia -->
+      <div class="mb-5">
+        <h2 class="text-xs font-semibold text-txt-muted uppercase tracking-wider mb-3">💡 Dica do Dia</h2>
+        <div class="bg-gradient-to-r from-sage-500 to-sage-400 rounded-2xl p-4 text-white relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-20 h-20 bg-white/10 rounded-full -mr-6 -mt-6"></div>
+          <h3 class="font-display text-lg relative z-10">Hidratação é a chave</h3>
+          <p class="text-sm text-white/90 mt-1 relative z-10">Beber pelo menos 2L de água por dia ajuda no crescimento capilar e mantém o couro cabeludo saudável.</p>
+          <div class="mt-3 flex items-center gap-2 relative z-10">
+            <span class="text-xs bg-white/20 px-2 py-1 rounded-full">Saúde</span>
+            <span class="text-xs bg-white/20 px-2 py-1 rounded-full">3 min de leitura</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Categorias -->
+      <div class="mb-5">
+        <div class="flex gap-2 overflow-x-auto scrollbar-hide pb-2">
+          <button class="px-4 py-2 bg-rose-500 text-white rounded-full text-sm font-medium whitespace-nowrap">Todos</button>
+          <button class="px-4 py-2 bg-white text-txt-body rounded-full text-sm font-medium whitespace-nowrap border border-rose-100">Cuidados</button>
+          <button class="px-4 py-2 bg-white text-txt-body rounded-full text-sm font-medium whitespace-nowrap border border-rose-100">Alimentação</button>
+          <button class="px-4 py-2 bg-white text-txt-body rounded-full text-sm font-medium whitespace-nowrap border border-rose-100">Tratamento</button>
+          <button class="px-4 py-2 bg-white text-txt-body rounded-full text-sm font-medium whitespace-nowrap border border-rose-100">Mitos</button>
+        </div>
+      </div>
+
+      <!-- Artigos -->
+      <div class="mb-5">
+        <h2 class="text-xs font-semibold text-txt-muted uppercase tracking-wider mb-3">📚 Artigos</h2>
+        <div class="space-y-3">
+          
+          <div class="bg-white rounded-2xl p-4 shadow-sm cursor-pointer active:scale-[0.98] transition-transform">
+            <div class="flex gap-3">
+              <div class="w-20 h-20 bg-rose-50 rounded-xl flex items-center justify-center shrink-0">
+                <span class="text-3xl">🧴</span>
+              </div>
+              <div class="flex-1">
+                <div class="flex items-center gap-2 mb-1">
+                  <span class="text-xs bg-rose-50 text-rose-500 px-2 py-0.5 rounded-full font-medium">Cuidados</span>
+                  <span class="text-xs text-txt-light">5 min</span>
+                </div>
+                <h3 class="font-semibold text-txt-primary text-sm">Como escolher o shampoo certo para seu tipo de cabelo</h3>
+                <p class="text-xs text-txt-muted mt-1 line-clamp-2">Descubra qual ingrediente ideal para o seu couro cabeludo e como evitar produtos que podem atrapalhar o tratamento.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl p-4 shadow-sm cursor-pointer active:scale-[0.98] transition-transform">
+            <div class="flex gap-3">
+              <div class="w-20 h-20 bg-sage-50 rounded-xl flex items-center justify-center shrink-0">
+                <span class="text-3xl">🥗</span>
+              </div>
+              <div class="flex-1">
+                <div class="flex items-center gap-2 mb-1">
+                  <span class="text-xs bg-sage-50 text-sage-600 px-2 py-0.5 rounded-full font-medium">Alimentação</span>
+                  <span class="text-xs text-txt-light">7 min</span>
+                </div>
+                <h3 class="font-semibold text-txt-primary text-sm">Alimentos que fortalecem os fios</h3>
+                <p class="text-xs text-txt-muted mt-1 line-clamp-2">Spinaca, ovos, castanhas e peixes — conhça os superalimentos que ajudam no crescimento e na saúde capilar.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl p-4 shadow-sm cursor-pointer active:scale-[0.98] transition-transform">
+            <div class="flex gap-3">
+              <div class="w-20 h-20 bg-gold-50 rounded-xl flex items-center justify-center shrink-0">
+                <span class="text-3xl">💊</span>
+              </div>
+              <div class="flex-1">
+                <div class="flex items-center gap-2 mb-1">
+                  <span class="text-xs bg-gold-50 text-gold-600 px-2 py-0.5 rounded-full font-medium">Tratamento</span>
+                  <span class="text-xs text-txt-light">4 min</span>
+                </div>
+                <h3 class="font-semibold text-txt-primary text-sm">Entendendo o Minoxidil: como funciona</h3>
+                <p class="text-xs text-txt-muted mt-1 line-clamp-2">Saiba como o minoxidil age no couro cabeludo, quando esperar resultados e como maximizar seus efeitos.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Mitos e Verdades -->
+      <div class="mb-5">
+        <h2 class="text-xs font-semibold text-txt-muted uppercase tracking-wider mb-3">🤔 Mitos e Verdades</h2>
+        
+        <div class="bg-white rounded-2xl p-4 shadow-sm mb-3">
+          <div class="flex items-start gap-3">
+            <div class="w-10 h-10 rounded-full bg-rose-50 flex items-center justify-center shrink-0">
+              <span class="text-lg">❌</span>
+            </div>
+            <div>
+              <span class="text-xs font-semibold text-rose-500 uppercase">Mito</span>
+              <h4 class="font-semibold text-txt-primary text-sm mt-1">Cortar as pontas faz o cabelo crescer mais</h4>
+              <p class="text-xs text-txt-muted mt-1">Cortar as pontas previne danos, mas não influencia no crescimento. O crescimento acontece no bulbo, na raiz.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl p-4 shadow-sm mb-3">
+          <div class="flex items-start gap-3">
+            <div class="w-10 h-10 rounded-full bg-sage-50 flex items-center justify-center shrink-0">
+              <span class="text-lg">✅</span>
+            </div>
+            <div>
+              <span class="text-xs font-semibold text-sage-600 uppercase">Verdade</span>
+              <h4 class="font-semibold text-txt-primary text-sm mt-1">O estresse pode causar queda de cabelo</h4>
+              <p class="text-xs text-txt-muted mt-1">Sim! O estresse crônico pode desequilibrar o ciclo de vida do fio, levando à queda. Manter a calma é importante.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl p-4 shadow-sm">
+          <div class="flex items-start gap-3">
+            <div class="w-10 h-10 rounded-full bg-rose-50 flex items-center justify-center shrink-0">
+              <span class="text-lg">❌</span>
+            </div>
+            <div>
+              <span class="text-xs font-semibold text-rose-500 uppercase">Mito</span>
+              <h4 class="font-semibold text-txt-primary text-sm mt-1">Usar sempre o mesmo shampoo enfraquece o cabelo</h4>
+              <p class="text-xs text-txt-muted mt-1">Não há evidências científicas. O que pode acontecer é o acúmulo de resíduos — por isso o uso de shampoo clarificante.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Vídeos Rápidos -->
+      <div class="mb-5">
+        <h2 class="text-xs font-semibold text-txt-muted uppercase tracking-wider mb-3">🎬 Vídeos Rápidos</h2>
+        <div class="flex gap-3 overflow-x-auto scrollbar-hide pb-2">
+          
+          <div class="w-32 shrink-0 cursor-pointer">
+            <div class="w-32 h-40 bg-gradient-to-br from-rose-100 to-rose-200 rounded-xl flex items-center justify-center relative">
+              <span class="text-4xl">▶️</span>
+              <span class="absolute bottom-2 right-2 text-xs bg-black/50 text-white px-1.5 py-0.5 rounded">2:30</span>
+            </div>
+            <p class="text-xs text-txt-primary font-medium mt-2 line-clamp-2">Como aplicar o minoxidil corretamente</p>
+          </div>
+
+          <div class="w-32 shrink-0 cursor-pointer">
+            <div class="w-32 h-40 bg-gradient-to-br from-sage-100 to-sage-200 rounded-xl flex items-center justify-center relative">
+              <span class="text-4xl">▶️</span>
+              <span class="absolute bottom-2 right-2 text-xs bg-black/50 text-white px-1.5 py-0.5 rounded">4:15</span>
+            </div>
+            <p class="text-xs text-txt-primary font-medium mt-2 line-clamp-2">Massagem capilar para estimular a circulação</p>
+          </div>
+
+          <div class="w-32 shrink-0 cursor-pointer">
+            <div class="w-32 h-40 bg-gradient-to-br from-gold-100 to-gold-200 rounded-xl flex items-center justify-center relative">
+              <span class="text-4xl">▶️</span>
+              <span class="absolute bottom-2 right-2 text-xs bg-black/50 text-white px-1.5 py-0.5 rounded">3:45</span>
+            </div>
+            <p class="text-xs text-txt-primary font-medium mt-2 line-clamp-2">Rotina capilar completa em 5 passos</p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Checklist de Cuidados Diários -->
+      <div class="mb-5">
+        <h2 class="text-xs font-semibold text-txt-muted uppercase tracking-wider mb-3">✅ Checklist Diário</h2>
+        <div class="bg-white rounded-2xl p-4 shadow-sm">
+          <div class="space-y-3">
+            <label class="flex items-center gap-3 cursor-pointer">
+              <input type="checkbox" checked class="w-5 h-5 rounded-lg border-2 border-sage-300 text-sage-500">
+              <span class="text-sm text-txt-primary line-through decoration-sage-400">Tomar suplemento vitamínico</span>
+            </label>
+            <label class="flex items-center gap-3 cursor-pointer">
+              <input type="checkbox" checked class="w-5 h-5 rounded-lg border-2 border-sage-300 text-sage-500">
+              <span class="text-sm text-txt-primary line-through decoration-sage-400">Aplicar minoxidil</span>
+            </label>
+            <label class="flex items-center gap-3 cursor-pointer">
+              <input type="checkbox" class="w-5 h-5 rounded-lg border-2 border-sage-300 text-sage-500">
+              <span class="text-sm text-txt-primary">Beber 2L de água</span>
+            </label>
+            <label class="flex items-center gap-3 cursor-pointer">
+              <input type="checkbox" class="w-5 h-5 rounded-lg border-2 border-sage-300 text-sage-500">
+              <span class="text-sm text-txt-primary">Dormir pelo menos 7h</span>
+            </label>
+            <label class="flex items-center gap-3 cursor-pointer">
+              <input type="checkbox" class="w-5 h-5 rounded-lg border-2 border-sage-300 text-sage-500">
+              <span class="text-sm text-txt-primary">Evitar calor nos fios</span>
+            </label>
+          </div>
+          <div class="mt-4 flex items-center justify-between">
+            <span class="text-xs text-txt-muted">3 de 5 completos</span>
+            <span class="text-xs font-medium text-sage-500">60%</span>
+          </div>
+          <div class="mt-2 h-1.5 bg-sage-50 rounded-full overflow-hidden">
+            <div class="h-full bg-sage-400 rounded-full" style="width: 60%"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom Nav -->
+    <div class="absolute bottom-0 left-0 right-0 bg-white border-t border-gray-100 px-6 pt-3 pb-8 flex justify-between" style="border-radius: 0 0 40px 40px;">
+      <div class="flex flex-col items-center gap-1 cursor-pointer" onclick="window.location.href='index.html'">
+        <svg class="w-5 h-5 text-txt-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+        <span class="text-xs text-txt-muted">Início</span>
+      </div>
+      <div class="flex flex-col items-center gap-1 cursor-pointer" onclick="window.location.href='03-progresso.html'">
+        <svg class="w-5 h-5 text-txt-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+        <span class="text-xs text-txt-muted">Progresso</span>
+      </div>
+      <div class="flex flex-col items-center gap-1 cursor-pointer" onclick="window.location.href='04-conquistas.html'">
+        <svg class="w-5 h-5 text-txt-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/></svg>
+        <span class="text-xs text-txt-muted">Conquistas</span>
+      </div>
+      <div class="flex flex-col items-center gap-1 cursor-pointer" onclick="window.location.href='07-conteudo.html'">
+        <svg class="w-5 h-5 text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+        <span class="text-xs text-rose-500 font-medium">Aprender</span>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

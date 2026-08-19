@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meu Progresso</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['"DM Serif Display"', 'Georgia', 'serif'],
+            body: ['"DM Sans"', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            warm: { bg: '#FFF8F5', cream: '#FFF5EB', peach: '#FFF0E6' },
+            rose: { 50:'#FFF1F2',100:'#FFE4E6',200:'#FECDD3',300:'#FDA4AF',400:'#FB7185',500:'#F43F5E',600:'#E11D48' },
+            sage: { 50:'#F0F5F0',100:'#DCE5DC',200:'#B8CCB8',400:'#6B9E6B',500:'#4A7C4A',600:'#3A6B3A' },
+            gold: { 50:'#FFFBEB',100:'#FEF3C7',200:'#FDE68A',400:'#FBBF24',500:'#F59E0B',600:'#D97706' },
+            txt: { primary:'#2D2A26',body:'#5C5650',muted:'#8A847C',light:'#B0A99F' },
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'DM Sans', system-ui, sans-serif; background: #FFF8F5; }
+    .font-display { font-family: 'DM Serif Display', Georgia, serif; }
+  </style>
+</head>
+<body class="bg-warm-bg min-h-screen flex items-center justify-center p-4">
+  <div class="mx-auto max-w-[375px] min-h-[812px] bg-warm-bg relative overflow-hidden" style="box-shadow: 0 0 0 1px rgba(0,0,0,0.08), 0 20px 60px rgba(0,0,0,0.12); border-radius: 40px;">
+    <div class="flex items-center justify-between px-8 pt-3 pb-1">
+      <span class="text-xs font-semibold text-txt-primary">9:43</span>
+      <div class="flex gap-1.5 items-center">
+        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z"/></svg>
+        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M15.67 4H14V2h-4v2H8.33C7.6 4 7 4.6 7 5.33v15.33C7 21.4 7.6 22 8.33 22h7.33c.74 0 1.34-.6 1.34-1.33V5.33C17 4.6 16.4 4 15.67 4z"/></svg>
+      </div>
+    </div>
+    <div class="px-5 pt-3 pb-2">
+      <h1 class="font-display text-[1.75rem] leading-tight text-txt-primary">Meu Progresso</h1>
+      <p class="text-sm text-txt-muted mt-1">Semana 4 de 12 — Você está indo muito bem!</p>
+    </div>
+    <div class="px-5 pb-28 overflow-y-auto" style="max-height: calc(812px - 140px);">
+      <div class="mt-3 bg-white rounded-2xl p-5 shadow-sm">
+        <div class="flex items-center justify-between mb-4">
+          <h2 class="text-base text-txt-primary font-semibold">Score de Compliance</h2>
+          <span class="text-sm font-bold text-sage-600">85%</span>
+        </div>
+        <div class="h-3 bg-sage-50 rounded-full overflow-hidden">
+          <div class="h-full bg-gradient-to-r from-sage-400 to-sage-500 rounded-full" style="width: 85%"></div>
+        </div>
+        <div class="flex justify-between mt-2">
+          <span class="text-xs text-txt-muted">0%</span>
+          <span class="text-xs text-sage-600 font-medium">Você: 85%</span>
+          <span class="text-xs text-txt-muted">100%</span>
+        </div>
+        <div class="mt-4 flex items-center gap-2 bg-sage-50 rounded-xl p-3">
+          <span class="text-lg">🌟</span>
+          <p class="text-sm text-sage-600 font-medium">Parabéns! Sua consistência está acima da média dos pacientes.</p>
+        </div>
+      </div>
+      <div class="mt-4 bg-white rounded-2xl p-5 shadow-sm">
+        <div class="flex items-center justify-between mb-3">
+          <h2 class="text-base text-txt-primary font-semibold">Comparação de Fotos</h2>
+          <span class="text-xs text-txt-muted">Jul 01 → Ago 01</span>
+        </div>
+        <div class="relative rounded-xl overflow-hidden bg-warm-cream">
+          <div class="flex">
+            <div class="w-1/2 relative">
+              <div class="aspect-square bg-gradient-to-br from-rose-100 to-warm-peach flex items-center justify-center">
+                <div class="text-center">
+                  <svg class="w-10 h-10 text-rose-300 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0022.5 18.75V5.25A2.25 2.25 0 0020.25 3H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z"/></svg>
+                  <p class="text-xs text-txt-muted mt-2">Foto inicial</p>
+                </div>
+              </div>
+              <div class="absolute bottom-2 left-2 bg-white/90 px-2 py-1 rounded-lg">
+                <p class="text-[11px] text-txt-primary font-medium">Jul 01</p>
+              </div>
+            </div>
+            <div class="w-1/2 relative">
+              <div class="aspect-square bg-gradient-to-br from-sage-100 to-sage-50 flex items-center justify-center">
+                <div class="text-center">
+                  <svg class="w-10 h-10 text-sage-300 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0022.5 18.75V5.25A2.25 2.25 0 0020.25 3H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z"/></svg>
+                  <p class="text-xs text-txt-muted mt-2">Foto atual</p>
+                </div>
+              </div>
+              <div class="absolute bottom-2 right-2 bg-white/90 px-2 py-1 rounded-lg">
+                <p class="text-[11px] text-txt-primary font-medium">Ago 01</p>
+              </div>
+            </div>
+          </div>
+          <div class="absolute inset-y-0 left-1/2 w-0.5 bg-white -ml-px"></div>
+          <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-white rounded-full shadow-lg flex items-center justify-center">
+            <svg class="w-4 h-4 text-txt-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 9l4-4 4 4m0 6l-4 4-4-4"/></svg>
+          </div>
+        </div>
+        <div class="mt-3 flex items-center gap-2">
+          <span class="text-sage-500 text-lg">📈</span>
+          <p class="text-sm text-sage-600 font-semibold">+12% de melhoria detectada pela IA</p>
+        </div>
+      </div>
+      <div class="mt-4 bg-white rounded-2xl p-5 shadow-sm">
+        <div class="flex items-center justify-between mb-3">
+          <h2 class="text-base text-txt-primary font-semibold">Tendência</h2>
+          <div class="flex bg-warm-cream rounded-lg p-0.5">
+            <button class="px-3 py-1 text-xs bg-white rounded-md shadow-sm text-txt-primary font-medium">Semanal</button>
+            <button class="px-3 py-1 text-xs text-txt-muted font-medium">Mensal</button>
+          </div>
+        </div>
+        <div class="relative h-40 mt-2">
+          <div class="absolute left-0 top-0 bottom-0 flex flex-col justify-between text-xs text-txt-light w-6">
+            <span>100</span><span>75</span><span>50</span><span>25</span><span>0</span>
+          </div>
+          <div class="ml-8 relative h-full border-b border-l border-sage-100">
+            <svg class="absolute inset-0 w-full h-full" viewBox="0 0 280 140" preserveAspectRatio="none">
+              <line x1="0" y1="35" x2="280" y2="35" stroke="#F0F5F0" stroke-width="1"/>
+              <line x1="0" y1="70" x2="280" y2="70" stroke="#F0F5F0" stroke-width="1"/>
+              <line x1="0" y1="105" x2="280" y2="105" stroke="#F0F5F0" stroke-width="1"/>
+              <polyline fill="none" stroke="#4A7C4A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" points="0,112 40,98 80,91 120,84 160,77 200,63 240,56 280,21"/>
+              <circle cx="0" cy="112" r="4" fill="#4A7C4A"/>
+              <circle cx="40" cy="98" r="4" fill="#4A7C4A"/>
+              <circle cx="80" cy="91" r="4" fill="#4A7C4A"/>
+              <circle cx="120" cy="84" r="4" fill="#4A7C4A"/>
+              <circle cx="160" cy="77" r="4" fill="#4A7C4A"/>
+              <circle cx="200" cy="63" r="4" fill="#4A7C4A"/>
+              <circle cx="240" cy="56" r="4" fill="#4A7C4A"/>
+              <circle cx="280" cy="21" r="5" fill="#F43F5E" stroke="white" stroke-width="2"/>
+            </svg>
+          </div>
+        </div>
+        <div class="ml-8 flex justify-between mt-1 text-[11px] text-txt-muted">
+          <span>S1</span><span>S2</span><span>S3</span><span>S4</span><span>S5</span><span>S6</span><span>S7</span><span>S8</span>
+        </div>
+        <div class="mt-3 flex items-center gap-4">
+          <div class="flex items-center gap-1.5"><span class="w-3 h-0.5 bg-sage-500 rounded-full"></span><span class="text-xs text-txt-muted">Compliance</span></div>
+          <div class="flex items-center gap-1.5"><span class="w-3 h-3 bg-rose-500 rounded-full"></span><span class="text-xs text-txt-muted">Hoje</span></div>
+        </div>
+      </div>
+      <div class="mt-4 mb-4 bg-white rounded-2xl p-5 shadow-sm">
+        <h2 class="text-base text-txt-primary font-semibold mb-3">Resumo da Semana</h2>
+        <div class="grid grid-cols-3 gap-3">
+          <div class="bg-sage-50 rounded-xl p-3 text-center">
+            <p class="font-display text-2xl text-sage-600">6</p>
+            <p class="text-xs text-sage-600 mt-0.5">Check-ins</p>
+          </div>
+          <div class="bg-rose-50 rounded-xl p-3 text-center">
+            <p class="font-display text-2xl text-rose-500">4</p>
+            <p class="text-xs text-rose-400 mt-0.5">Fotos</p>
+          </div>
+          <div class="bg-gold-50 rounded-xl p-3 text-center">
+            <p class="font-display text-2xl text-gold-600">65</p>
+            <p class="text-xs text-gold-600 mt-0.5">Pontos</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="absolute bottom-0 left-0 right-0 bg-white/90 backdrop-blur-lg border-t border-rose-100/50 px-6 pb-8 pt-2">
+      <div class="flex justify-around">
+        <div class="flex flex-col items-center gap-0.5">
+          <svg class="w-6 h-6 text-txt-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+          <span class="text-[11px] text-txt-muted">Início</span>
+        </div>
+        <div class="flex flex-col items-center gap-0.5">
+          <svg class="w-6 h-6 text-rose-500" fill="currentColor" viewBox="0 0 24 24"><path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+          <span class="text-[11px] text-rose-500 font-semibold">Progresso</span>
+        </div>
+        <div class="flex flex-col items-center gap-0.5">
+          <svg class="w-6 h-6 text-txt-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+          <span class="text-[11px] text-txt-muted">Conquistas</span>
+        </div>
+        <div class="flex flex-col items-center gap-0.5">
+          <svg class="w-6 h-6 text-txt-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+          <span class="text-[11px] text-txt-muted">Perfil</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Artigo — Beauty Clinic</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['"DM Serif Display"', 'Georgia', 'serif'],
+            body: ['"DM Sans"', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            warm: { bg: '#FFF8F5', cream: '#FFF5EB', peach: '#FFF0E6' },
+            rose: { 50:'#FFF1F2',100:'#FFE4E6',200:'#FECDD3',300:'#FDA4AF',400:'#FB7185',500:'#F43F5E',600:'#E11D48' },
+            sage: { 50:'#F0F5F0',100:'#DCE5DC',200:'#B8CCB8',400:'#6B9E6B',500:'#4A7C4A',600:'#3A6B3A' },
+            gold: { 50:'#FFFBEB',100:'#FEF3C7',200:'#FDE68A',400:'#FBBF24',500:'#F59E0B',600:'#D97706' },
+            txt: { primary:'#2D2A26',body:'#5C5650',muted:'#8A847C',light:'#B0A99F' },
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'DM Sans', system-ui, sans-serif; background: #FFF8F5; }
+    .font-display { font-family: 'DM Serif Display', Georgia, serif; }
+    .scrollbar-hide::-webkit-scrollbar { display: none; }
+    .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+<body class="bg-warm-bg min-h-screen flex items-center justify-center p-4">
+  <div class="mx-auto max-w-[375px] min-h-[812px] bg-warm-bg relative overflow-hidden" style="box-shadow: 0 0 0 1px rgba(0,0,0,0.08), 0 20px 60px rgba(0,0,0,0.12); border-radius: 40px;">
+    
+    <!-- Header -->
+    <div class="px-5 pt-3 pb-2">
+      <div class="flex items-center gap-3 pt-3 pb-2">
+        <button onclick="history.back()" class="w-8 h-8 rounded-full bg-white shadow-sm flex items-center justify-center">
+          <svg class="w-4 h-4 text-txt-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+        </button>
+        <h1 class="font-display text-xl text-txt-primary">Artigo</h1>
+      </div>
+    </div>
+
+    <div class="px-5 pb-4 overflow-y-auto scrollbar-hide" style="max-height: calc(812px - 70px);">
+      
+      <!-- Capa do Artigo -->
+      <div class="w-full h-48 bg-gradient-to-br from-sage-100 to-sage-200 rounded-2xl flex items-center justify-center mb-4">
+        <span class="text-6xl">🧴</span>
+      </div>
+
+      <!-- Metadados -->
+      <div class="flex items-center gap-2 mb-3">
+        <span class="text-xs bg-sage-50 text-sage-600 px-2 py-1 rounded-full font-medium">Cuidados</span>
+        <span class="text-xs text-txt-light">•</span>
+        <span class="text-xs text-txt-light">5 min de leitura</span>
+        <span class="text-xs text-txt-light">•</span>
+        <span class="text-xs text-txt-light">Atualizado há 2 dias</span>
+      </div>
+
+      <!-- Título -->
+      <h2 class="font-display text-2xl text-txt-primary mb-3">Como escolher o shampoo certo para seu tipo de cabelo</h2>
+
+      <!-- Autor -->
+      <div class="flex items-center gap-3 mb-5 pb-5 border-b border-gray-100">
+        <div class="w-10 h-10 rounded-full bg-sage-100 flex items-center justify-center">
+          <span class="text-lg">👩‍⚕️</span>
+        </div>
+        <div>
+          <p class="text-sm font-medium text-txt-primary">Dra. Marina Santos</p>
+          <p class="text-xs text-txt-muted">Tricologista • CRP 12345</p>
+        </div>
+      </div>
+
+      <!-- Conteúdo do Artigo -->
+      <div class="space-y-4 text-sm text-txt-body leading-relaxed">
+        
+        <p>Escolher o shampoo certo é fundamental para manter o couro cabeludo saudável e potencializar os resultados do tratamento. Mas com tantas opções no mercado, como saber qual é o ideal?</p>
+
+        <h3 class="font-display text-lg text-txt-primary mt-5 mb-2">1. Conheça seu tipo de couro cabeludo</h3>
+        
+        <p>Antes de tudo, é importante identificar se seu couro cabeludo é:</p>
+        
+        <div class="space-y-2 my-3">
+          <div class="flex items-start gap-3 bg-white p-3 rounded-xl">
+            <span class="text-lg">💧</span>
+            <div>
+              <p class="font-medium text-txt-primary text-sm"> oleoso</p>
+              <p class="text-xs text-txt-muted">Produz mais sebo, aparece oleoso em poucas horas</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 bg-white p-3 rounded-xl">
+            <span class="text-lg">🏜️</span>
+            <div>
+              <p class="font-medium text-txt-primary text-sm">Seco</p>
+              <p class="text-xs text-txt-muted">Ressecado, com caspa, coceira frequente</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 bg-white p-3 rounded-xl">
+            <span class="text-lg">⚖️</span>
+            <div>
+              <p class="font-medium text-txt-primary text-sm">Misto</p>
+              <p class="text-xs text-txt-muted">Raiz oleosa, pontas secas</p>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="font-display text-lg text-txt-primary mt-5 mb-2">2. Ingredientes que você deve procurar</h3>
+        
+        <p>Para cada problema, existem ingredientes específicos:</p>
+        
+        <div class="bg-sage-50 p-4 rounded-xl my-3">
+          <p class="font-medium text-sage-700 text-sm mb-2">✅ Ingredientes benéficos:</p>
+          <ul class="space-y-1 text-xs text-sage-600">
+            <li>• <strong>Cetoconazol</strong> — antifúngico, trata caspa</li>
+            <li>• <strong>Salicílico</strong> — esfolia o couro cabeludo</li>
+            <li>• <strong>Biotina</strong> — fortalece o fio</li>
+            <li>• <strong>Cafeína</strong> — estimula o crescimento</li>
+          </ul>
+        </div>
+
+        <div class="bg-rose-50 p-4 rounded-xl my-3">
+          <p class="font-medium text-rose-700 text-sm mb-2">❌ Ingredientes para evitar:</p>
+          <ul class="space-y-1 text-xs text-rose-600">
+            <li>• <strong>Sulfatos agressivos</strong> (SLS, SLES)</li>
+            <li>• <strong>Parabenos</strong> — podem irritar</li>
+            <li>• <strong>Alcohol</strong> — resseca ainda mais</li>
+          </ul>
+        </div>
+
+        <h3 class="font-display text-lg text-txt-primary mt-5 mb-2">3. Dicas práticas</h3>
+        
+        <div class="space-y-2">
+          <div class="flex items-start gap-2">
+            <span class="text-sage-500 mt-0.5">1.</span>
+            <p class="text-sm text-txt-body">Lave o cabelo com água morna, nunca quente</p>
+          </div>
+          <div class="flex items-start gap-2">
+            <span class="text-sage-500 mt-0.5">2.</span>
+            <p class="text-sm text-txt-body">Massageie suavemente com as pontas dos dedos</p>
+          </div>
+          <div class="flex items-start gap-2">
+            <span class="text-sage-500 mt-0.5">3.</span>
+            <p class="text-sm text-txt-body">Enxágue bem para não deixar resíduos</p>
+          </div>
+          <div class="flex items-start gap-2">
+            <span class="text-sage-500 mt-0.5">4.</span>
+            <p class="text-sm text-txt-body">Repita se necessário — um segundo lavagem</p>
+          </div>
+        </div>
+
+        <div class="bg-warm-cream p-4 rounded-xl my-5 border border-gold-200">
+          <p class="font-medium text-gold-700 text-sm">💡 Lembre-se:</p>
+          <p class="text-xs text-gold-600 mt-1">O shampoo ideal é aquele que respeita o equilíbrio do seu couro cabeludo. Em caso de dúvida, consulte sua tricologista.</p>
+        </div>
+
+      </div>
+
+      <!-- Artigos Relacionados -->
+      <div class="mt-6 mb-4">
+        <h3 class="text-xs font-semibold text-txt-muted uppercase tracking-wider mb-3">📚 Artigos Relacionados</h3>
+        <div class="space-y-2">
+          <div class="bg-white rounded-xl p-3 shadow-sm flex items-center gap-3 cursor-pointer">
+            <div class="w-12 h-12 bg-sage-50 rounded-lg flex items-center justify-center shrink-0">
+              <span class="text-xl">🥗</span>
+            </div>
+            <div class="flex-1">
+              <p class="text-sm font-medium text-txt-primary">Alimentos que fortalecem os fios</p>
+              <p class="text-xs text-txt-muted">7 min de leitura</p>
+            </div>
+          </div>
+          <div class="bg-white rounded-xl p-3 shadow-sm flex items-center gap-3 cursor-pointer">
+            <div class="w-12 h-12 bg-gold-50 rounded-lg flex items-center justify-center shrink-0">
+              <span class="text-xl">💊</span>
+            </div>
+            <div class="flex-1">
+              <p class="text-sm font-medium text-txt-primary">Entendendo o Minoxidil</p>
+              <p class="text-xs text-txt-muted">4 min de leitura</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</body>
+</html>

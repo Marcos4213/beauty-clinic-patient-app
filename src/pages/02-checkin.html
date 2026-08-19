@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Check-in Diário</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['"DM Serif Display"', 'Georgia', 'serif'],
+            body: ['"DM Sans"', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            warm: { bg: '#FFF8F5', cream: '#FFF5EB', peach: '#FFF0E6' },
+            rose: { 50:'#FFF1F2',100:'#FFE4E6',200:'#FECDD3',300:'#FDA4AF',400:'#FB7185',500:'#F43F5E',600:'#E11D48' },
+            sage: { 50:'#F0F5F0',100:'#DCE5DC',200:'#B8CCB8',400:'#6B9E6B',500:'#4A7C4A',600:'#3A6B3A' },
+            gold: { 50:'#FFFBEB',100:'#FEF3C7',200:'#FDE68A',400:'#FBBF24',500:'#F59E0B',600:'#D97706' },
+            txt: { primary:'#2D2A26',body:'#5C5650',muted:'#8A847C',light:'#B0A99F' },
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'DM Sans', system-ui, sans-serif; background: #FFF8F5; }
+    .font-display { font-family: 'DM Serif Display', Georgia, serif; }
+    .checkbox-custom { appearance: none; width: 24px; height: 24px; border: 2px solid #FECDD3; border-radius: 8px; cursor: pointer; position: relative; transition: all 0.2s; }
+    .checkbox-custom:checked { background: #4A7C4A; border-color: #4A7C4A; }
+    .checkbox-custom:checked::after { content: '\2713'; position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: white; font-size: 14px; font-weight: bold; }
+  </style>
+</head>
+<body class="bg-warm-bg min-h-screen flex items-center justify-center p-4">
+  <div class="mx-auto max-w-[375px] min-h-[812px] bg-warm-bg relative overflow-hidden" style="box-shadow: 0 0 0 1px rgba(0,0,0,0.08), 0 20px 60px rgba(0,0,0,0.12); border-radius: 40px;">
+    <div class="flex items-center justify-between px-8 pt-3 pb-1">
+      <span class="text-xs font-semibold text-txt-primary">9:42</span>
+      <div class="flex gap-1.5 items-center">
+        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z"/></svg>
+        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M15.67 4H14V2h-4v2H8.33C7.6 4 7 4.6 7 5.33v15.33C7 21.4 7.6 22 8.33 22h7.33c.74 0 1.34-.6 1.34-1.33V5.33C17 4.6 16.4 4 15.67 4z"/></svg>
+      </div>
+    </div>
+    <div class="px-5 pt-3 pb-2 flex items-center gap-3">
+      <button class="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm">
+        <svg class="w-5 h-5 text-txt-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+      </button>
+      <div>
+        <h1 class="text-lg font-semibold text-txt-primary">Check-in de Hoje</h1>
+        <p class="text-xs text-txt-muted">Dia 12 da sua jornada</p>
+      </div>
+    </div>
+    <div class="px-5 pb-28 overflow-y-auto" style="max-height: calc(812px - 180px);">
+      <div class="mt-4">
+        <div class="flex items-center gap-2 mb-3">
+          <span class="w-6 h-6 rounded-full bg-rose-500 text-white text-xs font-bold flex items-center justify-center">1</span>
+          <h2 class="text-base text-txt-primary font-semibold">Foto de progresso</h2>
+          <span class="ml-auto text-xs text-rose-500 font-medium">+15 pts</span>
+        </div>
+        <div class="bg-white rounded-2xl p-4 shadow-sm border border-rose-100/50">
+          <div class="bg-warm-cream rounded-xl aspect-[4/3] flex flex-col items-center justify-center border-2 border-dashed border-rose-200">
+            <svg class="w-12 h-12 text-rose-300 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z"/><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z"/></svg>
+            <p class="text-sm text-txt-muted font-medium">Toque para tirar a foto</p>
+            <p class="text-xs text-txt-light mt-1">Use a mesma posição de sempre</p>
+          </div>
+        </div>
+      </div>
+      <div class="mt-5">
+        <div class="flex items-center gap-2 mb-3">
+          <span class="w-6 h-6 rounded-full bg-rose-500 text-white text-xs font-bold flex items-center justify-center">2</span>
+          <h2 class="text-base text-txt-primary font-semibold">Tratamento de hoje</h2>
+          <span class="ml-auto text-xs text-rose-500 font-medium">+10 pts</span>
+        </div>
+        <div class="bg-white rounded-2xl p-4 shadow-sm">
+          <label class="flex items-center gap-3 py-2.5 border-b border-sage-50 cursor-pointer">
+            <input type="checkbox" class="checkbox-custom" checked>
+            <div>
+              <p class="text-sm text-txt-primary font-medium">Minoxidil tópico</p>
+              <p class="text-xs text-txt-muted">Aplicar na área afetada</p>
+            </div>
+          </label>
+          <label class="flex items-center gap-3 py-2.5 border-b border-sage-50 cursor-pointer">
+            <input type="checkbox" class="checkbox-custom" checked>
+            <div>
+              <p class="text-sm text-txt-primary font-medium">Suplemento oral</p>
+              <p class="text-xs text-txt-muted">1 comprimido com água</p>
+            </div>
+          </label>
+          <label class="flex items-center gap-3 py-2.5 cursor-pointer">
+            <input type="checkbox" class="checkbox-custom">
+            <div>
+              <p class="text-sm text-txt-primary font-medium">Shampoo medicado</p>
+              <p class="text-xs text-txt-muted">Deixar agir 3 minutos</p>
+            </div>
+          </label>
+        </div>
+      </div>
+      <div class="mt-5">
+        <div class="flex items-center gap-2 mb-3">
+          <span class="w-6 h-6 rounded-full bg-rose-500 text-white text-xs font-bold flex items-center justify-center">3</span>
+          <h2 class="text-base text-txt-primary font-semibold">Como está se sentindo?</h2>
+          <span class="ml-auto text-xs text-sage-600 font-medium">Opcional</span>
+        </div>
+        <div class="bg-white rounded-2xl p-4 shadow-sm">
+          <p class="text-xs text-txt-muted mb-3">Nível de queda hoje</p>
+          <div class="flex gap-3">
+            <button class="flex-1 py-2.5 rounded-xl bg-sage-50 border-2 border-sage-200 text-sm text-sage-600 font-medium">Pouca</button>
+            <button class="flex-1 py-2.5 rounded-xl bg-rose-50 border-2 border-rose-200 text-sm text-rose-600 font-medium">Média</button>
+            <button class="flex-1 py-2.5 rounded-xl bg-warm-cream border-2 border-transparent text-sm text-txt-muted font-medium">Muita</button>
+          </div>
+          <p class="text-xs text-txt-muted mt-4 mb-2">Observações (opcional)</p>
+          <div class="bg-warm-bg rounded-xl p-3 min-h-[60px]">
+            <p class="text-sm text-txt-light">Alguma coisa que você queira registrar...</p>
+          </div>
+        </div>
+      </div>
+      <div class="mt-5 mb-4">
+        <div class="bg-gradient-to-r from-rose-50 to-gold-50 rounded-2xl p-4 border border-rose-100">
+          <div class="flex items-center gap-3">
+            <span class="text-2xl">🔥</span>
+            <div>
+              <p class="text-sm text-txt-primary font-semibold">Complete e mantenha sua sequência!</p>
+              <p class="text-xs text-txt-muted mt-0.5">Faltam 2 minutos para manter os 12 dias</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="absolute bottom-0 left-0 right-0 bg-white/95 backdrop-blur-lg border-t border-rose-100/50 px-5 pb-8 pt-4">
+      <button class="w-full bg-sage-500 text-white font-semibold text-base py-4 rounded-xl shadow-lg hover:bg-sage-600 active:scale-[0.97] transition-all">
+        Finalizar check-in
+      </button>
+      <p class="text-center text-xs text-txt-muted mt-2">Seus dados são salvos automaticamente</p>
+    </div>
+  </div>
+</body>
+</html>
