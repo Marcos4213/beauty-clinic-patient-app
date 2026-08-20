@@ -6,10 +6,12 @@
     </button>
     <h1 class="text-2xl font-display font-semibold txt-primary">Galeria de Fotos</h1>
   </div>
+
   <button class="w-full mb-5 bg-rose-500 text-white font-semibold py-3 rounded-2xl shadow-md flex items-center justify-center gap-2">
     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
     Adicionar Foto
   </button>
+
   <div class="flex gap-2 mb-5 overflow-x-auto pb-2">
     <span class="px-4 py-1.5 rounded-full bg-rose-500 text-white text-sm font-medium whitespace-nowrap">Todas</span>
     <span class="px-4 py-1.5 rounded-full bg-white text-txt-muted text-sm font-medium whitespace-nowrap border border-rose-100">Início</span>
@@ -17,6 +19,7 @@
     <span class="px-4 py-1.5 rounded-full bg-white text-txt-muted text-sm font-medium whitespace-nowrap border border-rose-100">Mês 2</span>
     <span class="px-4 py-1.5 rounded-full bg-white text-txt-muted text-sm font-medium whitespace-nowrap border border-rose-100">Mês 3</span>
   </div>
+
   <div class="grid grid-cols-3 gap-3">
     <div onclick="navigateTo('page-galeria-comparar')" class="bg-white rounded-2xl overflow-hidden shadow-sm cursor-pointer">
       <div class="aspect-[3/4] bg-rose-100 flex items-center justify-center text-4xl">📸</div>
@@ -61,6 +64,7 @@
       </div>
     </div>
   </div>
+
   <div class="fixed bottom-20 left-4 right-4">
     <button onclick="navigateTo('page-galeria-comparar')" class="w-full bg-rose-600 text-white font-semibold py-4 rounded-2xl shadow-lg flex items-center justify-center gap-2">
       <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
@@ -77,6 +81,7 @@
     </button>
     <h1 class="text-2xl font-display font-semibold txt-primary">Comparação</h1>
   </div>
+
   <div class="relative rounded-3xl overflow-hidden bg-white shadow-sm mb-6">
     <div class="flex">
       <div class="w-1/2 aspect-[3/4] bg-rose-100 flex flex-col items-center justify-center">
@@ -90,7 +95,13 @@
         <span class="text-xs text-rose-400 mt-1">12 Abr 2026</span>
       </div>
     </div>
+    <div class="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-1 bg-white/80 shadow-lg flex items-center justify-center" style="pointer-events:none;">
+      <div class="w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center border-2 border-rose-400" style="pointer-events:auto; cursor:grab;">
+        <svg class="w-5 h-5 text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4"/></svg>
+      </div>
+    </div>
   </div>
+
   <div class="bg-white rounded-3xl p-5 shadow-sm">
     <div class="flex items-center gap-2 mb-4">
       <span class="text-2xl">🤖</span>
@@ -116,6 +127,9 @@
         <span class="font-semibold text-rose-500">+12%</span>
       </div>
     </div>
+    <button class="w-full py-3 rounded-xl bg-rose-500 text-white font-semibold text-sm shadow-sm">
+      Ver Relatório Completo
+    </button>
   </div>
 </div>
 
@@ -127,15 +141,63 @@
     </button>
     <h1 class="text-2xl font-display font-semibold txt-primary">Nova Foto</h1>
   </div>
+
   <div class="relative rounded-3xl overflow-hidden bg-gray-900 aspect-[3/4] mb-5">
     <div class="absolute inset-0 flex items-center justify-center">
       <div class="w-24 h-24 border-2 border-white/30 rounded-xl"></div>
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-px h-24 bg-white/20"></div>
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-px w-24 bg-white/20"></div>
+    </div>
+    <div class="absolute top-4 left-4 right-4">
+      <div class="bg-black/50 backdrop-blur-sm rounded-xl px-4 py-3 text-center">
+        <p class="text-white/90 text-sm font-medium">Posicione na mesma ângulo da última foto</p>
+      </div>
+    </div>
+    <div class="absolute bottom-4 left-0 right-0 flex justify-center">
+      <div class="bg-black/50 backdrop-blur-sm rounded-full px-4 py-2 flex items-center gap-2">
+        <div class="w-2 h-2 rounded-full bg-rose-400 animate-pulse"></div>
+        <span class="text-white/80 text-xs">Câmera ativa</span>
+      </div>
     </div>
   </div>
+
   <button class="w-full mb-6 bg-rose-500 text-white font-semibold py-4 rounded-2xl shadow-md flex items-center justify-center gap-2">
     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
     Capturar
   </button>
+
+  <div class="bg-white rounded-3xl p-5 shadow-sm">
+    <h3 class="font-display font-semibold txt-primary mb-4">Dicas para melhor foto</h3>
+    <div class="space-y-4">
+      <div class="flex items-start gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gold-50 flex items-center justify-center flex-shrink-0">
+          <span class="text-xl">☀️</span>
+        </div>
+        <div>
+          <p class="font-medium text-sm txt-primary">Use luz natural</p>
+          <p class="text-xs txt-muted mt-0.5">Fotografe perto de uma janela durante o dia</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-3">
+        <div class="w-10 h-10 rounded-xl bg-sage-50 flex items-center justify-center flex-shrink-0">
+          <span class="text-xl">📐</span>
+        </div>
+        <div>
+          <p class="font-medium text-sm txt-primary">Mesmo ângulo sempre</p>
+          <p class="text-xs txt-muted mt-0.5">Mantenha a mesma posição para comparação precisa</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-3">
+        <div class="w-10 h-10 rounded-xl bg-rose-50 flex items-center justify-center flex-shrink-0">
+          <span class="text-xl">🚫</span>
+        </div>
+        <div>
+          <p class="font-medium text-sm txt-primary">Sem filtro</p>
+          <p class="text-xs txt-muted mt-0.5">Desative filtros de beleza para resultados reais</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- Page 4: Wearables -->
@@ -146,15 +208,24 @@
     </button>
     <h1 class="text-2xl font-display font-semibold txt-primary">Wearables</h1>
   </div>
+
   <h2 class="text-sm font-semibold txt-muted uppercase tracking-wider mb-3">Dispositivos Conectados</h2>
+
   <div class="space-y-3 mb-6">
     <div class="bg-white rounded-2xl p-4 shadow-sm flex items-center gap-4">
       <div class="w-14 h-14 rounded-2xl bg-rose-100 flex items-center justify-center text-2xl">⌚</div>
       <div class="flex-1">
         <p class="font-semibold txt-primary">Apple Watch</p>
+        <div class="flex items-center gap-2 mt-1">
+          <div class="flex items-center gap-1">
+            <svg class="w-3.5 h-3.5 text-sage-500" fill="currentColor" viewBox="0 0 20 20"><path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5z"/><path d="M8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7z"/><path d="M14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"/></svg>
+            <span class="text-xs txt-muted">85%</span>
+          </div>
+        </div>
       </div>
       <span class="px-3 py-1 bg-sage-50 text-sage-600 text-xs font-medium rounded-full">Conectado</span>
     </div>
+
     <div class="bg-white rounded-2xl p-4 shadow-sm flex items-center gap-4">
       <div class="w-14 h-14 rounded-2xl bg-gold-100 flex items-center justify-center text-2xl">⚖️</div>
       <div class="flex-1">
@@ -164,6 +235,50 @@
       <span class="px-3 py-1 bg-sage-50 text-sage-600 text-xs font-medium rounded-full">Conectado</span>
     </div>
   </div>
+
+  <h2 class="text-sm font-semibold txt-muted uppercase tracking-wider mb-3">Dados de Saúde</h2>
+
+  <div class="grid grid-cols-3 gap-3 mb-6">
+    <div class="bg-white rounded-2xl p-4 shadow-sm text-center">
+      <div class="w-12 h-12 mx-auto rounded-full bg-sage-100 flex items-center justify-center text-xl mb-2">🌙</div>
+      <p class="text-xs txt-muted">Sono</p>
+      <p class="font-bold text-sage-600 text-sm mt-0.5">7.2h</p>
+      <p class="text-[10px] txt-muted">média</p>
+      <div class="flex items-end justify-center gap-1 mt-3 h-8">
+        <div class="w-2 bg-sage-300 rounded-t" style="height: 60%"></div>
+        <div class="w-2 bg-sage-400 rounded-t" style="height: 80%"></div>
+        <div class="w-2 bg-sage-500 rounded-t" style="height: 100%"></div>
+        <div class="w-2 bg-sage-400 rounded-t" style="height: 70%"></div>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-2xl p-4 shadow-sm text-center">
+      <div class="w-12 h-12 mx-auto rounded-full bg-rose-100 flex items-center justify-center text-xl mb-2">🧠</div>
+      <p class="text-xs txt-muted">Stress</p>
+      <p class="font-bold text-rose-500 text-sm mt-0.5">Baixo</p>
+      <p class="text-[10px] txt-muted">nível</p>
+      <div class="flex items-end justify-center gap-1 mt-3 h-8">
+        <div class="w-2 bg-rose-300 rounded-t" style="height: 40%"></div>
+        <div class="w-2 bg-rose-300 rounded-t" style="height: 30%"></div>
+        <div class="w-2 bg-rose-400 rounded-t" style="height: 50%"></div>
+        <div class="w-2 bg-rose-300 rounded-t" style="height: 35%"></div>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-2xl p-4 shadow-sm text-center">
+      <div class="w-12 h-12 mx-auto rounded-full bg-gold-100 flex items-center justify-center text-xl mb-2">🏃</div>
+      <p class="text-xs txt-muted">Atividade</p>
+      <p class="font-bold text-gold-600 text-sm mt-0.5">8,432</p>
+      <p class="text-[10px] txt-muted">passos</p>
+      <div class="flex items-end justify-center gap-1 mt-3 h-8">
+        <div class="w-2 bg-gold-300 rounded-t" style="height: 50%"></div>
+        <div class="w-2 bg-gold-400 rounded-t" style="height: 75%"></div>
+        <div class="w-2 bg-gold-500 rounded-t" style="height: 100%"></div>
+        <div class="w-2 bg-gold-400 rounded-t" style="height: 65%"></div>
+      </div>
+    </div>
+  </div>
+
   <button class="w-full bg-rose-500 text-white font-semibold py-4 rounded-2xl shadow-md flex items-center justify-center gap-2">
     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
     Sincronizar Agora
