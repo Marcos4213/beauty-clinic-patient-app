@@ -6,6 +6,7 @@
 <title>Beauty Clinic — Dra. Rachel</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
 <style>
 :root{
   --navy:#0F2C4C; --sage:#2E8B6E; --gold:#C9A86C;
@@ -65,13 +66,16 @@ h1,h2,h3{margin:0;font-weight:700;letter-spacing:-.01em}
 .check.done{background:var(--sage);border-color:var(--sage);color:#fff}
 .photo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
 .photo-grid img{width:100%;aspect-ratio:1;border-radius:12px;object-fit:cover;cursor:pointer;border:1px solid var(--border)}
-.nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;z-index:40;background:rgba(255,255,255,.96);backdrop-filter:blur(16px);border-top:1px solid var(--border);display:flex;align-items:flex-end;padding:6px 4px calc(6px + env(safe-area-inset-bottom))}
-.nav button{flex:1;background:none;border:none;display:flex;flex-direction:column;align-items:center;gap:2px;color:var(--text3);font-size:10px;font-weight:600;cursor:pointer;padding:6px 0 4px;border-radius:10px;transition:.15s}
-.nav button.active{color:var(--navy)}
-.nav button.active svg{stroke:var(--navy)}
-.nav .center{margin-top:-28px;flex:none;width:72px}
-.nav .center .fab{width:54px;height:54px;border-radius:50%;background:linear-gradient(135deg,var(--navy),var(--sage));display:flex;align-items:center;justify-content:center;color:#fff;box-shadow:0 6px 18px rgba(15,44,76,.3)}
-.nav .center span{margin-top:2px}
+.nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;z-index:40;background:rgba(255,255,255,.97);backdrop-filter:blur(24px) saturate(1.8);-webkit-backdrop-filter:blur(24px) saturate(1.8);border-top:1px solid rgba(0,0,0,.04);display:flex;align-items:flex-end;padding:4px 6px calc(4px + env(safe-area-inset-bottom))}
+.nav button{flex:1;background:none;border:none;display:flex;flex-direction:column;align-items:center;gap:2px;color:#B8B8B8;font-size:10px;font-weight:500;cursor:pointer;padding:6px 0 4px;border-radius:14px;transition:all .25s cubic-bezier(.4,0,.2,1);position:relative}
+.nav button.active{color:#0F2C4C}
+.nav button.active::before{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:28px;height:3px;border-radius:0 0 4px 4px;background:linear-gradient(180deg,#0F2C4C,#2E8B6E)}
+.nav button i{transition:transform .2s cubic-bezier(.4,0,.2,1)}
+.nav button.active i{transform:scale(1.1)}
+.nav .center{margin-top:-26px;flex:none;width:72px}
+.nav .center .fab{width:54px;height:54px;border-radius:50%;background:linear-gradient(145deg,#0F2C4C 0%,#1A5C4A 55%,#2E8B6E 100%);display:flex;align-items:center;justify-content:center;color:#fff;box-shadow:0 6px 20px rgba(15,44,76,.28),0 2px 8px rgba(46,139,110,.18),inset 0 1px 0 rgba(255,255,255,.12);transition:transform .2s cubic-bezier(.4,0,.2,1),box-shadow .2s}
+.nav .center .fab:active{transform:scale(.94)}
+.nav .center span{margin-top:1px;font-size:10px;font-weight:700;color:#0F2C4C}
 /* Overlay / drawer / modal */
 .overlay{position:fixed;inset:0;background:rgba(15,44,76,.4);z-index:60;opacity:0;pointer-events:none;transition:opacity .25s;backdrop-filter:blur(2px)}
 .overlay.show{opacity:1;pointer-events:auto}
@@ -238,19 +242,7 @@ function compliance(){ // mock realistic: based on checkins count last 14 days v
   const base=78 + Math.min(18, total*2) + (S.streak>10?4:0);
   return Math.min(98, base);
 }
-function svgP(name){ const i={home:'M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6',
-  trat:'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4',
-  prog:'M3 9a2 2 0 012-2h1l1-1h10l1 1h1a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9zm9 3a3 3 0 100 6 3 3 0 000-6z',
-  agenda:'M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z',
-  perfil:'M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z',
-  bell:'M15 17h5l-1.4-1.4A2 2 0 0118 14.2V11a6 6 0 10-12 0v3.2c0 .5-.2 1-.6 1.4L4 17h5m6 0v1a3 3 0 11-6 0v-1',
-  check:'M9 12l2 2 4-4', plus:'M12 5v14M5 12h14', cart:'M16 11a4 4 0 10-8 0M3 3h2l2.4 12.4a2 2 0 002 1.6h7.7a2 2 0 002-1.6L21 7H6',
-  trophy:'M8 21h8M12 17v4M7 4h10v4a5 5 0 01-10 0V4zM7 4H4v3a3 3 0 003 3M17 4h3v3a3 3 0 01-3 3', chat:'M8 10h8M8 14h5M21 12a8 8 0 01-11.3 7.3L3 21l1.7-6.7A8 8 0 1121 12z',
-  star:'M12 2l3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1L12 2z', photo:'M4 16l4-4 4 4 3-3 5 5M4 4h16v16H4z',
-  map:'M12 21s-7-6.3-7-11a7 7 0 1114 0c0 4.7-7 11-7 11zM12 12a2.5 2.5 0 100-5 2.5 2.5 0 000 5z',
-  back:'M15 19l-7-7 7-7', store:'M4 7h16l-1 9a2 2 0 01-2 2H7a2 2 0 01-2-2L4 7zM9 7V4h6v3'};
-  return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="${i[name]||''}"/></svg>`;
-}
+function svgP(name){ return `<i data-lucide="${name}" style="width:22px;height:22px"></i>`; }
 
 /* ============ RENDER: TOPBAR + NAV ============ */
 function renderTopbar(){
@@ -264,13 +256,14 @@ function renderTopbar(){
   $('#topbar').innerHTML = map[state.page] || map.inicio;
 }
 function renderNav(){
-  const nav=[['inicio','Início',svgP('home')],['tratamento','Tratamento',svgP('trat')],['checkin','',svgP('check')],['progresso','Progresso',svgP('prog')],['agenda','Agenda',svgP('agenda')],['perfil','Perfil',svgP('perfil')]];
+  const nav=[['inicio','Início','house'],['tratamento','Tratamento','clipboard-list'],['checkin','','circle-check-big'],['progresso','Progresso','trending-up'],['agenda','Agenda','calendar'],['perfil','Perfil','user']];
   let h='';
   nav.forEach(([p,label,ic])=>{
-    if(p==='checkin'){ h+=`<button class="center" onclick="openCheckin()"><div class="fab">${svgP('check')}</div><span style="font-size:10px;color:var(--text3);font-weight:600">Check-in</span></button>`; }
-    else { h+=`<button class="${state.page===p?'active':''}" onclick="go('${p}')">${ic}<span>${label}</span></button>`; }
+    if(p==='checkin'){ h+=`<button class="center" onclick="openCheckin()"><div class="fab"><i data-lucide="circle-check-big" style="width:26px;height:26px"></i></div><span>Check-in</span></button>`; }
+    else { h+=`<button class="${state.page===p?'active':''}" onclick="go('${p}')"><i data-lucide="${ic}" style="width:22px;height:22px"></i><span>${label}</span></button>`; }
   });
   $('#bottomnav').innerHTML=h;
+  if(window.lucide) lucide.createIcons();
 }
 
 /* ============ SCREEN LOGIC ============ */
@@ -285,6 +278,7 @@ function renderScreen(p){
   if(p==='progresso') renderProgresso();
   if(p==='agenda') renderAgenda();
   if(p==='perfil') renderPerfil();
+  if(window.lucide) lucide.createIcons();
 }
 
 /* ---- INÍCIO ---- */
@@ -303,10 +297,10 @@ function renderInicio(){
   $('#card-proximo').innerHTML=`<p style="font-size:13px;font-weight:600;color:var(--text2)">Próximo passo da clínica</p><h3 style="margin-top:4px;font-size:17px">Retorno presencial</h3><div class="streak-row" style="margin-top:8px"><div class="stat"><div class="ring" style="--p:0;background:var(--navy-soft);width:48px;height:48px"><span style="width:38px;height:38px;font-size:14px;color:var(--navy)">${fmtData(pr).split(' ')[0]}</span></div><div><p style="font-weight:700">${fmtData(pr)}</p><p class="muted" style="font-size:13px">${dias>0?`Em ${dias} dias · 15h`:'Hoje · 15h'}</p></div></div></div><button class="btn btn-ghost" style="margin-top:14px" onclick="go('agenda')">Ver detalhes</button>`;
 
   const acessos=[
-    {i:'trat',l:'Protocolo de hoje',f:"go('tratamento')"},
-    {i:'photo',l:'Galeria de fotos',f:"go('progresso')"},
-    {i:'store',l:'Loja',f:"openLoja()"},
-    {i:'chat',l:'Falar com a clínica',f:"openSuporte()"}
+    {i:'clipboard-list',l:'Protocolo de hoje',f:"go('tratamento')"},
+    {i:'image',l:'Galeria de fotos',f:"go('progresso')"},
+    {i:'shopping-bag',l:'Loja',f:"openLoja()"},
+    {i:'message-circle',l:'Falar com a clínica',f:"openSuporte()"}
   ];
   $('#acessos').innerHTML=acessos.map(a=>`<div class="qcard" onclick="${a.f}"><div class="qi">${svgP(a.i)}</div><div class="ql">${a.l}</div></div>`).join('');
 
@@ -376,7 +370,7 @@ function renderAgenda(){
       <button class="btn" style="background:#fff;color:var(--navy);flex:1" onclick="toast('Presença confirmada ✓')">Confirmar</button>
       <button class="btn" style="background:rgba(255,255,255,.18);color:#fff;flex:1" onclick="openReagendar()">Reagendar</button>
     </div>
-    <button class="btn" style="background:rgba(255,255,255,.12);color:#fff;margin-top:8px" onclick="toast('Abrindo mapa…')">${svgP('map')} Ver no mapa</button>
+    <button class="btn" style="background:rgba(255,255,255,.12);color:#fff;margin-top:8px" onclick="toast('Abrindo mapa…')">${svgP('map-pin')} Ver no mapa</button>
   </div>`;
 
   // próximos retornos
@@ -389,7 +383,7 @@ function renderAgenda(){
   const hist=[{d:'08/07',t:'Avaliação inicial'},{d:'22/07',t:'Retorno · adesão boa'}];
   hist.forEach(h=>{ html+=`<div class="list-item"><div class="date" style="width:46px;height:46px;font-size:13px"><b>${h.d.split('/')[0]}</b><span>${['','jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'][+h.d.split('/')[1]]}</span></div><div><p style="font-weight:600">${h.t}</p><p class="muted" style="font-size:13px">Dra. Rachel</p></div></div>`; });
 
-  html+=`<button class="btn btn-ghost" style="margin-top:14px" onclick="openSuporte()">${svgP('chat')} Teleconsulta ou falar com a clínica</button>`;
+  html+=`<button class="btn btn-ghost" style="margin-top:14px" onclick="openSuporte()">${svgP('message-circle')} Teleconsulta ou falar com a clínica</button>`;
   $('#agenda-content').innerHTML=html;
 }
 
@@ -407,9 +401,9 @@ function renderPerfil(){
 
   const items=[
     {i:'trophy',l:'Conquistas e pontos',f:"openConquistas()"},
-    {i:'store',l:'Loja de produtos',f:"openLoja()"},
-    {i:'chat',l:'Suporte (WhatsApp)',f:"openSuporte()"},
-    {i:'perfil',l:'Configurações',f:"openConfig()"}
+    {i:'shopping-bag',l:'Loja de produtos',f:"openLoja()"},
+    {i:'message-circle',l:'Suporte (WhatsApp)',f:"openSuporte()"},
+    {i:'settings',l:'Configurações',f:"openConfig()"}
   ];
   html+=`<div class="card" style="margin-top:14px;padding:6px 14px">`+items.map(it=>`<div class="list-item" onclick="${it.f}"><div class="qi" style="width:36px;height:36px;border-radius:10px;background:var(--navy-soft);display:flex;align-items:center;justify-content:center;color:var(--navy)">${svgP(it.i)}</div><div style="flex:1;font-weight:600">${it.l}</div><div class="tertiary">›</div></div>`).join('')+`</div>`;
 
@@ -418,9 +412,9 @@ function renderPerfil(){
 }
 
 /* ============ SHEET / MODAL ============ */
-function openSheet(t,body){ $('#sheetTitle').textContent=t; $('#sheetBody').innerHTML=body; $('#overlay').classList.add('show'); $('#sheet').classList.add('show'); }
+function openSheet(t,body){ $('#sheetTitle').textContent=t; $('#sheetBody').innerHTML=body; $('#overlay').classList.add('show'); $('#sheet').classList.add('show'); if(window.lucide) lucide.createIcons(); }
 function closeSheet(){ $('#overlay').classList.remove('show'); $('#sheet').classList.remove('show'); }
-function openModal(html){ $('#modalBox').innerHTML=html; $('#modal').classList.add('show'); }
+function openModal(html){ $('#modalBox').innerHTML=html; $('#modal').classList.add('show'); if(window.lucide) lucide.createIcons(); }
 function closeModal(){ $('#modal').classList.remove('show'); }
 
 /* ---- CHECK-IN FLOW ---- */
@@ -452,22 +446,23 @@ function openLoja(cartOnly){
   let body=`<div class="seg" style="margin-bottom:14px"><button class="${cartOnly?'':'active'}" onclick="openLoja(false)">Produtos</button><button class="${cartOnly?'active':''}" onclick="openLoja(true)">Carrinho (${S.carrinho.length})</button></div>`;
   if(cartOnly){ body+=`<div class="card" style="padding:8px 14px">${cartHtml}</div>`; }
   else {
-    body+=PRODUTOS.map(p=>`<div class="product" style="margin-bottom:12px"><img src="${p.img}" onerror="this.src='https://picsum.photos/seed/x/200'"><div style="flex:1;min-width:0"><p style="font-weight:700">${p.nome}</p><p class="muted" style="font-size:12px">${p.marca}</p><p class="muted" style="font-size:13px;margin:4px 0">${p.desc}</p><div style="display:flex;align-items:center;justify-content:space-between"><b style="color:var(--navy)">R$ ${p.preco.toFixed(2)}</b><button class="btn btn-ghost btn-sm" onclick="addCart('${p.id}')">${svgP('cart')} Add</button></div></div></div>`).join('');
+    body+=PRODUTOS.map(p=>`<div class="product" style="margin-bottom:12px"><img src="${p.img}" onerror="this.src='https://picsum.photos/seed/x/200'"><div style="flex:1;min-width:0"><p style="font-weight:700">${p.nome}</p><p class="muted" style="font-size:12px">${p.marca}</p><p class="muted" style="font-size:13px;margin:4px 0">${p.desc}</p><div style="display:flex;align-items:center;justify-content:space-between"><b style="color:var(--navy)">R$ ${p.preco.toFixed(2)}</b><button class="btn btn-ghost btn-sm" onclick="addCart('${p.id}')">${svgP('shopping-cart')} Add</button></div></div></div>`).join('');
   }
   openSheet(cartOnly?'Carrinho':'Loja · produtos indicados', body);
   updateCartPill();
+  if(window.lucide) lucide.createIcons();
 }
 function addCart(id){ if(!S.carrinho.includes(id))S.carrinho.push(id); save(); updateCartPill(); toast('Adicionado à loja'); }
 function rmCart(id){ S.carrinho=S.carrinho.filter(x=>x!==id); save(); updateCartPill(); openLoja(true); }
 function finalizarCompra(){ S.carrinho=[]; save(); updateCartPill(); closeSheet(); toast('Pedido enviado à clínica ✓'); }
-function updateCartPill(){ const p=$('#cartPill'); if(S.carrinho.length){ p.style.display='flex'; p.innerHTML=`${svgP('cart')} ${S.carrinho.length} item(s)`; } else p.style.display='none'; }
+function updateCartPill(){ const p=$('#cartPill'); if(S.carrinho.length){ p.style.display='flex'; p.innerHTML=`${svgP('shopping-cart')} ${S.carrinho.length} item(s)`; if(window.lucide) lucide.createIcons(); } else p.style.display='none'; }
 
 /* ---- SUPORTE ---- */
-function openSuporte(){ const msg=encodeURIComponent('Olá Dra. Rachel, preciso de suporte sobre meu tratamento.'); openModal(`<h2 style="font-size:20px;margin-bottom:6px">Falar com a clínica</h2><p class="muted" style="margin-bottom:18px">Tire dúvidas, reagende ou peça reposição de produtos.</p><a class="btn btn-sage" href="${WA}${msg}" target="_blank" style="text-decoration:none">${svgP('chat')} Abrir no WhatsApp</a><button class="btn btn-outline" style="margin-top:10px" onclick="closeModal()">Fechar</button>`); }
+function openSuporte(){ const msg=encodeURIComponent('Olá Dra. Rachel, preciso de suporte sobre meu tratamento.'); openModal(`<h2 style="font-size:20px;margin-bottom:6px">Falar com a clínica</h2><p class="muted" style="margin-bottom:18px">Tire dúvidas, reagende ou peça reposição de produtos.</p><a class="btn btn-sage" href="${WA}${msg}" target="_blank" style="text-decoration:none">${svgP('message-circle')} Abrir no WhatsApp</a><button class="btn btn-outline" style="margin-top:10px" onclick="closeModal()">Fechar</button>`); }
 
 /* ---- CONQUISTAS ---- */
 function openConquistas(){
-  const badges=[{i:'trophy',t:'Streak de 12 dias',d:'Mais de 10 dias seguidos',ok:true},{i:'star',t:'Primeira foto',d:'Registrou seu antes',ok:true},{i:'check',t:'Check-in semanal',d:'7 dias de adesão',ok:true},{i:'store',t:'Reposição via app',d:'Fez um pedido',ok:false}];
+  const badges=[{i:'trophy',t:'Streak de 12 dias',d:'Mais de 10 dias seguidos',ok:true},{i:'star',t:'Primeira foto',d:'Registrou seu antes',ok:true},{i:'circle-check-big',t:'Check-in semanal',d:'7 dias de adesão',ok:true},{i:'shopping-bag',t:'Reposição via app',d:'Fez um pedido',ok:false}];
   let body=`<div style="text-align:center;margin-bottom:16px"><div class="ring" style="--p:75;margin:0 auto"><span>${S.pontos}</span></div><p class="muted" style="margin-top:8px">pontos acumulados</p></div>`;
   body+=badges.map(b=>`<div class="list-item"><div class="qi" style="width:40px;height:40px;border-radius:11px;background:${b.ok?'var(--gold-soft)':'var(--navy-soft)'};color:${b.ok?'#9A7B3E':'var(--text3)'};display:flex;align-items:center;justify-content:center">${svgP(b.i)}</div><div style="flex:1"><p style="font-weight:600">${b.t}</p><p class="muted" style="font-size:13px">${b.d}</p></div>${b.ok?'<span class="chip-gold">✓</span>':'<span class="chip">em breve</span>'}</div>`).join('');
   openSheet('Conquistas', body);
@@ -502,7 +497,7 @@ function viewFoto(i){ const f=S.fotos[i]; openModal(`<img src="${f.url||'https:/
 function openReagendar(){ openModal(`<h2 style="font-size:20px;margin-bottom:6px">Reagendar retorno</h2><p class="muted" style="margin-bottom:16px">Escolha a melhor data. Mantemos o intervalo de 15 dias.</p><button class="btn btn-sage" onclick="closeModal();toast('Solicitação enviada à clínica ✓')">Solicitar novo horário</button><button class="btn btn-outline" style="margin-top:10px" onclick="closeModal()">Voltar</button>`); }
 
 /* ============ INIT ============ */
-function init(){ updateCartPill(); renderTopbar(); renderNav(); renderInicio(); }
+function init(){ updateCartPill(); renderTopbar(); renderNav(); renderInicio(); if(window.lucide) lucide.createIcons(); }
 init();
 </script>
 </body>
