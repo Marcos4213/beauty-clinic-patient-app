@@ -1,1 +1,965 @@
-<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Avaliação Capilar | Dra. Rachel</title><style>:root{--bg:#07101e;--s:#101d31;--t:#f5f7fb;--m:#9aa9bd;--p:#2de0bd;--v:#8b5cf6;--a:#f9b859;--l:#263a58}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 50% -10%,#18324b,#07101e 55%);color:var(--t);font:15px Arial,sans-serif}.shell{width:min(100%,560px);min-height:100vh;margin:auto;padding:24px 20px;display:flex;flex-direction:column}.brand{display:flex;align-items:center;gap:10px;margin-bottom:70px}.mark{width:42px;height:42px;border-radius:14px;display:grid;place-items:center;font-weight:800;background:linear-gradient(135deg,var(--p),var(--v))}.brand small{display:block;color:var(--m);margin-top:3px}.eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.16em;color:var(--p);font-weight:700}.intro{margin:auto 0}.intro h1,.q,.gate h2,.result h2{font-family:Arial,sans-serif;letter-spacing:-.04em}.intro h1{font-size:42px;line-height:1.05;margin:12px 0}.intro h1 span{color:var(--p)}.lead,p{color:var(--m);line-height:1.55}.cta{border:0;border-radius:16px;padding:16px;width:100%;margin-top:24px;background:linear-gradient(120deg,var(--a),#ffd990);color:#07101e;font-weight:800;font-size:15px}.quiz,.gate,.result{display:none}.active{display:block;animation:up .3s ease}.bar{height:5px;background:var(--l);border-radius:9px;overflow:hidden;margin-bottom:25px}.bar b{display:block;height:100%;background:linear-gradient(90deg,var(--p),var(--v));transition:width .3s}.count{font-size:12px;color:var(--m)}.q{font-size:29px;line-height:1.1;margin:14px 0 24px}.answers{display:grid;gap:10px}.answer{padding:16px;text-align:left;border:1px solid var(--l);border-radius:15px;background:var(--s);color:var(--t);font-weight:600}.answer span{color:var(--p);margin-right:9px}.back{border:0;background:transparent;color:var(--m);padding:14px 0}.field{display:grid;gap:7px;margin:17px 0}.field label{font-size:12px;color:var(--m)}.field input{padding:15px;border:1px solid var(--l);border-radius:14px;background:var(--s);color:var(--t);font-size:15px}.error{color:#ff9090;font-size:12px;min-height:16px}.consent{font-size:11px;color:var(--m);line-height:1.4}.consent input{accent-color:var(--p)}.result{text-align:center}.seal{width:66px;height:66px;display:grid;place-items:center;margin:0 auto 20px;border-radius:22px;background:linear-gradient(135deg,var(--p),var(--v));font-size:28px}.result h2,.gate h2{font-size:31px;line-height:1.1;margin:10px 0}.summary{text-align:left;padding:15px;margin:23px 0;border:1px solid var(--l);border-radius:15px;color:var(--m);font-size:13px}.summary strong{color:var(--t)}.whats{display:block;text-decoration:none;border-radius:16px;padding:16px;background:#35d779;color:#06120b;font-weight:800}.foot{margin-top:auto;text-align:center;font-size:11px;color:#6e7d91}@keyframes up{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}</style></head><body><main class="shell"><header class="brand"><div class="mark">RC</div><div><strong>Dra. Rachel</strong><small>tricologia clínica</small></div></header><section id="intro" class="intro"><p class="eyebrow">Pré-avaliação personalizada</p><h1>Entenda o que seu cabelo está <span>pedindo.</span></h1><p class="lead">Responda 8 perguntas rápidas e receba uma orientação inicial para conversar com mais clareza com a Dra. Rachel.</p><button class="cta" id="start">Começar minha avaliação →</button><p style="text-align:center;font-size:11px">Leva menos de 2 minutos · sem compromisso</p></section><section id="quiz" class="quiz"><div class="bar"><b id="progress"></b></div><div class="count" id="count"></div><h2 class="q" id="question"></h2><div class="answers" id="answers"></div><button class="back" id="back">← Voltar</button></section><section id="gate" class="gate"><p class="eyebrow">Seu perfil está pronto</p><h2>Onde podemos enviar sua orientação inicial?</h2><p>Preencha seus dados para ver seu resumo e abrir uma conversa personalizada.</p><form id="form"><div class="field"><label for="name">Seu nome</label><input id="name" autocomplete="name" required placeholder="Como podemos chamar você?"></div><div class="field"><label for="phone">Seu WhatsApp</label><input id="phone" autocomplete="tel" inputmode="tel" required placeholder="(11) 99999-9999"></div><label class="consent"><input id="consent" type="checkbox" required> Aceito receber meu resumo e orientações. Posso pedir a remoção dos meus dados.</label><p id="error" class="error"></p><button class="cta">Ver meu perfil capilar</button></form></section><section id="result" class="result"><div class="seal">✓</div><p class="eyebrow">Seu próximo passo</p><h2 id="resultTitle"></h2><p>Esta triagem não substitui uma avaliação profissional. A Dra. Rachel pode orientar o melhor caminho para o seu caso.</p><div id="summary" class="summary"></div><a id="whats" class="whats" target="_blank" rel="noopener">Falar com a Dra. Rachel</a></section><footer class="foot">Dra. Rachel · cuidado baseado em acompanhamento</footer></main><script>const data=[['O que mais fez você buscar uma avaliação agora?',['Queda acima do normal','Afinamento ou perda de densidade','Entradas ou falhas','Quero prevenir a evolução']],['Em qual faixa de idade você está?',['Até 24','25 a 34','35 a 44','45 ou mais']],['Há quanto tempo você percebe essa mudança?',['Menos de 3 meses','De 3 a 6 meses','De 6 meses a 1 ano','Há mais de 1 ano']],['Onde você percebe mais a mudança?',['Entradas','Topo da cabeça','Coroa','Queda espalhada','Uma ou mais falhas']],['Como isso aparece no dia a dia?',['Mais fios no banho','Couro cabeludo aparente','Fios mais finos','Linha frontal recuando','Não sei identificar']],['Alguém da sua família também teve queda?',['Sim, lado materno','Sim, lado paterno','Sim, os dois lados','Não que eu saiba','Não tenho certeza']],['Você já tentou algum produto ou tratamento?',['Ainda não','Produtos por conta própria','Mais de uma tentativa','Estou em acompanhamento']],['O que seria mais útil para você agora?',['Entender o que pode estar acontecendo','Saber quais opções existem','Montar um plano de acompanhamento','Agendar uma conversa','Ainda tenho dúvidas']]];let i=0;const a=[];const $=x=>document.getElementById(x);const pixel=(n,d={})=>{if(window.fbq)fbq('track',n,d)};function render(){const x=data[i];$('count').textContent='Pergunta '+(i+1)+' de '+data.length;$('progress').style.width=((i+1)/data.length*100)+'%';$('question').textContent=x[0];$('answers').innerHTML=x[1].map((v,n)=>`<button class="answer" data-v="${v}"><span>${String.fromCharCode(65+n)}</span>${v}</button>`).join('');document.querySelectorAll('.answer').forEach(b=>b.onclick=()=>{a[i]=b.dataset.v;pixel('ViewContent',{content_name:'quiz_question_'+(i+1),content_category:'quiz_question',quiz_step:i+1});if(i<data.length-1){i++;render()}else{ $('quiz').classList.remove('active');$('gate').classList.add('active')}})}$('start').onclick=()=>{$('intro').style.display='none';$('quiz').classList.add('active');pixel('ViewContent',{content_name:'quiz_start',content_category:'quiz_start'});render()};$('back').onclick=()=>{if(i){i--;render()}else{$('quiz').classList.remove('active');$('intro').style.display='block'}};$('form').onsubmit=e=>{e.preventDefault();const phone=$('phone').value.replace(/\D/g,'');if(phone.length<10){$('error').textContent='Digite um WhatsApp válido com DDD.';return}const name=$('name').value.trim()||'Olá';const main=a[0]||'sua jornada capilar';$('gate').classList.remove('active');$('result').classList.add('active');$('resultTitle').textContent=name+', seu próximo passo pode ser mais claro.';$('summary').innerHTML='<strong>Seu resumo inicial</strong><br>Principal preocupação: '+main+'.<br>Tempo percebido: '+(a[2]||'não informado')+'.<br>Região: '+(a[3]||'não informado')+'.';$('whats').href='https://wa.me/5511992906336?text='+encodeURIComponent('Olá, Dra. Rachel. Fiz a pré-avaliação capilar pelo site. Minha principal preocupação é '+main+'. Gostaria de entender meu caso e agendar uma avaliação.');pixel('Lead',{content_name:'quiz_tricologia',content_category:'lead'})};$('whats').onclick=()=>pixel('Contact',{content_name:'whatsapp_cta',content_category:'lead_contact'});</script></body></html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Avaliação Capilar Gratuita | Dra. Rachel Tricologia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ============ RESET & ROOT ============ */
+:root {
+  --navy: #0F2C4C;
+  --navy-dark: #0B1C2E;
+  --sage: #2E8B6E;
+  --sage-light: #3AA87F;
+  --gold: #C9A86C;
+  --gold-light: #D4BA85;
+  --bg: #F7F5F2;
+  --bg-dark: linear-gradient(180deg, #0B1C2E 0%, #12253D 100%);
+  --surface: #FFFFFF;
+  --text: #1A1A1A;
+  --text2: #5C5C5C;
+  --text3: #8A8A8A;
+  --border: #E8E4DF;
+  --shadow: 0 6px 24px rgba(15,44,76,.08);
+  --shadow-lg: 0 12px 40px rgba(15,44,76,.12);
+  --r: 18px;
+}
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.5;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ============ DARK THEME (Landing + Quiz) ============ */
+.dark {
+  background: var(--bg-dark);
+  color: #F5F7FB;
+}
+.dark .step { background: transparent; }
+
+/* ============ SHELL ============ */
+.shell {
+  width: 100%;
+  max-width: 520px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ============ STEP SYSTEM ============ */
+.step {
+  display: none;
+  padding: 24px 0 40px;
+  animation: fadeUp .4s ease;
+}
+.step.active { display: block; }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ============ LANDING PAGE ============ */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 48px;
+  margin-bottom: 60px;
+}
+.logo-mark {
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--sage), var(--navy));
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 16px;
+  flex-shrink: 0;
+  box-shadow: 0 4px 16px rgba(46,139,110,.3);
+}
+.brand-text { color: #F5F7FB; }
+.brand-text strong { display: block; font-size: 15px; font-weight: 700; }
+.brand-text small { display: block; font-size: 12px; color: #9AA9BD; margin-top: 1px; }
+
+.eyebrow {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  color: var(--gold);
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.hero-title {
+  font-size: 36px;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -.03em;
+  margin: 0 0 16px;
+}
+.hero-title span { color: var(--sage-light); }
+.hero-sub {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #9AA9BD;
+  margin: 0 0 32px;
+}
+
+/* ============ CTA BUTTON ============ */
+.cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  border: none;
+  border-radius: 16px;
+  padding: 18px 24px;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform .12s, box-shadow .2s;
+  text-decoration: none;
+}
+.cta:active { transform: scale(.98); }
+.cta-primary {
+  background: linear-gradient(135deg, var(--sage), var(--sage-light));
+  color: #fff;
+  box-shadow: 0 8px 28px rgba(46,139,110,.35);
+}
+.cta-gold {
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  color: var(--navy);
+  box-shadow: 0 8px 28px rgba(201,168,108,.35);
+}
+.cta-outline {
+  background: transparent;
+  border: 1.5px solid rgba(255,255,255,.2);
+  color: #F5F7FB;
+}
+.cta-wa {
+  background: #25D366;
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(37,211,102,.3);
+}
+
+.micro-trust {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 18px;
+  font-size: 12px;
+  color: #7A8A9D;
+}
+.micro-trust span { display: flex; align-items: center; gap: 4px; }
+
+.landing-footer {
+  text-align: center;
+  margin-top: 48px;
+  padding: 20px 0;
+  border-top: 1px solid rgba(255,255,255,.08);
+  font-size: 12px;
+  color: #5A6A7D;
+}
+
+/* ============ PROGRESS BAR ============ */
+.progress-wrap {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  padding: 16px 0 12px;
+  background: linear-gradient(180deg, #0B1C2E 80%, transparent);
+}
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.progress-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #9AA9BD;
+}
+.progress-count {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--gold);
+}
+.progress-bar {
+  height: 5px;
+  background: rgba(255,255,255,.1);
+  border-radius: 99px;
+  overflow: hidden;
+}
+.progress-bar i {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--sage), var(--gold));
+  border-radius: 99px;
+  transition: width .4s cubic-bezier(.4,0,.2,1);
+}
+
+/* ============ QUIZ ============ */
+.q-title {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 0 0 20px;
+  letter-spacing: -.02em;
+}
+.answers {
+  display: grid;
+  gap: 10px;
+}
+.answer-card {
+  padding: 16px 18px;
+  text-align: left;
+  border: 1.5px solid rgba(255,255,255,.12);
+  border-radius: 16px;
+  background: rgba(255,255,255,.05);
+  color: #F5F7FB;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all .2s;
+  backdrop-filter: blur(4px);
+  line-height: 1.4;
+}
+.answer-card:hover {
+  border-color: var(--sage);
+  background: rgba(46,139,110,.12);
+}
+.answer-card:active {
+  transform: scale(.98);
+  background: rgba(46,139,110,.18);
+  border-color: var(--sage);
+}
+.answer-card.selected {
+  border-color: var(--gold);
+  background: rgba(201,168,108,.12);
+}
+
+/* ============ INPUT FIELD ============ */
+.field-group { margin: 0 0 20px; }
+.field-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #9AA9BD;
+  margin-bottom: 8px;
+}
+.field-input {
+  width: 100%;
+  padding: 16px 18px;
+  border: 1.5px solid rgba(255,255,255,.15);
+  border-radius: 14px;
+  background: rgba(255,255,255,.06);
+  color: #F5F7FB;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 500;
+  outline: none;
+  transition: border-color .2s;
+  -webkit-appearance: none;
+}
+.field-input::placeholder { color: #5A6A7D; }
+.field-input:focus { border-color: var(--sage); }
+
+/* ============ GATE (WhatsApp capture) ============ */
+.gate-card {
+  background: var(--surface);
+  border-radius: 24px;
+  padding: 28px 24px;
+  box-shadow: var(--shadow-lg);
+  text-align: center;
+}
+.gate-card h2 {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 6px;
+  line-height: 1.25;
+}
+.gate-card p {
+  font-size: 14px;
+  color: var(--text2);
+  margin: 0 0 20px;
+}
+.gate-card .field-input {
+  background: var(--bg);
+  border-color: var(--border);
+  color: var(--text);
+}
+.gate-card .field-input::placeholder { color: var(--text3); }
+.gate-card .field-input:focus { border-color: var(--sage); }
+.gate-card .field-label { color: var(--text2); }
+.gate-security {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 14px 0 0;
+  font-size: 12px;
+  color: var(--text3);
+  text-align: left;
+  line-height: 1.5;
+}
+.gate-security svg { flex-shrink: 0; margin-top: 1px; }
+
+/* ============ RESULT ============ */
+.result-card {
+  background: var(--surface);
+  border-radius: 24px;
+  padding: 28px 24px;
+  box-shadow: var(--shadow-lg);
+}
+.result-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--gold-soft, #F6F0E6);
+  color: #9A7B3E;
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+.result-card h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 10px;
+  line-height: 1.3;
+}
+.result-text {
+  font-size: 14px;
+  color: var(--text2);
+  line-height: 1.65;
+  margin: 0 0 16px;
+}
+.result-next {
+  background: var(--navy-soft, #EAF0F6);
+  border-radius: 14px;
+  padding: 14px 16px;
+  margin: 0 0 20px;
+}
+.result-next p {
+  margin: 0;
+  font-size: 13px;
+  color: var(--navy);
+  font-weight: 600;
+}
+.result-next small {
+  display: block;
+  margin-top: 4px;
+  font-size: 12px;
+  color: var(--text2);
+  font-weight: 400;
+}
+
+/* ============ OFFER ============ */
+.offer-highlight {
+  background: linear-gradient(135deg, var(--navy), #16406E);
+  border-radius: 20px;
+  padding: 24px;
+  color: #fff;
+  margin: 16px 0;
+}
+.offer-highlight h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 0 4px;
+}
+.offer-highlight .offer-tag {
+  display: inline-block;
+  background: rgba(255,255,255,.15);
+  border-radius: 999px;
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+.offer-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.offer-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 0;
+  font-size: 14px;
+  color: rgba(255,255,255,.9);
+}
+.offer-list li svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--sage-light);
+}
+
+.urgency-text {
+  text-align: center;
+  font-size: 13px;
+  color: var(--text3);
+  margin: 14px 0 0;
+}
+.offer-footer {
+  text-align: center;
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  font-size: 11px;
+  color: var(--text3);
+  line-height: 1.5;
+}
+
+/* ============ BACK BUTTON ============ */
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  color: #7A8A9D;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 8px 0;
+  margin-bottom: 8px;
+}
+.back-btn:hover { color: #F5F7FB; }
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 380px) {
+  .hero-title { font-size: 30px; }
+  .q-title { font-size: 20px; }
+  .shell { padding: 0 16px; }
+}
+</style>
+</head>
+<body>
+
+<div class="shell dark" id="shell">
+
+  <!-- ============ ETAPA 1: LANDING PAGE ============ -->
+  <div class="step active" id="step-landing">
+    <div class="brand">
+      <div class="logo-mark">DR</div>
+      <div class="brand-text">
+        <strong>Dra. Rachel</strong>
+        <small>Tricologia Clínica</small>
+      </div>
+    </div>
+
+    <p class="eyebrow">Pré-avaliação personalizada</p>
+    <h1 class="hero-title">Descubra o que está acontecendo com o <span>seu cabelo</span></h1>
+    <p class="hero-sub">Responda 8 perguntas rápidas e receba uma orientação inicial personalizada da equipe da Dra. Rachel. Leva menos de 2 minutos.</p>
+
+    <button class="cta cta-primary" onclick="startQuiz()">
+      Começar minha avaliação gratuita
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </button>
+
+    <div class="micro-trust">
+      <span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Sem compromisso
+      </span>
+      <span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        100% gratuito
+      </span>
+      <span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Resultado imediato
+      </span>
+    </div>
+
+    <div class="landing-footer">
+      Dra. Rachel · Cuidado baseado em acompanhamento
+    </div>
+  </div>
+
+  <!-- ============ ETAPA 2: QUIZ ============ -->
+  <div class="step" id="step-quiz">
+    <div class="progress-wrap">
+      <div class="progress-header">
+        <span class="progress-label" id="progressLabel">Pergunta 1 de 8</span>
+        <span class="progress-count" id="progressCount">12%</span>
+      </div>
+      <div class="progress-bar"><i id="progressBar" style="width:12.5%"></i></div>
+    </div>
+    <div id="quizContent"></div>
+  </div>
+
+  <!-- ============ ETAPA 3: CAPTURA WHATSAPP ============ -->
+  <div class="step" id="step-gate">
+    <div style="padding-top:40px">
+      <div class="gate-card">
+        <h2 id="gateTitle">Seu perfil capilar está quase pronto</h2>
+        <p>Para enviarmos sua orientação inicial personalizada e liberarmos o resultado, precisamos do seu WhatsApp.</p>
+
+        <div class="field-group">
+          <label class="field-label" for="inputName">Como podemos te chamar?</label>
+          <input class="field-input" type="text" id="inputName" placeholder="Seu primeiro nome" autocomplete="given-name">
+        </div>
+
+        <div class="field-group">
+          <label class="field-label" for="inputPhone">WhatsApp</label>
+          <input class="field-input" type="tel" id="inputPhone" placeholder="(00) 00000-0000" inputmode="numeric" autocomplete="tel">
+        </div>
+
+        <button class="cta cta-primary" style="margin-top:8px" onclick="submitGate()">
+          Ver meu resultado personalizado
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+
+        <div class="gate-security">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+          <span>Seus dados estão seguros. Usaremos apenas para enviar sua orientação e, se você quiser, entrar em contato sobre a avaliação gratuita.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ ETAPA 4 + 5: RESULTADO + OFERTA ============ -->
+  <div class="step" id="step-result">
+    <div style="padding-top:24px">
+      <div class="result-card" id="resultCard"></div>
+
+      <!-- OFERTA FINAL -->
+      <div class="offer-highlight">
+        <h3>Avaliação Capilar Completa</h3>
+        <span class="offer-tag">100% gratuita e sem compromisso</span>
+        <ul class="offer-list">
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Diagnóstico claro do que está acontecendo
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Análise do couro cabeludo e dos fios
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Direcionamento do melhor tratamento para o seu caso
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Atendimento particular e discreto
+          </li>
+        </ul>
+      </div>
+
+      <button class="cta cta-gold" id="ctaAgendar" onclick="openWhatsApp('agendar')">
+        Quero agendar minha avaliação gratuita
+      </button>
+      <button class="cta cta-wa" style="margin-top:10px" onclick="openWhatsApp('whatsapp')">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.87 9.87 0 004.74 1.21c5.46 0 9.91-4.45 9.91-9.91C22 6.45 17.55 2 12.04 2zm5.77 14.08c-.24.68-1.4 1.3-1.94 1.38-.5.08-1.13.11-1.82-.12-.42-.14-.96-.31-1.65-.61-2.9-1.25-4.79-4.17-4.94-4.36-.14-.19-1.17-1.56-1.17-2.97s.74-2.11 1-2.4c.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.17.01.41-.06.64.49.24.56.81 1.94.88 2.08.07.14.12.31.02.5-.09.19-.14.31-.28.48-.14.17-.3.38-.42.5-.14.14-.29.29-.13.57.17.29.74 1.22 1.59 1.98 1.09.97 2.01 1.27 2.3 1.42.29.14.45.12.62-.07.17-.19.71-.83.9-1.12.19-.29.38-.24.64-.14.26.09 1.63.77 1.91.91.28.14.47.21.54.33.07.12.07.68-.17 1.36z"/></svg>
+        Falar agora no WhatsApp com a equipe
+      </button>
+
+      <p class="urgency-text">Vagas limitadas para avaliação gratuita esta semana.</p>
+
+      <div class="offer-footer">
+        Esta triagem não substitui uma avaliação profissional.<br>A Dra. Rachel irá analisar o seu caso de forma individualizada.
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+/* ============ STATE ============ */
+const STORE = 'funil_capilar_v2';
+let state = {
+  currentStep: 'landing',
+  currentQ: 0,
+  answers: [],
+  nome: '',
+  phone: '',
+  lead: null
+};
+
+function loadState() {
+  try {
+    const r = localStorage.getItem(STORE);
+    if (r) state = Object.assign(state, JSON.parse(r));
+  } catch(e) {}
+}
+function saveState() {
+  localStorage.setItem(STORE, JSON.stringify(state));
+}
+
+/* ============ QUIZ DATA ============ */
+const QUESTIONS = [
+  {
+    q: 'Há quanto tempo você percebe alterações no seu cabelo?',
+    opts: [
+      'Menos de 3 meses',
+      'Entre 3 e 6 meses',
+      'Entre 6 meses e 1 ano',
+      'Mais de 1 ano'
+    ]
+  },
+  {
+    q: 'Qual é a sua maior preocupação no momento?',
+    opts: [
+      'Queda excessiva',
+      'Afinamento / volume diminuindo',
+      'Falhas ou rarefação em algumas áreas',
+      'Cabelo fraco, quebradiço ou sem vida',
+      'Couro cabeludo oleoso, sensível ou com coceira'
+    ]
+  },
+  {
+    q: 'Em qual região você mais nota o problema?',
+    opts: [
+      'Entradas',
+      'Topo da cabeça',
+      'Coroa (parte de trás)',
+      'Em todo o cabelo',
+      'Ainda não sei identificar exatamente'
+    ]
+  },
+  {
+    q: 'Você já tentou algum tratamento antes?',
+    opts: [
+      'Nunca tratei',
+      'Já usei shampoos e loções de farmácia',
+      'Já fiz tratamento com dermatologista ou tricologista',
+      'Já usei medicamentos (Minoxidil, Finasterida etc.)',
+      'Já fiz procedimentos (microagulhamento, laser, PRP etc.)'
+    ]
+  },
+  {
+    q: 'Como está a sua rotina de sono e estresse atualmente?',
+    opts: [
+      'Durmo bem e meu estresse está controlado',
+      'Durmo mal com frequência',
+      'Estou em um período de muito estresse',
+      'Estou passando por mudanças hormonais (pós-parto, menopausa, tireoide etc.)'
+    ]
+  },
+  {
+    q: 'Para personalizarmos sua orientação, como podemos te chamar?',
+    type: 'name'
+  },
+  {
+    q: 'O quanto isso tem incomodado você no dia a dia?',
+    opts: [
+      'Pouco – quase não penso nisso',
+      'Moderado – me incomoda, mas consigo conviver',
+      'Bastante – já afeta minha autoestima',
+      'Muito – quero resolver o mais rápido possível'
+    ]
+  },
+  {
+    q: 'O que você mais gostaria de conquistar com um tratamento?',
+    opts: [
+      'Parar a queda',
+      'Recuperar volume e densidade',
+      'Melhorar a qualidade e força dos fios',
+      'Ter um diagnóstico claro do que está acontecendo',
+      'Um acompanhamento profissional de verdade'
+    ]
+  }
+];
+
+/* ============ NAVIGATION ============ */
+function showStep(id) {
+  document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+  const el = document.getElementById('step-' + id);
+  if (el) {
+    el.classList.add('active');
+    state.currentStep = id;
+    saveState();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+}
+
+function startQuiz() {
+  state.currentQ = 0;
+  state.answers = [];
+  saveState();
+  showStep('quiz');
+  renderQuestion();
+}
+
+/* ============ RENDER QUESTION ============ */
+function renderQuestion() {
+  const q = QUESTIONS[state.currentQ];
+  const total = QUESTIONS.length;
+  const pct = Math.round(((state.currentQ + 1) / total) * 100);
+
+  document.getElementById('progressLabel').textContent = 'Pergunta ' + (state.currentQ + 1) + ' de ' + total;
+  document.getElementById('progressCount').textContent = pct + '%';
+  document.getElementById('progressBar').style.width = pct + '%';
+
+  let html = '';
+
+  if (q.type === 'name') {
+    html = `
+      <button class="back-btn" onclick="prevQuestion()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Voltar
+      </button>
+      <h2 class="q-title">${q.q}</h2>
+      <div class="field-group">
+        <input class="field-input" type="text" id="quizName" placeholder="Seu primeiro nome" autocomplete="given-name" value="${state.nome || ''}">
+      </div>
+      <button class="cta cta-primary" onclick="submitName()">
+        Continuar
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+    `;
+  } else {
+    html = `
+      <button class="back-btn" onclick="prevQuestion()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Voltar
+      </button>
+      <h2 class="q-title">${q.q}</h2>
+      <div class="answers">
+        ${q.opts.map((opt, i) => `
+          <button class="answer-card" onclick="selectAnswer(${i})">${opt}</button>
+        `).join('')}
+      </div>
+    `;
+  }
+
+  document.getElementById('quizContent').innerHTML = html;
+
+  if (q.type === 'name') {
+    const inp = document.getElementById('quizName');
+    if (inp) {
+      inp.focus();
+      inp.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') submitName();
+      });
+    }
+  }
+}
+
+function selectAnswer(idx) {
+  state.answers[state.currentQ] = idx;
+  saveState();
+
+  const cards = document.querySelectorAll('.answer-card');
+  if (cards[idx]) {
+    cards[idx].classList.add('selected');
+  }
+
+  setTimeout(() => {
+    if (state.currentQ < QUESTIONS.length - 1) {
+      state.currentQ++;
+      saveState();
+      renderQuestion();
+    } else {
+      showStep('gate');
+      renderGate();
+    }
+  }, 200);
+}
+
+function submitName() {
+  const inp = document.getElementById('quizName');
+  const val = (inp ? inp.value : '').trim();
+  if (!val) { inp.style.borderColor = '#C45C5C'; return; }
+  state.nome = val;
+  state.answers[state.currentQ] = val;
+  saveState();
+
+  if (state.currentQ < QUESTIONS.length - 1) {
+    state.currentQ++;
+    saveState();
+    renderQuestion();
+  } else {
+    showStep('gate');
+    renderGate();
+  }
+}
+
+function prevQuestion() {
+  if (state.currentQ > 0) {
+    state.currentQ--;
+    saveState();
+    renderQuestion();
+  } else {
+    showStep('landing');
+  }
+}
+
+/* ============ GATE (WhatsApp capture) ============ */
+function renderGate() {
+  const nome = state.nome || 'Você';
+  document.getElementById('gateTitle').textContent = nome + ', seu perfil capilar está quase pronto';
+
+  const nameInp = document.getElementById('inputName');
+  const phoneInp = document.getElementById('inputPhone');
+  if (nameInp && state.nome) nameInp.value = state.nome;
+
+  if (phoneInp) {
+    phoneInp.addEventListener('input', function(e) {
+      let v = e.target.value.replace(/\D/g, '');
+      if (v.length > 11) v = v.slice(0, 11);
+      if (v.length > 6) {
+        v = '(' + v.slice(0,2) + ') ' + v.slice(2,7) + '-' + v.slice(7);
+      } else if (v.length > 2) {
+        v = '(' + v.slice(0,2) + ') ' + v.slice(2);
+      } else if (v.length > 0) {
+        v = '(' + v;
+      }
+      e.target.value = v;
+    });
+  }
+}
+
+function submitGate() {
+  const nameInp = document.getElementById('inputName');
+  const phoneInp = document.getElementById('inputPhone');
+  const nome = (nameInp ? nameInp.value : '').trim();
+  const phone = (phoneInp ? phoneInp.value : '').trim();
+
+  if (!nome) { nameInp.style.borderColor = '#C45C5C'; nameInp.focus(); return; }
+  if (!phone || phone.replace(/\D/g,'').length < 10) { phoneInp.style.borderColor = '#C45C5C'; phoneInp.focus(); return; }
+
+  state.nome = nome;
+  state.phone = phone;
+  state.lead = computeProfile();
+  saveState();
+
+  showStep('result');
+  renderResult();
+}
+
+/* ============ PROFILE LOGIC ============ */
+function computeProfile() {
+  const a = state.answers;
+
+  // Q2: maior preocupação (index 1)
+  const preocupacao = a[1];
+  // Q4: tratamento anterior (index 3)
+  const tratamento = a[3];
+  // Q5: sono/estresse (index 4)
+  const estresse = a[4];
+  // Q7: incomodo (index 6)
+  const incomodo = a[6];
+
+  // Perfil 4: Influência hormonal / estresse
+  if (estresse === 3) return 4;
+  if (estresse === 2 && incomodo >= 2) return 4;
+
+  // Perfil 3: Quadro avançado (tempo > 6 meses + já tentou tratamento)
+  const tempo = a[0];
+  if (tempo >= 2 && tratamento >= 2) return 3;
+  if (tempo >= 3 && incomodo >= 2) return 3;
+
+  // Perfil 2: Afinamento / perda de densidade
+  if (preocupacao === 1 || preocupacao === 2) return 2;
+
+  // Perfil 1: Queda em fase inicial (default)
+  return 1;
+}
+
+/* ============ RENDER RESULT ============ */
+function renderResult() {
+  const nome = state.nome || 'Você';
+  const perfil = state.lead;
+  const phoneDigits = (state.phone || '').replace(/\D/g, '');
+
+  const perfis = {
+    1: {
+      badge: '📋 Perfil identificado',
+      title: nome + ', sua queda ainda está em fase inicial',
+      text: 'Pelas suas respostas, o quadro parece estar no começo. Nessa fase, quanto antes for feito um diagnóstico correto, maiores são as chances de reverter a situação com tratamentos menos invasivos. Muitas pessoas perdem tempo testando produtos aleatórios e só procuram ajuda quando o problema já avançou.',
+      next: 'Uma avaliação presencial com a Dra. Rachel para identificar a causa real e montar um protocolo personalizado.'
+    },
+    2: {
+      badge: '🔍 Perfil identificado',
+      title: nome + ', o principal sinal que você apresentou foi afinamento e perda de volume',
+      text: 'O afinamento progressivo é um dos quadros mais comuns em tricologia e, quando não tratado, tende a evoluir. A boa notícia é que existe protocolo específico para estimular o fortalecimento e a densidade dos fios.',
+      next: 'Avaliação completa com a Dra. Rachel para medir o grau atual e definir o melhor caminho de tratamento.'
+    },
+    3: {
+      badge: '⚠️ Perfil identificado',
+      title: nome + ', pelo tempo e intensidade, seu caso pede uma avaliação mais cuidadosa',
+      text: 'Você já lida com isso há um tempo e já tentou algumas alternativas. Nesses casos, é fundamental entender a causa raiz (hormonal, genética, inflamatória, nutricional etc.) antes de começar qualquer protocolo. Tratamentos genéricos raramente resolvem quando o quadro já está instalado há mais de 6-12 meses.',
+      next: 'Agendar uma avaliação detalhada com a Dra. Rachel para ter um diagnóstico preciso e um plano realista.'
+    },
+    4: {
+      badge: '🧬 Perfil identificado',
+      title: nome + ', seus sintomas têm forte relação com fatores internos',
+      text: 'Estresse, alterações hormonais, sono ruim e mudanças no corpo influenciam diretamente o ciclo capilar. Nesses casos, tratar só o cabelo raramente resolve. É preciso olhar o contexto completo.',
+      next: 'Uma avaliação com a Dra. Rachel para entender a origem e montar um tratamento que respeite o momento que você está vivendo.'
+    }
+  };
+
+  const p = perfis[perfil] || perfis[1];
+
+  const resultHtml = `
+    <div class="result-badge">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      ${p.badge}
+    </div>
+    <h2>${p.title}</h2>
+    <p class="result-text">${p.text}</p>
+    <div class="result-next">
+      <p>Próximo passo:</p>
+      <small>${p.next}</small>
+    </div>
+  `;
+
+  document.getElementById('resultCard').innerHTML = resultHtml;
+
+  // Update CTA WhatsApp message
+  const perfilNomes = { 1: 'Fase inicial', 2: 'Afinamento', 3: 'Caso avançado', 4: 'Fatores hormonais' };
+  document.getElementById('ctaAgendar').setAttribute('data-perfil', perfilNomes[perfil] || 'Geral');
+}
+
+/* ============ WHATSAPP ============ */
+function openWhatsApp(type) {
+  const nome = state.nome || '';
+  const perfil = state.lead || 1;
+  const perfilNomes = { 1: 'Fase inicial', 2: 'Afinamento e perda de volume', 3: 'Caso mais avançado ou recorrente', 4: 'Influência hormonal/estresse' };
+  const perfilTexto = perfilNomes[perfil] || 'Geral';
+
+  let msg = '';
+  if (type === 'agendar') {
+    msg = `Olá Dra. Rachel! Fiz a pré-avaliação capilar no site e meu perfil é: ${perfilTexto}.\n\nQuero agendar minha Avaliação Capilar Gratuita.\n\nNome: ${nome}`;
+  } else {
+    msg = `Olá Dra. Rachel! Fiz a pré-avaliação capilar no site e gostaria de mais informações sobre a avaliação gratuita.\n\nNome: ${nome}\nPerfil: ${perfilTexto}`;
+  }
+
+  const url = 'https://wa.me/5511992906336?text=' + encodeURIComponent(msg);
+  window.open(url, '_blank');
+}
+
+/* ============ INIT ============ */
+loadState();
+if (state.currentStep && state.currentStep !== 'landing') {
+  showStep(state.currentStep);
+  if (state.currentStep === 'quiz') renderQuestion();
+  if (state.currentStep === 'gate') renderGate();
+  if (state.currentStep === 'result') renderResult();
+}
+</script>
+</body>
+</html>
