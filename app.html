@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
@@ -330,13 +330,12 @@ function renderInicio(){
 /* ---- INDIQUE E GANHE ---- */
 function renderIndique(){
   const totalIndicou=S.indicou.length;
-  const pontosGanhos=S.pontosIndicacao;
-  const proximoReward=totalIndicou<3?3-totalIndicou:0;
+  const creditosGanhos=totalIndicou*30;
   let html=`<div class="referral-card">
     <div style="position:relative;z-index:1">
-      <div class="referral-badge" style="margin-bottom:14px">${svgP('gift')} <span>Programa de Indicação</span></div>
-      <h3 style="font-size:20px;font-weight:800;line-height:1.25;margin-bottom:6px">Indique a Dra. Rachel.<br>Ganhe <span style="color:#C9A86C">R$ 100</span> cada.</h3>
-      <p style="font-size:13px;opacity:.8;line-height:1.5;margin-bottom:16px">Seu amigo ganha 20% na primeira consulta. Você ganha R$100 em créditos para produtos. Sem limite.</p>
+      <div class="referral-badge" style="margin-bottom:14px">${svgP('gift')} <span>Indique e Ganhe</span></div>
+      <h3 style="font-size:22px;font-weight:800;line-height:1.25;margin-bottom:6px">Indique a Dra. Rachel.<br>Ganhe <span style="color:#C9A86C">R$ 30</span> cada.</h3>
+      <p style="font-size:13px;opacity:.8;line-height:1.5;margin-bottom:16px">Seu amigo ganha 10% na primeira consulta. Você ganha R$30 em créditos para produtos. Sem limite.</p>
       <div class="referral-code" onclick="copiarCodigo()" id="codigoIndicacao">${S.codigoIndicacao}</div>
       <p style="font-size:11px;opacity:.55;margin-top:8px;text-align:center">Toque para copiar</p>
       <button class="referral-btn" style="margin-top:16px" onclick="compartilharIndicacao()">
@@ -344,8 +343,8 @@ function renderIndique(){
       </button>
       <div class="referral-rewards">
         <div class="referral-reward"><div class="num" style="color:#C9A86C">${totalIndicou}</div><div class="lbl">Indicados</div></div>
-        <div class="referral-reward"><div class="num" style="color:#2E8B6E">${pontosGanhos}</div><div class="lbl">Créditos (R$)</div></div>
-        <div class="referral-reward"><div class="num">${proximoReward>0?proximoReward:'✓'}</div><div class="lbl">${proximoReward>0?'Próximo bônus':'Desbloqueado'}</div></div>
+        <div class="referral-reward"><div class="num" style="color:#2E8B6E">R$${creditosGanhos}</div><div class="lbl">Créditos</div></div>
+        <div class="referral-reward"><div class="num">∞</div><div class="lbl">Sem limite</div></div>
       </div>
     </div>
   </div>`;
@@ -356,14 +355,14 @@ function copiarCodigo(){
   navigator.clipboard.writeText(S.codigoIndicacao).then(()=>toast('Código copiado! ✓')).catch(()=>toast('Código: '+S.codigoIndicacao));
 }
 function compartilharIndicacao(){
-  const msg=encodeURIComponent(`Olá! Estou fazendo tratamento com a Dra. Rachel e estou adorando os resultados.\n\nUse meu código *${S.codigoIndicacao}* e ganhe 20% desconto na primeira consulta!\n\nAqui: https://marcos4213.github.io/beauty-clinic-patient-app/app.html`);
+  const msg=encodeURIComponent(`Olá! Estou fazendo tratamento com a Dra. Rachel e estou adorando os resultados.\n\nUse meu código *${S.codigoIndicacao}* e ganhe 10% desconto na primeira consulta!\n\nAqui: https://marcos4213.github.io/beauty-clinic-patient-app/app.html`);
   window.open(`https://wa.me/?text=${msg}`,'_blank');
   if(!S.indicou.includes(hojeStr())){
     S.indicou.push(hojeStr());
-    S.pontosIndicacao+=100;
-    S.pontos+=100;
+    S.pontosIndicacao+=30;
+    S.pontos+=30;
     save();
-    toast('+100 créditos por indicação! 🎉');
+    toast('+R$30 em créditos por indicação!');
     renderIndique();
   }
 }
