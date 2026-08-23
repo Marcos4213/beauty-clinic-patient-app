@@ -113,6 +113,18 @@ h1,h2,h3{margin:0;font-weight:700;letter-spacing:-.01em}
 .fab-wa svg{width:30px;height:30px;fill:#fff}
 .progressbar{height:8px;border-radius:999px;background:var(--border);overflow:hidden}
 .progressbar i{display:block;height:100%;background:linear-gradient(90deg,var(--sage),var(--navy));border-radius:999px}
+.referral-card{background:linear-gradient(145deg,#0F2C4C 0%,#143D66 40%,#1A5C4A 100%);border-radius:22px;padding:24px;color:#fff;position:relative;overflow:hidden;box-shadow:0 12px 40px rgba(15,44,76,.25)}
+.referral-card::before{content:"";position:absolute;right:-30px;top:-30px;width:140px;height:140px;border-radius:50%;background:radial-gradient(circle,rgba(201,168,108,.25),transparent 70%)}
+.referral-card::after{content:"";position:absolute;left:-20px;bottom:-20px;width:100px;height:100px;border-radius:50%;background:radial-gradient(circle,rgba(46,139,110,.2),transparent 70%)}
+.referral-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.15);border-radius:999px;padding:6px 14px;font-size:12px;font-weight:600;backdrop-filter:blur(8px)}
+.referral-code{background:rgba(255,255,255,.1);border:1.5px dashed rgba(255,255,255,.3);border-radius:12px;padding:12px 16px;font-family:'SF Mono',Monaco,monospace;font-size:18px;font-weight:800;letter-spacing:.08em;text-align:center;cursor:pointer;transition:all .2s}
+.referral-code:active{transform:scale(.97);background:rgba(255,255,255,.18)}
+.referral-btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;border:none;border-radius:14px;padding:15px;font-family:inherit;font-weight:700;font-size:15px;cursor:pointer;transition:transform .12s,box-shadow .2s;background:#25D366;color:#fff;box-shadow:0 8px 24px rgba(37,211,102,.35)}
+.referral-btn:active{transform:scale(.985)}
+.referral-rewards{display:flex;gap:10px;margin-top:14px}
+.referral-reward{flex:1;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:12px 10px;text-align:center}
+.referral-reward .num{font-size:22px;font-weight:800;line-height:1}
+.referral-reward .lbl{font-size:10px;opacity:.7;margin-top:4px}
 @media(max-width:380px){.grid2{gap:10px}.section{padding:12px 12px 8px}}
 </style>
 </head>
@@ -138,6 +150,8 @@ h1,h2,h3{margin:0;font-weight:700;letter-spacing:-.01em}
         <div class="grid2" id="acessos"></div>
         <!-- Dica -->
         <div class="card" style="margin-top:14px;background:var(--gold-soft);border-color:#EADFC9" id="card-dica"></div>
+        <!-- Indique e Ganhe -->
+        <div id="card-indique" style="margin-top:14px"></div>
       </div>
     </section>
 
@@ -187,14 +201,17 @@ const DEFAULTS={
   inicioTratamento:'2026-07-08',
   streak:12, pontos:1240,
   ultimoCheckin:null,
-  checkins:[], // {date, foto, produtos:[ids]}
+  checkins:[],
   fotos:[
     {label:'Dia 1', data:'08/07', url:null},
     {label:'Dia 15', data:'22/07', url:null},
     {label:'Dia 30', data:'06/08', url:null}
   ],
   carrinho:[],
-  concluidosHoje:[]
+  concluidosHoje:[],
+  indicou:[],
+  codigoIndicacao:'RAFAEL2026',
+  pontosIndicacao:0
 };
 let S = load();
 function load(){ try{const r=localStorage.getItem(STORE); if(r){return Object.assign({},DEFAULTS,JSON.parse(r));}}catch(e){} return JSON.parse(JSON.stringify(DEFAULTS)); }
@@ -306,6 +323,49 @@ function renderInicio(){
 
   const dica=DICAS[new Date().getDate()%DICAS.length];
   $('#card-dica').innerHTML=`<p style="font-size:12px;font-weight:700;color:#9A7B3E;letter-spacing:.04em;text-transform:uppercase;margin-bottom:6px">Dica do dia</p><p style="font-size:14px;color:#5C4A2E">${dica}</p>`;
+
+  renderIndique();
+}
+
+/* ---- INDIQUE E GANHE ---- */
+function renderIndique(){
+  const totalIndicou=S.indicou.length;
+  const pontosGanhos=S.pontosIndicacao;
+  const proximoReward=totalIndicou<3?3-totalIndicou:0;
+  let html=`<div class="referral-card">
+    <div style="position:relative;z-index:1">
+      <div class="referral-badge" style="margin-bottom:14px">${svgP('gift')} <span>Programa de Indicação</span></div>
+      <h3 style="font-size:20px;font-weight:800;line-height:1.25;margin-bottom:6px">Indique a Dra. Rachel.<br>Ganhe <span style="color:#C9A86C">R$ 100</span> cada.</h3>
+      <p style="font-size:13px;opacity:.8;line-height:1.5;margin-bottom:16px">Seu amigo ganha 20% na primeira consulta. Você ganha R$100 em créditos para produtos. Sem limite.</p>
+      <div class="referral-code" onclick="copiarCodigo()" id="codigoIndicacao">${S.codigoIndicacao}</div>
+      <p style="font-size:11px;opacity:.55;margin-top:8px;text-align:center">Toque para copiar</p>
+      <button class="referral-btn" style="margin-top:16px" onclick="compartilharIndicacao()">
+        ${svgP('send')} Indicar pelo WhatsApp
+      </button>
+      <div class="referral-rewards">
+        <div class="referral-reward"><div class="num" style="color:#C9A86C">${totalIndicou}</div><div class="lbl">Indicados</div></div>
+        <div class="referral-reward"><div class="num" style="color:#2E8B6E">${pontosGanhos}</div><div class="lbl">Créditos (R$)</div></div>
+        <div class="referral-reward"><div class="num">${proximoReward>0?proximoReward:'✓'}</div><div class="lbl">${proximoReward>0?'Próximo bônus':'Desbloqueado'}</div></div>
+      </div>
+    </div>
+  </div>`;
+  $('#card-indique').innerHTML=html;
+  if(window.lucide) lucide.createIcons();
+}
+function copiarCodigo(){
+  navigator.clipboard.writeText(S.codigoIndicacao).then(()=>toast('Código copiado! ✓')).catch(()=>toast('Código: '+S.codigoIndicacao));
+}
+function compartilharIndicacao(){
+  const msg=encodeURIComponent(`Olá! Estou fazendo tratamento com a Dra. Rachel e estou adorando os resultados.\n\nUse meu código *${S.codigoIndicacao}* e ganhe 20% desconto na primeira consulta!\n\nAqui: https://marcos4213.github.io/beauty-clinic-patient-app/app.html`);
+  window.open(`https://wa.me/?text=${msg}`,'_blank');
+  if(!S.indicou.includes(hojeStr())){
+    S.indicou.push(hojeStr());
+    S.pontosIndicacao+=100;
+    S.pontos+=100;
+    save();
+    toast('+100 créditos por indicação! 🎉');
+    renderIndique();
+  }
 }
 
 /* ---- TRATAMENTO ---- */
