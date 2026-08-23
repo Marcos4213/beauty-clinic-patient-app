@@ -273,11 +273,10 @@ function renderTopbar(){
   $('#topbar').innerHTML = map[state.page] || map.inicio;
 }
 function renderNav(){
-  const nav=[['inicio','Início','house'],['tratamento','Tratamento','clipboard-list'],['checkin','','circle-check-big'],['progresso','Progresso','trending-up'],['agenda','Agenda','calendar'],['perfil','Perfil','user']];
+  const nav=[['inicio','Início','house'],['tratamento','Tratamento','clipboard-list'],['progresso','Progresso','trending-up'],['agenda','Agenda','calendar'],['perfil','Perfil','user']];
   let h='';
   nav.forEach(([p,label,ic])=>{
-    if(p==='checkin'){ h+=`<button class="center" onclick="openCheckin()"><div class="fab"><i data-lucide="circle-check-big" style="width:26px;height:26px"></i></div><span>Check-in</span></button>`; }
-    else { h+=`<button class="${state.page===p?'active':''}" onclick="go('${p}')"><i data-lucide="${ic}" style="width:22px;height:22px"></i><span>${label}</span></button>`; }
+    h+=`<button class="${state.page===p?'active':''}" onclick="go('${p}')"><i data-lucide="${ic}" style="width:22px;height:22px"></i><span>${label}</span></button>`;
   });
   $('#bottomnav').innerHTML=h;
   if(window.lucide) lucide.createIcons();
@@ -307,11 +306,28 @@ function renderInicio(){
   $('#hero-acao').innerHTML=hero;
 
   const c=compliance();
-  $('#card-progresso').innerHTML=`<div class="streak-row"><div><p style="font-size:13px;font-weight:600;color:var(--text2)">Semana ${Math.ceil(S.checkins.length/7)+4} · Geral</p><p style="font-weight:800;font-size:17px;margin-top:2px">Compliance de adesão</p></div><div class="ring" style="--p:${c}"><span>${c}%</span></div></div><div class="progressbar" style="margin-top:12px"><i style="width:${c}%"></i></div><p class="muted" style="font-size:13px;margin-top:12px">${frase()} Resultados costumam aparecer entre a 8ª e a 12ª semana.</p>`;
+  $('#card-progresso').innerHTML=`<div class="streak-row"><div><p style="font-size:13px;font-weight:600;color:var(--text2)">Semana ${Math.ceil(S.checkins.length/7)+4} · Geral</p><p style="font-weight:800;font-size:17px;margin-top:2px">Sua constância</p></div><div class="ring" style="--p:${c}"><span>${c}%</span></div></div><div class="progressbar" style="margin-top:12px"><i style="width:${c}%"></i></div><p class="muted" style="font-size:13px;margin-top:12px">Você está sendo constante. Pequenas ações diárias são o que mais fazem diferença no tratamento.</p>`;
 
   const pr=proxRetorno();
   const dias=diasEntre(new Date(),pr);
-  $('#card-proximo').innerHTML=`<p style="font-size:13px;font-weight:600;color:var(--text2)">Próximo passo da clínica</p><h3 style="margin-top:4px;font-size:17px">Retorno presencial</h3><div class="streak-row" style="margin-top:8px"><div class="stat"><div class="ring" style="--p:0;background:var(--navy-soft);width:48px;height:48px"><span style="width:38px;height:38px;font-size:14px;color:var(--navy)">${fmtData(pr).split(' ')[0]}</span></div><div><p style="font-weight:700">${fmtData(pr)}</p><p class="muted" style="font-size:13px">${dias>0?`Em ${dias} dias · 15h`:'Hoje · 15h'}</p></div></div></div><button class="btn btn-ghost" style="margin-top:14px" onclick="go('agenda')">Ver detalhes</button>`;
+  const dataFormatada = pr.getDate() + ' de ' + pr.toLocaleDateString('pt-BR',{month:'short'}) + ' · 15h';
+  $('#card-proximo').innerHTML=`
+    <div style="display:flex;align-items:flex-start;gap:14px">
+      <div style="width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,var(--navy),#16406E);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;font-weight:800;line-height:1">
+        <span style="font-size:20px">${pr.getDate()}</span>
+        <span style="font-size:11px;opacity:.85;text-transform:uppercase">${pr.toLocaleDateString('pt-BR',{month:'short'})}</span>
+      </div>
+      <div style="flex:1;min-width:0">
+        <p style="font-size:12px;font-weight:600;color:var(--sage);text-transform:uppercase;letter-spacing:.04em">Próximo retorno</p>
+        <h3 style="margin-top:2px;font-size:17px">${dataFormatada}</h3>
+        <p class="muted" style="font-size:12px;margin-top:3px">${dias>0?`Em ${dias} dias`:'Hoje'} · Dra. Rachel</p>
+      </div>
+    </div>
+    <p style="font-size:12px;color:var(--text3);margin-top:12px;padding-top:10px;border-top:1px solid var(--border)">Retornos a cada 15 dias potencializam os resultados.</p>
+    <div style="display:flex;gap:8px;margin-top:12px">
+      <button class="btn btn-primary" style="flex:1;padding:12px;font-size:14px" onclick="toast('Presença confirmada ✓')">Confirmar presença</button>
+      <button class="btn btn-ghost" style="flex:1;padding:12px;font-size:14px" onclick="go('agenda')">Ver detalhes</button>
+    </div>`;
 
   const acessos=[
     {i:'clipboard-list',l:'Protocolo de hoje',f:"go('tratamento')"},
@@ -322,30 +338,33 @@ function renderInicio(){
   $('#acessos').innerHTML=acessos.map(a=>`<div class="qcard" onclick="${a.f}"><div class="qi">${svgP(a.i)}</div><div class="ql">${a.l}</div></div>`).join('');
 
   const dica=DICAS[new Date().getDate()%DICAS.length];
-  $('#card-dica').innerHTML=`<p style="font-size:12px;font-weight:700;color:#9A7B3E;letter-spacing:.04em;text-transform:uppercase;margin-bottom:6px">Dica do dia</p><p style="font-size:14px;color:#5C4A2E">${dica}</p>`;
+  $('#card-dica').innerHTML=`<div style="display:flex;align-items:flex-start;gap:10px"><div style="width:28px;height:28px;border-radius:8px;background:var(--gold);color:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:13px">${svgP('lightbulb')}</div><div style="flex:1;min-width:0"><p style="font-size:11px;font-weight:700;color:#9A7B3E;letter-spacing:.04em;text-transform:uppercase;margin-bottom:2px">Dica do dia</p><p style="font-size:13px;color:#5C4A2E;line-height:1.5">${dica}</p></div></div>`;
 
   renderIndique();
 }
 
-/* ---- INDIQUE E GANHE ---- */
+/* ---- INDIQUE E GANHE (compacto no Home) ---- */
 function renderIndique(){
   const totalIndicou=S.indicou.length;
   const creditosGanhos=totalIndicou*30;
-  let html=`<div class="referral-card">
+  let html=`<div class="referral-card" style="padding:18px;border-radius:18px">
     <div style="position:relative;z-index:1">
-      <div class="referral-badge" style="margin-bottom:14px">${svgP('gift')} <span>Indique e Ganhe</span></div>
-      <h3 style="font-size:22px;font-weight:800;line-height:1.25;margin-bottom:6px">Indique a Dra. Rachel.<br>Ganhe <span style="color:#C9A86C">R$ 30</span> cada.</h3>
-      <p style="font-size:13px;opacity:.8;line-height:1.5;margin-bottom:16px">Seu amigo ganha 10% na primeira consulta. Você ganha R$30 em créditos para produtos. Sem limite.</p>
-      <div class="referral-code" onclick="copiarCodigo()" id="codigoIndicacao">${S.codigoIndicacao}</div>
-      <p style="font-size:11px;opacity:.55;margin-top:8px;text-align:center">Toque para copiar</p>
-      <button class="referral-btn" style="margin-top:16px" onclick="compartilharIndicacao()">
-        ${svgP('send')} Indicar pelo WhatsApp
-      </button>
-      <div class="referral-rewards">
-        <div class="referral-reward"><div class="num" style="color:#C9A86C">${totalIndicou}</div><div class="lbl">Indicados</div></div>
-        <div class="referral-reward"><div class="num" style="color:#2E8B6E">R$${creditosGanhos}</div><div class="lbl">Créditos</div></div>
-        <div class="referral-reward"><div class="num">∞</div><div class="lbl">Sem limite</div></div>
+      <div style="display:flex;align-items:center;gap:12px">
+        <div style="width:42px;height:42px;border-radius:12px;background:rgba(201,168,108,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#C9A86C">${svgP('gift')}</div>
+        <div style="flex:1;min-width:0">
+          <h3 style="font-size:16px;font-weight:700;line-height:1.25">Indique a Dra. Rachel.<br>Ganhe <span style="color:#C9A86C">R$ 30</span> cada.</h3>
+        </div>
       </div>
+      <p style="font-size:12px;opacity:.75;margin-top:10px;line-height:1.5">Seu amigo ganha 10% na primeira consulta. Você ganha R$30 em créditos para produtos. Sem limite.</p>
+      <div style="display:flex;gap:8px;margin-top:12px">
+        <button class="referral-btn" style="flex:1;padding:12px;font-size:14px;margin-top:0" onclick="compartilharIndicacao()">
+          ${svgP('send')} Indicar amigo
+        </button>
+        <button class="btn" style="background:rgba(255,255,255,.12);color:#fff;border:none;padding:12px 14px;font-size:13px;font-weight:600;border-radius:14px;width:auto;flex-shrink:0" onclick="go('perfil')">
+          ${svgP('user')} Ver código
+        </button>
+      </div>
+      ${totalIndicou>0?`<p style="font-size:11px;opacity:.5;margin-top:10px;text-align:center">${totalIndicou} indicação(ões) · R$${creditosGanhos} em créditos</p>`:''}
     </div>
   </div>`;
   $('#card-indique').innerHTML=html;
@@ -371,7 +390,7 @@ function compartilharIndicacao(){
 function renderTratamento(){
   const c=compliance();
   let html=`<div class="card" style="background:linear-gradient(135deg,var(--navy),#16406E);color:#fff;border:none">
-    <p style="font-size:12px;opacity:.8;text-transform:uppercase;letter-spacing:.05em">Compliance do mês</p>
+    <p style="font-size:12px;opacity:.8;text-transform:uppercase;letter-spacing:.05em">Sua constância</p>
     <div style="display:flex;align-items:center;gap:16px;margin-top:8px"><div class="ring" style="--p:${c}"><span style="color:var(--navy)">${c}%</span></div>
     <div><p style="font-size:22px;font-weight:800">${S.streak} dias</p><p style="opacity:.85;font-size:13px">de sequência de cuidado</p></div></div></div>`;
 
@@ -448,6 +467,8 @@ function renderAgenda(){
 
 /* ---- PERFIL ---- */
 function renderPerfil(){
+  const totalIndicou=S.indicou.length;
+  const creditosGanhos=totalIndicou*30;
   let html=`<div class="card" style="text-align:center">
     <div class="avatar" style="width:72px;height:72px;font-size:28px;margin:0 auto 12px">${S.nome[0]}</div>
     <h2 style="font-size:20px">${S.nome}</h2><p class="muted">${S.idade} anos · Paciente desde ${fmtData(new Date(S.inicioTratamento))}</p>
@@ -460,6 +481,7 @@ function renderPerfil(){
 
   const items=[
     {i:'trophy',l:'Conquistas e pontos',f:"openConquistas()"},
+    {i:'gift',l:'Indique e Ganhe',f:"openIndique()"},
     {i:'shopping-bag',l:'Loja de produtos',f:"openLoja()"},
     {i:'message-circle',l:'Suporte (WhatsApp)',f:"openSuporte()"},
     {i:'settings',l:'Configurações',f:"openConfig()"}
@@ -468,6 +490,40 @@ function renderPerfil(){
 
   html+=`<button class="btn btn-outline" style="margin-top:14px;color:var(--error);border-color:#F0DADA" onclick="toast('Até logo, '+S.nome+' 👋')">Sair</button>`;
   $('#perfil-content').innerHTML=html;
+}
+
+/* ---- INDIQUE E GANHE (página completa no Perfil) ---- */
+function openIndique(){
+  const totalIndicou=S.indicou.length;
+  const creditosGanhos=totalIndicou*30;
+  let body=`
+    <div style="text-align:center;margin-bottom:20px">
+      <div style="width:56px;height:56px;border-radius:16px;background:linear-gradient(135deg,var(--navy),var(--sage));color:#fff;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font-size:24px">${svgP('gift')}</div>
+      <h3 style="font-size:20px;font-weight:700">Indique a Dra. Rachel.<br>Ganhe <span style="color:var(--gold)">R$ 30</span> cada.</h3>
+      <p class="muted" style="font-size:14px;margin-top:8px">Seu amigo ganha 10% na primeira consulta.<br>Você ganha R$30 em créditos para produtos.<br><b style="color:var(--text)">Sem limite.</b></p>
+    </div>
+    <div class="card" style="background:var(--navy-soft);border:none;text-align:center;padding:16px">
+      <p style="font-size:12px;font-weight:600;color:var(--text2);margin-bottom:8px">Seu código de indicação</p>
+      <div style="background:var(--surface);border:1.5px dashed var(--border);border-radius:12px;padding:14px;font-family:'SF Mono',Monaco,monospace;font-size:22px;font-weight:800;letter-spacing:.08em;color:var(--navy);cursor:pointer" onclick="copiarCodigo()">${S.codigoIndicacao}</div>
+      <p style="font-size:12px;color:var(--text3);margin-top:8px">Toque para copiar</p>
+    </div>
+    <div style="display:flex;gap:10px;margin-top:16px">
+      <div style="flex:1;text-align:center;padding:12px;background:var(--sage-soft);border-radius:14px">
+        <div style="font-size:24px;font-weight:800;color:var(--sage)">${totalIndicou}</div>
+        <div style="font-size:12px;color:var(--text2);margin-top:2px">Indicados</div>
+      </div>
+      <div style="flex:1;text-align:center;padding:12px;background:var(--gold-soft);border-radius:14px">
+        <div style="font-size:24px;font-weight:800;color:#9A7B3E">R$${creditosGanhos}</div>
+        <div style="font-size:12px;color:var(--text2);margin-top:2px">Créditos</div>
+      </div>
+    </div>
+    <button class="referral-btn" style="margin-top:18px;padding:16px" onclick="compartilharIndicacao()">
+      ${svgP('send')} Indicar pelo WhatsApp
+    </button>
+    <p style="font-size:12px;color:var(--text3);text-align:center;margin-top:14px">Compartilhe seu código. Seu amigo ganha 10% na primeira consulta.</p>
+  `;
+  openSheet('Indique e Ganhe', body);
+  if(window.lucide) lucide.createIcons();
 }
 
 /* ============ SHEET / MODAL ============ */
