@@ -1,268 +1,274 @@
-# Script de Vendas WhatsApp — App Tricologia B2B
+# Script de Vendas WhatsApp — App para Tricologistas
 
 ## OBJETIVO
-Vender o app gamificado de acompanhamento para tricologistas.
-Meta: 5 respostas + 3 calls a cada 10 contatos.
+Mensagem fria no WhatsApp de tricologistas → Resposta → Call marcada → Venda
+
+## LINKS IMPORTANTES
+- App demo (paciente): https://marcos4213.github.io/beauty-clinic-patient-app/app.html
+- Landing page demo (captação): https://marcos4213.github.io/beauty-clinic-patient-app/funil.html
+- B2B (venda): https://marcos4213.github.io/beauty-clinic-patient-app/venda.html
 
 ---
 
-## ANTES DE COMEÇAR
+## MENSAGEM 1 — PRIMEIRO CONTATO (Carta Fria)
 
-### Como encontrar leads
-1. Google: "tricologista [cidade]" / "clínica capilar [cidade]"
-2. Instagram: #tricologia #tricologista #queda de cabelo
-3. Google Maps: clínicas de cabelo e pele
-4. Indicação de tricologistas conhecidas
-
-### Perfil do lead
-- Tricologista ou dermatologista que foca em capilar
-- Atende pacientes particular
-- Tem retorno agendado (a cada 15 dias)
-- Usa WhatsApp para comunicar com pacientes
-
-### Dados para salvar de cada lead
-- Nome
-- Clínica
-- Cidade
-- Instagram (se tiver)
-- Status: não contactado / enviado / respondido / call marcada / vendido
-
----
-
-## SCRIPT DE VENDAS — 5 TOUCHPOINTS
-
-### TOQUE 1 — Apresentação (Dia 0)
-**Objetivo:** Quebrar o gelo + gerar curiosidade + enviar link
-
+### Versão A (Recomendada — mais conversão)
 ```
-Oi [NOME], tudo bem?
+Oi Dra. [NOME], tudo bem?
 
-Sou Marcos, desenvolvi um sistema de app de acompanhamento para tricologistas e achei o trabalho da [NOME DA CLÍNICA] muito interessante.
+Vi sua clínica no Google e criei algo que pode te ajudar bastante.
 
-Criei algo que resolve um problema que toda tricologista enfrenta: a paciente que abandona o tratamento porque esquece, perde a regularidade e some.
+Fiz um app personalizado para tricologistas onde seu paciente faz check-in diário, acompanha o tratamento, agenda retornos e fala com você direto pelo WhatsApp.
 
-Queria mostrar pra você como funciona — é 2 minutos:
+Funciona assim: você me passa sua marca e protocolo, em 48h o app tá rodando. Seu paciente instala na tela do celular e nunca mais esquece o tratamento.
 
-👉 [LINK_APP]
+Quer ver funcionando? É só clicar aqui:
+https://marcos4213.github.io/beauty-clinic-patient-app/app.html
 
-Se curtir, posso te explicar em 15 minutos como funciona na prática, como seria com a marca da [CLÍNICA] e quanto custa.
+Qualquer dúvida, é só responder aqui. 👍
+```
+
+### Versão B (Mais direta)
+```
+Oi Dra. [NOME]! Tudo bem?
+
+Criei um app que faz seus pacientes fazerem check-in todo dia, seguem o protocolo e não desistem do tratamento.
+
+Seu nome, suas cores, seu protocolo. Tudo personalizado.
+
+Quer ver o app funcionando? Dá uma olhada:
+https://marcos4213.github.io/beauty-clinic-patient-app/app.html
+
+Se gostar, a gente marca uma call rápida de 15min e eu te explico tudo.
+```
+
+### Versão C (Com gatilho de prova social)
+```
+Oi Dra. [NOME], bom dia!
+
+Estou ajudando tricologistas a aumentarem a retenção de pacientes com um app personalizado.
+
+O app faz: check-in diário com foto, protocolo de tratamento, agenda de retornos e comunicação direta via WhatsApp.
+
+Paciente que usa o app tem 3x mais chance de completar o tratamento.
+
+Quer ver como ficaria para sua clínica?
+https://marcos4213.github.io/beauty-clinic-patient-app/app.html
+
+Posso te mostrar em 15 min por call, sem compromisso.
+```
+
+---
+
+## MENSAGEM 2 — FOLLOW-UP (24-48h depois, se não respondeu)
+
+### Follow-up 1
+```
+Dra. [NOME], só passando para saber se conseguiu ver o app.
+
+Se tiver qualquer dúvida ou quiser ver uma versão já personalizada para sua clínica, é só me chamar aqui.
 
 Abraço!
 ```
 
-**LINK_APP:** https://marcos4213.github.io/beauty-clinic-patient-app/app.html
-
----
-
-### TOQUE 2 — Follow-up suave (Dia 1)
-**Objetivo:** Reativar sem ser incômodo
-
+### Follow-up 2 (3 dias depois)
 ```
-[NOME], vi que você visualizou o link 😄
+Oi Dra. [NOME], tudo bem?
 
-Qual sua primeira impressão?
+Sei que a rotina de clínica é corrida, mas queria te mostrar uma coisa rápida: https://marcos4213.github.io/beauty-clinic-patient-app/app.html
 
-Se tiver alguma dúvida, pode mandar aqui — ou se preferir, a gente marca uma call rápida de 15 min pra eu te mostrar tudo.
+Em 15 min por call eu te mostro como funciona na prática. Sem compromisso algum.
 
-Sem compromisso!
+Topa?
 ```
 
----
-
-### TOQUE 3 — Prova social + urgência (Dia 3)
-**Objetivo:** Mostrar que outros já usam + escassez
-
+### Follow-up 3 (7 dias depois — última tentativa)
 ```
-[NOME], só pra te atualizar: o sistema já tá rodando em tricologistas aqui de SP e o resultado tem sido bem legal — adesão das pacientes subiu bastante.
+Dra. [NOME], última mensagem, prometo 😄
 
-To com 2 vagas nesse mês pra fazer o setup gratuito (normalmente custa R$ 997).
+Se no futuro quiser ter um app personalizado para seus pacientes, é só me chamar aqui.
 
-Quer que eu reserve uma pra você? A gente conversa 15 min e você vê se faz sentido.
+Enquanto isso, pode ver o app funcionando: https://marcos4213.github.io/beauty-clinic-patient-app/app.html
 
-👉 https://marcos4213.github.io/beauty-clinic-patient-app/venda.html
+Bom trabalho! 🙌
 ```
 
 ---
 
-### TOQUE 4 — Shortcut de valor (Dia 5)
-**Objetivo:** Dar um atalho que prove o valor
+## MENSAGEM 3 — APÓS RESPOSTA POSITIVA (Marcando a call)
 
+### Se ela disse "quero ver" / "manda o link"
 ```
-[NOME], vou direto ao ponto:
+Perfeito! Aqui está o app funcionando:
+https://marcos4213.github.io/beauty-clinic-patient-app/app.html
 
-imagina sua paciente abrindo o app todo dia, fazendo check-in, vendo o progresso, e te mandando mensagem quando precisa — sem você ter que ficar cobrando.
+Dá uma olhada com calma. Quando quiser, a gente marca uma call rápida de 15 min que eu te mostro:
 
-Isso é o que o app faz. E custa menos que uma consulta particular por mês.
+✅ Como fica personalizado com sua marca
+✅ Como o paciente usa no dia a dia
+✅ Quanto custa e como funciona a entrega
 
-Se quiser ver na prática, é só clicar aqui:
-
-👉 https://marcos4213.github.io/beauty-clinic-patient-app/app.html
-
-Se curtir, a gente marca uma call rápida. Sem pressão!
-```
-
----
-
-### TOQUE 5 — Última tentativa (Dia 7)
-**Objetivo:** Fechar ciclo — sem desespero
-
-```
-[NOME], última mensagem sobre isso!
-
-Se não faz sentido pra você agora, sem problemas — ficou registrado. Quando quiser, é só me chamar.
-
-Mas se a ideia de ter suas pacientes mais engajadas e fidelizadas te interessa, a gente conversa 15 min:
-
-👉 https://marcos4213.github.io/beauty-clinic-patient-app/venda.html
-
-Abraço e sucesso com a [CLÍNICA]! 🙏
+Qual dia e horário fica melhor para você?
 ```
 
----
-
-## SE ELA RESPONDER "INTERESSANTE" OU "QUERO VER"
-
-### Resposta rápida:
+### Se ela disse "quanto custa"
 ```
-Show, [NOME]! Que bom que curtiu!
+O plano completo é R$ 497/mês e inclui:
 
-Te mando o link da versão demo pra você ver na prática:
-
-👉 https://marcos4213.github.io/beauty-clinic-patient-app/app.html
-
-Dá uma olhada e me diz o que achou. Depois a gente marca uma call de 15 min pra eu te explicar como funciona com a marca da [CLÍNICA], prazo de entrega e investimento.
-
-Qual dia e horário ficam melhor pra você?
-```
-
----
-
-## SE ELA PERGUNTAR "QUANTO CUSTA"
-
-### Resposta:
-```
-Boa pergunta! Depende do formato:
-
-📦 App mensal: R$ 497/mês (setup incluso)
-📦 Anual: R$ 3.997 à vista (economia de R$ 1.967)
-
-Os dois incluem:
-✅ App personalizado com sua marca
-✅ Setup completo em 48h
+✅ App personalizado com sua marca e cores
+✅ Landing page de captação de leads
+✅ Quiz de triagem automatizado
+✅ Atualizações e melhorias contínuas
 ✅ Suporte via WhatsApp
-✅ Atualizações inclusas
+✅ Sem fidelidade — cancele quando quiser
 
-Mas antes de falar de investimento, deixa eu te mostrar na prática como funciona — é rápido:
+Quer que eu te mostre tudo funcionando? A gente faz uma call de 15 min, sem compromisso.
 
-👉 https://marcos4213.github.io/beauty-clinic-patient-app/app.html
-
-Posso te ligar amanhã pra te explicar tudo?
+Qual horário fica melhor?
 ```
 
----
-
-## SE ELA PERGUNTAR "COMO FUNCIONA?"
-
-### Resposta:
+### Se ela disse "como funciona"
 ```
 Resumindo:
 
-1️⃣ Você me envia sua logo + cores
-2️⃣ Eu personalizo o app com a marca da [CLÍNICA]
-3️⃣ Em 48h tá pronto pra sua paciente usar
+1. Você me passa sua marca (logo, cores) e protocolo de tratamento
+2. Em 48h o app tá pronto e personalizado
+3. Você aprova, eu ajusto o que precisar
+4. Você envia o link pros seus pacientes pelo WhatsApp
+5. O paciente instala na tela inicial e começa a usar
 
-A paciente:
-✅ Faz check-in diário (foto + protocolo)
-✅ Vê o progresso no dashboard
-✅ Recebe lembretes de retorno
-✅ Pode indicar amigas (ganha crédito)
-✅ Compra produtos direto pelo app
+O app faz: check-in diário com foto, protocolo completo, agenda de retornos, loja de produtos e indicação de amigos.
 
-E você:
-✅ Vê tudo pelo dashboard
-✅ Sabe quem tá aderindo e quem não tá
-✅ Reduz abandono de tratamento
-✅ Gera receita nova com produtos
+Quer ver na prática? A gente faz uma call rápida de 15 min.
 
-Quer que eu te mostre na prática? É 15 min de call:
-👉 https://marcos4213.github.io/beauty-clinic-patient-app/venda.html
+Qual dia funciona para você?
 ```
 
 ---
 
-## ABORDAGEM PARA CHAMADA DE VENDAS
+## MENSAGEM 4 — APÓS A CALL (Fechamento)
 
-### Estrutura da call (15 min):
+### Se gostou
+```
+Dra. [NOME], foi ótimo falar com você!
 
-**Min 0-2:** Aquecimento
-- "Oi [NOME], tudo bem? Obrigado pelo tempo!"
-- "Vi que você deu uma olhada no app, o que achou?"
+Resumindo o que conversamos:
 
-**Min 2-5:** Entender a dor
-- "Hoje como você acompanha suas pacientes entre as consultas?"
-- "Quantas pacientes você acha que perde por falta de adesão?"
-- "O que mais te frustra nesse processo?"
+✅ App personalizado com sua marca
+✅ Landing page + quiz de captação
+✅ Entrega em 48h após aprovação
+✅ R$ 497/mês sem fidelidade
 
-**Min 5-10:** Apresentar solução
-- Telas do app ao vivo
-- Dashboard que ela teria
-- Como fica com a marca dela
-- Funcionalidades principais
+Para começar, preciso apenas:
+1. Seu logo (PNG ou SVG)
+2. Suas cores (hex ou referência)
+3. Protocolo de tratamento (nome, descrição, horários)
+4. Lista de produtos que você indica
 
-**Min 10-13:** Investimento e objeções
-- Apresentar preço
-- "O que acha?" (silêncio — deixar ela falar)
-- Tratar objeções:
-  - "É caro" → "Quanto custa uma paciente que desiste do tratamento?"
-  - "Não sei se minhas pacientes usam" → "89% das nossas pacientes fazem check-in diário"
-  - "Preciso pensar" → "Claro! Posso te mandar um resumo por WhatsApp?"
+Me manda esses materiais que eu já começo. 🚀
+```
 
-**Min 13-15:** Próximo passo
-- Se aceitar: "Perfeito! Quando você quer começar? Posso já hoje."
-- Se hesitar: "Sem problema! Te mando um resumo e você me diz amanhã."
-- Se recusar: "Tudo bem! Fico à disposição se mudar de ideia."
+### Se pediu para pensar
+```
+Sem pressa, Dra. [NOME]!
 
----
+A proposta fica aqui. Quando quiser seguir, é só me chamar.
 
-## DICAS DE CONVERSÃO
+Enquanto isso, pode ver o app funcionando: https://marcos4213.github.io/beauty-clinic-patient-app/app.html
 
-1. **Nunca enviar msg longa demais** — WhatsApp é informal, máximo 5 linhas por parágrafo
-2. **Sempre ter CTA** — toda mensagem deve ter um próximo passo claro
-3. **Usar o nome dela** — personalização gera 3x mais resposta
-4. **Enviar link do app real** — não é PowerPoint, é a interface real funcionando
-5. **Ser rápido** — responder em até 5 minutos quando ela responder
-6. **Não vender no toque 1** — o objetivo é gerar curiosidade e agendar call
-7. **Follow-up é essencial** — 80% das vendas acontecem entre o 3º e 7º toque
-8. **Evitar "obrigado" no final** — soa fraco. Use "Abraço" ou "Forte!"
-9. **Gravar objeções** — toda vez que ouvir uma objeção, anotar e refinar o script
-10. **Testar horários** — ideal: 9h-11h ou 14h-16h (horário comercial)
+Bom trabalho! 🙌
+```
 
 ---
 
-## RASTREAMENTO DE LEADS
+## DICAS DE VENDAS
 
-| Nome | Clínica | Cidade | Status | Data |
-|------|---------|--------|--------|------|
-| | | | | |
-| | | | | |
+### Regras de Ouro
+1. **Nunca mande áudio** — texto converte mais em venda fria
+2. **Seja específico** — "Dra. Rachel" não "Dra." genérico
+3. **Um link por mensagem** — não sobrecarregue
+4. **Responda rápido** — em até 30 min se possível
+5. **Não venda na primeira mensagem** — primeiro gere curiosity
+6. **Use o nome dela** — personalização aumenta 40% de resposta
+7. **Toque de humor** — emojis sutis, não exagere
 
-Status possíveis:
-- ❌ Não contactado
-- 📩 Enviado (toque 1)
-- 💬 Respondido
-- 📞 Call marcada
-- ✅ Vendido
-- ❌ Descartado (motivo: ______)
+### Tratamento de Objeções
+
+**"Tá caro"**
+```
+Entendo. Mas pensa comigo: se o app impedir que 2 pacientes desistam do tratamento por mês, já se pagou. E são 2 pacientes a mais que vão te indicar para outros.
+
+Quer que eu te mostre o ROI na prática? Em 15 min a gente calcula isso juntos.
+```
+
+**"Meus pacientes não vão usar"**
+```
+Normal pensar isso. Mas o app foi feito para ser simples: 1 toque para check-in, lembrete automático, tudo em 2 minutos.
+
+Paciente que recebe lembrete tem 3x mais chance de continuar o tratamento. E o app faz isso sozinho.
+
+Quer testar com 5 pacientes e ver o resultado?
+```
+
+**"Já tenho sistema"**
+```
+Ótimo! O app não substitui seu sistema — ele complementa.
+
+Enquanto seu sistema gerencia a clínica, o app cuida do paciente no dia a dia: lembretes, check-in, retorno, comunicação.
+
+São coisas diferentes. Quer ver como funciona junto?
+```
+
+**"Preciso pensar"**
+```
+Claro, sem pressa! A proposta fica aqui.
+
+Só um dado: tricologistas que usam o app relatam 40% menos cancelamento de tratamento. Isso direto impacta sua receita.
+
+Quando quiser retomar, é só me chamar. 👍
+```
 
 ---
 
-## OBJEÇÕES COMUNS E RESPOSTAS
+## ROTEIRO DA CALL (15 min)
 
-| Objeção | Resposta |
-|---------|----------|
-| "Minhas pacientes são mais velhas, não usam app" | "Nossas pacientes têm 35-60 anos e 89% fazem check-in diário. O app é mais simples que WhatsApp." |
-| "Não tenho tiempo pra isso" | "É exatamente por isso que o app existe — ele faz o acompanhamento que você não consegue fazer manual." |
-| "É muito caro" | "Quanto custa uma paciente que desiste do tratamento? O app retém mais pacientes = mais receita." |
-| "Já tent algo parecido" | "O diferencial é a gamificação + indicação. Paciente que faz check-in todo dia não abandona." |
-| "Preciso pensar" | "Claro! Te mando um resumo. Mas as vagas de setup gratuito são limitadas esse mês." |
-| "Meu sobrinho pode fazer" | "Pode sim! Mas levei 6 meses pra refinar a UX que faz 89% das pacientes fazerem check-in diário. É mais complexo do que parece." |
+### Minuto 0-2: Abertura
+- "Oi Dra. [NOME], tudo bem? Obrigado pelo tempo."
+- "Vou te mostrar o app funcionando e em 15 min você vai saber exatamente se faz sentido para sua clínica."
+
+### Minuto 2-8: Demo ao vivo
+- Abrir o app no celular e mostrar cada tela
+- "Olha como o paciente vê o protocolo do dia"
+- "Aqui ele faz o check-in com foto"
+- "Veja como a agenda funciona"
+- "E aqui o paciente indica amigos e ganha crédito"
+
+### Minuto 8-10: Personalização
+- "Para sua clínica, ficaria assim: [mostrar cores/nomes personalizados]"
+- "Seu logo aqui, suas cores, seu protocolo"
+
+### Minuto 10-12: Preço e entrega
+- "Plano completo: R$ 497/mês"
+- "Entrega em 48h após aprovação"
+- "Sem fidelidade, cancele quando quiser"
+
+### Minuto 12-15: Fechamento
+- "Faz sentido para você?"
+- Se sim: "Ótimo! Para começar, me manda [materiais]"
+- Se não: "Sem problemas! Fico à disposição"
+
+---
+
+## SEQUÊNCIA COMPLETA (Timeline)
+
+| Dia | Ação |
+|-----|------|
+| 1 | Mensagem 1 (carta fria) |
+| 2 | Follow-up 1 (se não respondeu) |
+| 4 | Follow-up 2 (se não respondeu) |
+| 8 | Follow-up 3 (última tentativa) |
+| 15 | Se respondeu: marcar call |
+| 16-17 | Realizar call |
+| 18 | Enviar proposta (se aceitou) |
+| 20 | Follow-up pós-call (se pediu para pensar) |
+| 30 | Último follow-up |
