@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>CRM — Tricologistas | Dra. Rachel Tech</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0F2C4C;--sage:#2E8B6E;--gold:#C9A86C;--bg:#F7F5F2;--surface:#FFF;--text:#1A1A1A;--text2:#5C5C5C;--text3:#8A8A8A;--border:#E8E4DF;--error:#C45C5C;--r:16px}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);font-size:15px;-webkit-font-smoothing:antialiased}
+.shell{max-width:600px;margin:0 auto;padding:16px}
+h1{font-size:22px;font-weight:800;margin:0 0 4px}
+h2{font-size:17px;font-weight:700;margin:0 0 12px}
+.sub{font-size:13px;color:var(--text2);margin:0 0 20px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:16px;margin-bottom:12px;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;border:none;border-radius:12px;padding:14px;font-family:inherit;font-weight:700;font-size:15px;cursor:pointer;transition:transform .12s}
+.btn:active{transform:scale(.98)}
+.btn-primary{background:var(--sage);color:#fff}
+.btn-outline{background:transparent;border:1.5px solid var(--border);color:var(--text)}
+.btn-danger{background:transparent;border:1.5px solid #F0DADA;color:var(--error)}
+.btn-sm{padding:10px 14px;font-size:13px;width:auto}
+.input{width:100%;padding:12px 14px;border:1.5px solid var(--border);border-radius:12px;font-family:inherit;font-size:15px;background:var(--surface);color:var(--text);outline:none}
+.input:focus{border-color:var(--sage)}
+.label{display:block;font-size:12px;font-weight:600;color:var(--text2);margin-bottom:6px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.stat-row{display:flex;gap:10px;margin-bottom:16px}
+.stat{flex:1;text-align:center;padding:14px 8px;background:var(--surface);border:1px solid var(--border);border-radius:14px}
+.stat .num{font-size:24px;font-weight:800;line-height:1}
+.stat .lbl{font-size:11px;color:var(--text3);margin-top:4px}
+.tag{display:inline-flex;align-items:center;gap:4px;border-radius:999px;padding:4px 10px;font-size:11px;font-weight:600}
+.tag-new{background:#EAF0F6;color:var(--navy)}
+.tag-contacted{background:#F6F0E6;color:#9A7B3E}
+.tag-call{background:#E7F1ED;color:var(--sage)}
+.tag-sale{background:#D4EDDA;color:#155724}
+.tag-lost{background:#F8D7DA;color:#721C24}
+.lead{padding:14px;border-bottom:1px solid var(--border)}
+.lead:last-child{border-bottom:none}
+.lead-name{font-weight:700;font-size:15px}
+.lead-clinic{font-size:13px;color:var(--text2)}
+.lead-actions{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}
+.empty{text-align:center;padding:40px 20px;color:var(--text3);font-size:14px}
+.fab-add{position:fixed;right:20px;bottom:24px;width:56px;height:56px;border-radius:50%;background:var(--sage);color:#fff;border:none;font-size:28px;cursor:pointer;box-shadow:0 8px 24px rgba(46,139,110,.35);z-index:50;display:flex;align-items:center;justify-content:center}
+.fab-add:active{transform:scale(.94)}
+.modal-overlay{position:fixed;inset:0;background:rgba(15,44,76,.45);z-index:60;display:none;align-items:flex-end;justify-content:center;backdrop-filter:blur(2px)}
+.modal-overlay.show{display:flex}
+.modal{background:var(--bg);border-radius:24px 24px 0 0;width:100%;max-width:600px;padding:20px 20px 32px;max-height:85vh;overflow-y:auto;animation:slideUp .3s ease}
+@keyframes slideUp{from{transform:translateY(100%)}to{transform:none}}
+.modal-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.modal-header h2{margin:0}
+.close{width:32px;height:32px;border-radius:50%;background:var(--border);border:none;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.filter-bar{display:flex;gap:6px;margin-bottom:16px;overflow-x:auto;padding-bottom:4px}
+.filter-bar button{border:none;background:var(--surface);border:1px solid var(--border);border-radius:999px;padding:7px 14px;font-family:inherit;font-size:12px;font-weight:600;color:var(--text2);cursor:pointer;white-space:nowrap;transition:all .15s}
+.filter-bar button.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+.filter-bar button:hover{border-color:var(--navy)}
+</style>
+</head>
+<body>
+
+<div class="shell">
+  <h1>CRM de Vendas</h1>
+  <p class="sub">Tricologistas · Pipeline de contato</p>
+
+  <!-- STATS -->
+  <div class="stat-row" id="stats"></div>
+
+  <!-- FILTERS -->
+  <div class="filter-bar" id="filters">
+    <button class="active" data-filter="all">Todos</button>
+    <button data-filter="Novo">Novos</button>
+    <button data-filter="Contactado">Contactados</button>
+    <button data-filter="Call">Calls</button>
+    <button data-filter="Venda">Vendas</button>
+    <button data-filter="Perdido">Perdidos</button>
+  </div>
+
+  <!-- LEADS -->
+  <div class="card" style="padding:0;overflow:hidden">
+    <div id="leadsList"></div>
+  </div>
+</div>
+
+<!-- FAB -->
+<button class="fab-add" onclick="openModal()">+</button>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal">
+  <div class="modal">
+    <div class="modal-header">
+      <h2 id="modalTitle">Novo lead</h2>
+      <button class="close" onclick="closeModal()">✕</button>
+    </div>
+    <div>
+      <div style="margin-bottom:14px">
+        <label class="label">Nome da Dra.</label>
+        <input class="input" id="fNome" placeholder="Ex: Dra. Mariana Silva">
+      </div>
+      <div style="margin-bottom:14px">
+        <label class="label">Clínica</label>
+        <input class="input" id="fClinica" placeholder="Ex: Clínica Capilar SP">
+      </div>
+      <div style="margin-bottom:14px">
+        <label class="label">WhatsApp</label>
+        <input class="input" id="fPhone" placeholder="(00) 00000-0000" inputmode="numeric">
+      </div>
+      <div style="margin-bottom:14px">
+        <label class="label">Cidade</label>
+        <input class="input" id="fCidade" placeholder="Ex: São Paulo, SP">
+      </div>
+      <div style="margin-bottom:14px">
+        <label class="label">Status</label>
+        <select class="input" id="fStatus">
+          <option value="Novo">Novo</option>
+          <option value="Contactado">Contactado</option>
+          <option value="Call">Call marcada</option>
+          <option value="Venda">Vendido</option>
+          <option value="Perdido">Perdido</option>
+        </select>
+      </div>
+      <div style="margin-bottom:14px">
+        <label class="label">Notas</label>
+        <input class="input" id="fNotes" placeholder="Observações...">
+      </div>
+      <button class="btn btn-primary" onclick="saveLead()" id="btnSave">Salvar</button>
+      <button class="btn btn-danger" style="margin-top:8px;display:none" id="btnDelete" onclick="deleteLead()">Excluir lead</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const STORE='crm_tri_v1';
+let leads=load();
+let editingId=null;
+let currentFilter='all';
+
+function load(){try{const r=localStorage.getItem(STORE);return r?JSON.parse(r):[]}catch(e){return[]}}
+function save(){localStorage.setItem(STORE,JSON.stringify(leads))}
+
+function genId(){return Date.now().toString(36)+Math.random().toString(36).slice(2,6)}
+
+function render(){
+  const stats={Novo:0,Contactado:0,Call:0,Venda:0,Perdido:0};
+  leads.forEach(l=>{if(stats[l.status]!==undefined)stats[l.status]++});
+
+  document.getElementById('stats').innerHTML=`
+    <div class="stat"><div class="num" style="color:var(--navy)">${leads.length}</div><div class="lbl">Total</div></div>
+    <div class="stat"><div class="num" style="color:var(--gold)">${stats.Call||0}</div><div class="lbl">Calls</div></div>
+    <div class="stat"><div class="num" style="color:var(--sage)">${stats.Venda||0}</div><div class="lbl">Vendas</div></div>
+    <div class="stat"><div class="num" style="color:var(--error)">${stats.Perdido||0}</div><div class="lbl">Perdidos</div></div>
+  `;
+
+  const filtered=currentFilter==='all'?leads:leads.filter(l=>l.status===currentFilter);
+  const list=document.getElementById('leadsList');
+
+  if(filtered.length===0){
+    list.innerHTML=`<div class="empty">Nenhum lead${currentFilter!=='all'?' neste filtro':''}.<br>Toque + para adicionar.</div>`;
+    return;
+  }
+
+  list.innerHTML=filtered.map(l=>{
+    const tagClass={Novo:'tag-new',Contactado:'tag-contacted',Call:'tag-call',Venda:'tag-sale',Perdido:'tag-lost'}[l.status]||'tag-new';
+    const tagLabel={Novo:'Novo',Contactado:'Contactado',Call:'Call',Venda:'Vendido',Perdido:'Perdido'}[l.status]||l.status;
+    const phoneDigits=(l.phone||'').replace(/\D/g,'');
+    return `<div class="lead">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div>
+          <div class="lead-name">${l.nome}</div>
+          <div class="lead-clinic">${l.clinica||''} ${l.cidade?'· '+l.cidade:''}</div>
+        </div>
+        <span class="tag ${tagClass}">${tagLabel}</span>
+      </div>
+      ${l.notes?`<div style="font-size:12px;color:var(--text3);margin-top:6px;font-style:italic">${l.notes}</div>`:''}
+      <div class="lead-actions">
+        <button class="btn btn-outline btn-sm" onclick="editLead('${l.id}')">Editar</button>
+        ${phoneDigits?`<a class="btn btn-outline btn-sm" href="https://wa.me/55${phoneDigits.startsWith('55')?phoneDigits.slice(2):phoneDigits}?text=Ol%C3%A1%20Dra.%20${encodeURIComponent(l.nome.split(' ')[1]||l.nome)}%2C%20tudo%20bem%3F" target="_blank" style="text-decoration:none">WhatsApp</a>`:''}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function openModal(id){
+  editingId=id||null;
+  const modal=document.getElementById('modal');
+  document.getElementById('modalTitle').textContent=id?'Editar lead':'Novo lead';
+  document.getElementById('btnDelete').style.display=id?'block':'none';
+
+  if(id){
+    const l=leads.find(x=>x.id===id);
+    if(l){
+      document.getElementById('fNome').value=l.nome;
+      document.getElementById('fClinica').value=l.clinica||'';
+      document.getElementById('fPhone').value=l.phone||'';
+      document.getElementById('fCidade').value=l.cidade||'';
+      document.getElementById('fStatus').value=l.status;
+      document.getElementById('fNotes').value=l.notes||'';
+    }
+  } else {
+    document.getElementById('fNome').value='';
+    document.getElementById('fClinica').value='';
+    document.getElementById('fPhone').value='';
+    document.getElementById('fCidade').value='';
+    document.getElementById('fStatus').value='Novo';
+    document.getElementById('fNotes').value='';
+  }
+
+  modal.classList.add('show');
+  document.getElementById('fNome').focus();
+}
+
+function closeModal(){document.getElementById('modal').classList.remove('show')}
+
+function saveLead(){
+  const nome=document.getElementById('fNome').value.trim();
+  if(!nome){document.getElementById('fNome').style.borderColor='#C45C5C';return}
+  const data={
+    nome,
+    clinica:document.getElementById('fClinica').value.trim(),
+    phone:document.getElementById('fPhone').value.trim(),
+    cidade:document.getElementById('fCidade').value.trim(),
+    status:document.getElementById('fStatus').value,
+    notes:document.getElementById('fNotes').value.trim(),
+    updated:new Date().toISOString()
+  };
+  if(editingId){
+    const idx=leads.findIndex(x=>x.id===editingId);
+    if(idx>=0)leads[idx]=Object.assign(leads[idx],data);
+  } else {
+    data.id=genId();
+    data.created=new Date().toISOString();
+    leads.unshift(data);
+  }
+  save();closeModal();render();
+}
+
+function editLead(id){openModal(id)}
+
+function deleteLead(){
+  if(!editingId)return;
+  leads=leads.filter(x=>x.id!==editingId);
+  save();closeModal();render();
+}
+
+// Phone mask
+document.getElementById('fPhone').addEventListener('input',function(e){
+  let v=e.target.value.replace(/\D/g,'');
+  if(v.length>11)v=v.slice(0,11);
+  if(v.length>6)v='('+v.slice(0,2)+') '+v.slice(2,7)+'-'+v.slice(7);
+  else if(v.length>2)v='('+v.slice(0,2)+') '+v.slice(2);
+  else if(v.length>0)v='('+v;
+  e.target.value=v;
+});
+
+// Filters
+document.getElementById('filters').addEventListener('click',function(e){
+  if(e.target.tagName==='BUTTON'){
+    document.querySelectorAll('.filter-bar button').forEach(b=>b.classList.remove('active'));
+    e.target.classList.add('active');
+    currentFilter=e.target.dataset.filter;
+    render();
+  }
+});
+
+// Close modal on overlay click
+document.getElementById('modal').addEventListener('click',function(e){
+  if(e.target===this)closeModal();
+});
+
+render();
+</script>
+</body>
+</html>
